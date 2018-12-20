@@ -54,7 +54,7 @@ $data = [
 
 ];
 
-$event[‘type’] == ‘text’;
+//$event[‘type’] == ‘text’;
 
 $post = json_encode($data);
 
