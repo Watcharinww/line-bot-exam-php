@@ -150,10 +150,11 @@ else if($message == "ลาก่อน"){
 	$arrayPostData['messages'][1]['stickerId'] = "131";
 	replyMsg($arrayHeader,$arrayPostData);
 }
+#ข้อความอื่นๆ ส่งกลับ
 else{
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['message']['text'];
+	$arrayPostData['messages'][0]['text'] = "ขออภัย ไม่มีคำสั่งในฐานข้อมูล";
 }
 
 function replyMsg($arrayHeader,$arrayPostData){
