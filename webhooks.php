@@ -38,7 +38,7 @@ $messages = [
 
 'type' => 'text',
 
-'text' => $text
+'text' => 'testing'
 
 ];
 
