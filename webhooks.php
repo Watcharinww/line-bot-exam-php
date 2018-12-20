@@ -154,7 +154,8 @@ else if($message == "ลาก่อน"){
 else{
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "ขออภัย ไม่มีคำสั่งในฐานข้อมูล";
+	$arrayPostData['messages'][0]['text'] = $message;
+	replyMsg($arrayHeader,$arrayPostData)
 }
 
 function replyMsg($arrayHeader,$arrayPostData){
