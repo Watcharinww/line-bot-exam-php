@@ -150,6 +150,11 @@ else if($message == "ลาก่อน"){
 	$arrayPostData['messages'][1]['stickerId'] = "131";
 	replyMsg($arrayHeader,$arrayPostData);
 }
+else{
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['message']['text'];
+}
 
 function replyMsg($arrayHeader,$arrayPostData){
 	$strUrl = "https://api.line.me/v2/bot/message/reply";
