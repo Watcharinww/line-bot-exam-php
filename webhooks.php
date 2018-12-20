@@ -115,10 +115,9 @@ else if($message == "ฝันดี"){
 
 #ให้ส่ง userId กลับมา
 else if($message == "userID"){
-	$text_userID = $event['source']['userId'];
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = $text_userID;
+	$arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
