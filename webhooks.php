@@ -6,7 +6,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
 
-
+/*
 // Get POST body content
 $content = file_get_contents('php://input');
 
@@ -36,19 +36,9 @@ $replyToken = $event['replyToken'];
 
 $messages = [
 
-	if($message == "userid"){
-		'type' => 'text',
-		'text' => $text;
-	}
-	else if($message == "ทดสอบ"){
-		'type' => 'text',
-		'text' => 'ทดสอบไงหละ'
-	}
+'type' => 'text',
 
-	else{
-		'type' => 'text',
-		'text' => 'สวัสดีจ้าาาา'
-	}
+'text' => $text;
 
 ];
 
@@ -95,10 +85,8 @@ echo $result . "\r\n";
 }
 
 echo "OK";
+*/
 
-
-
-/*
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
@@ -124,13 +112,12 @@ else if($message == "ฝันดี"){
 	$arrayPostData['messages'][0]['stickerId'] = "46";
 	replyMsg($arrayHeader,$arrayPostData);
 }
-#ให้ส่ง userId กลับมา
 
-else if($message == "userid"){
-	$text_userid = $event['source']['userId'];
+#ให้ส่ง userId กลับมา
+else if($message == "userID"){
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = $text_userid;
+	$arrayPostData['messages'][0]['text'] = ['source']['userId'];
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
@@ -180,4 +167,3 @@ function replyMsg($arrayHeader,$arrayPostData){
 
 exit;
 ?>
-*/
