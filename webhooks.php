@@ -155,7 +155,7 @@ else{
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = $message;
-	replyMsg($arrayHeader,$arrayPostData)
+	replyMsg($arrayHeader,$arrayPostData);
 }
 
 function replyMsg($arrayHeader,$arrayPostData){
