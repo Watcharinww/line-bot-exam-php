@@ -112,6 +112,15 @@ else if($message == "ฝันดี"){
 	$arrayPostData['messages'][0]['stickerId'] = "46";
 	replyMsg($arrayHeader,$arrayPostData);
 }
+#ให้ส่ง userId กลับมา
+
+else if($message == "userID"){
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	$arrayPostData['messages'][0]['type'] = "text";
+	$arrayPostData['messages'][0]['text'] = $event['source']['userId'];
+	replyMsg($arrayHeader,$arrayPostData);
+}
+
 #ตัวอย่าง Message Type "Image"
 else if($message == "รูปน้องแมว"){
 	$image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
