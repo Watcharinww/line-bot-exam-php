@@ -6,7 +6,7 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
 
-/*
+
 // Get POST body content
 $content = file_get_contents('php://input');
 
@@ -36,9 +36,19 @@ $replyToken = $event['replyToken'];
 
 $messages = [
 
-'type' => 'text',
+	if($message == "userid"){
+		'type' => 'text',
+		'text' => $text;
+	}
+	else if($message == "ทดสอบ"){
+		'type' => 'text',
+		'text' => 'ทดสอบไงหละ'
+	}
 
-'text' => $text;
+	else{
+		'type' => 'text',
+		'text' => 'สวัสดีจ้าาาา'
+	}
 
 ];
 
@@ -85,8 +95,10 @@ echo $result . "\r\n";
 }
 
 echo "OK";
-*/
 
+
+
+/*
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
@@ -168,3 +180,4 @@ function replyMsg($arrayHeader,$arrayPostData){
 
 exit;
 ?>
+*/
