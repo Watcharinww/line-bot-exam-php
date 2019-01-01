@@ -15,7 +15,7 @@ $response = $bot->getProfile($userID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
 
-    $thumb_encoder = base64_encode(imagecreateformstring(file_get_contents($profile['pictureUrl']));
+    $thumb_encoder = base64_encode(imagecreatefromstring(file_get_contents($profile['pictureUrl']));
 
     echo 'Username : '.$profile['displayName'];
     echo "<br>";
