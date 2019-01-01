@@ -14,10 +14,10 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret ]);
 $response = $bot->getProfile($userID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
-    echo 'Username : '.$profile['displayName'];
-    echo "<br>";
+    echo 'Username : '.$profile['displayName'].'<br>';
+    //echo "<br>";
     echo 'PictureLink : '.$profile['pictureUrl'].'<br>';
-    echo $profile['statusMessage'];
+    echo 'MassageStatus : '.$profile['statusMessage'].<'<br>';
 }
 
 exit; 
