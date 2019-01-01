@@ -14,15 +14,10 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret ]);
 $response = $bot->getProfile($userID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
-
-    $thumb_encoder = base64_encode(imagecreatefromstring(file_get_contents($profile['pictureUrl']));
-
     echo 'Username : '.$profile['displayName'];
     echo "<br>";
-    echo 'Picture : '.$thumb_encoder.'<br>';
+    echo 'PictureLink : '.$profile['pictureUrl'].'<br>';
     echo $profile['statusMessage'];
-
-    //$profile['pictureUrl']    
 }
 
 exit; 
