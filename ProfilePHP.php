@@ -22,7 +22,7 @@ if ($response->isSucceeded()) {
     echo 'Picture : '.$thumb_encoder.'<br>';
     echo $profile['statusMessage'];
 
-    //$profile['pictureUrl']
+    //$profile['pictureUrl']    
 }
 
 exit; 
