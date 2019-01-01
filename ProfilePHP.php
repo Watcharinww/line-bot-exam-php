@@ -15,7 +15,7 @@ $response = $bot->getProfile($userID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo 'Username : '.$profile['displayName'];
-    echo "/r/n";
+    echo "<br>";
     echo $profile['pictureUrl'];
     echo $profile['statusMessage'];
 }
