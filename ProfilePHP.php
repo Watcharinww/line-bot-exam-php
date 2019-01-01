@@ -16,7 +16,7 @@ if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo 'Username : '.$profile['displayName'];
     echo "<br>";
-    echo $profile['pictureUrl'];
+    echo 'PictureLink : '.$profile['pictureUrl'].'<br>';
     echo $profile['statusMessage'];
 }
 
