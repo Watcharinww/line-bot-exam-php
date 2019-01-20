@@ -17,10 +17,10 @@ if ($response->isSucceeded()) {
     echo 'UserID : '.$profile['userId'].'<br>';
     echo 'Name : '.$profile['displayName'].'<br>';
     echo 'Picture : '.$profile['pictureUrl'].'<br>';
-    echo <a herf="$profile['pictureUrl']">;
     echo 'Status : '.$profile['statusMessage'];
 }
 
 
 exit; 
 ?>
+<a href="<?php $profile['pictureUrl']?>"></a>
