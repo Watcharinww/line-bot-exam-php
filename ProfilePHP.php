@@ -16,10 +16,8 @@ if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo 'UserID : '.$profile['userId'].'<br>';
     echo 'Name : '.$profile['displayName'].'<br>';
-    $url = $profile['pictureUrl'];
-    $image = base64_encode(file_get_contents($url));
-    echo 'Picture : ''<img src="data:image/jpeg;base64,'.$image.'">'.'<br>';
-    //echo 'Picture : '.$profile['pictureUrl'].'<br>';
+    echo 'Picture : '.$profile['pictureUrl'].'<br>';
+    echo <a herf="$profile['pictureUrl']">;
     echo 'Status : '.$profile['statusMessage'];
 }
 
