@@ -14,7 +14,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $response = $bot->getProfile($userID);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
-    echo $profile['displayName'];
+    echo $profile['displayName'].'<br>';
     echo $profile['pictureUrl'];
     echo $profile['statusMessage'];
 }
