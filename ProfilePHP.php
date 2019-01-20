@@ -17,8 +17,8 @@ if ($response->isSucceeded()) {
     echo 'UserID : '.$profile['userId'].'<br>';
     echo 'Name : '.$profile['displayName'].'<br>';
     $url = $profile['pictureUrl'];
-    $image = file_get_contents("$url");
-    echo 'Picture : '.$image;
+    $image = base64_encode(file_get_contents($url));
+    echo 'Picture : ''<img src="data:image/jpeg;base64,'.$image.'">'.'<br>';
     //echo 'Picture : '.$profile['pictureUrl'].'<br>';
     echo 'Status : '.$profile['statusMessage'];
 }
