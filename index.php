@@ -1,2 +1,3 @@
 <?php
-echo "Hello LINE BOT 2 Test";
+header("Location:HomePage_Sent.html")
+?>
