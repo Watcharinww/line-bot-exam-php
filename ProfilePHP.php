@@ -8,10 +8,25 @@ $channelSecret = '88f693bafb5809e65f319ad3139213ba';
 
 $userID = 'U1b80d09ffe5c7f746850ca99a023d30b';
 
+$servername = "us-cdbr-iron-east-01.cleardb.net";
+$username = "bc2e88a0fd2a0e";
+$password = "6ca79774";
+$dbname = "heroku_5eae676745c3fe6";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+$sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-$response = $bot->getProfile($userID);
+$response = $bot->getProfile($row["LineId"]);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo 'UserID  : '.$profile['userId'].'<br>';
@@ -20,6 +35,8 @@ if ($response->isSucceeded()) {
     echo 'Status  : '.$profile['statusMessage'];
 }
 
+}
+$conn->close();
 
 exit; 
 ?>
