@@ -6,7 +6,8 @@ $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzY
 
 $channelSecret = '88f693bafb5809e65f319ad3139213ba';
 
-//$userID = 'U1b80d09ffe5c7f746850ca99a023d30b';
+//$pushID = 'Udfd683ae78963f854fcb0966fbe64ef6';
+
 
 $servername = "us-cdbr-iron-east-01.cleardb.net";
 $username = "bc2e88a0fd2a0e";
@@ -23,24 +24,18 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 
-
-
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-$response = $bot->getProfile($row["LineId"]);
-if ($response->isSucceeded()) {
-    $profile = $response->getJSONDecodedBody();
-    echo 'Number  : '.$row["Id"].'<br>';
-    echo 'UserID  : '.$profile['userId'].'<br>';
-    echo 'Name    : '.$profile['displayName'].'<br>';
-    echo 'Picture : '.$profile['pictureUrl'].'<br>';
-    echo 'Status  : '.$profile['statusMessage'].'<br>';
-    echo '-----------------------------'.'<br>';
-}
+
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('Testing Broadcast');
+$response = $bot->pushMessage($row["LineId"], $textMessageBuilder);
+
+echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+
 
 }
 }
 $conn->close();
 
-exit; 
+
 ?>
