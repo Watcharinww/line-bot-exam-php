@@ -29,7 +29,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $response = $bot->getProfile($row["LineId"]);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
-    echo 'Number  : '.$row['Id'].'<br>';
+    echo 'Number  : '.$row["Id"].'<br>';
     echo 'UserID  : '.$profile['userId'].'<br>';
     echo 'Name    : '.$profile['displayName'].'<br>';
     echo 'Picture : '.$profile['pictureUrl'].'<br>';
