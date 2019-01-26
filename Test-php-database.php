@@ -6,7 +6,7 @@
 $servername = "us-cdbr-iron-east-01.cleardb.net";
 $username = "bc2e88a0fd2a0e";
 $password = "6ca79774";
-$dbname = "test1";
+$dbname = "chatcedkmutnb1";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
