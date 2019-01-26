@@ -36,6 +36,7 @@ if ($response->isSucceeded()) {
 }
 
 }
+}
 $conn->close();
 
 exit; 
