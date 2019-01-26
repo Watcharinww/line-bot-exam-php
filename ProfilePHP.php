@@ -24,12 +24,12 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
 
+    echo 'Number  : '.$row["Id"].'<br>';
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $response = $bot->getProfile($row["LineId"]);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
-    echo 'Number  : '.$row["Id"].'<br>';
     echo 'UserID  : '.$profile['userId'].'<br>';
     echo 'Name    : '.$profile['displayName'].'<br>';
     echo 'Picture : '.$profile['pictureUrl'].'<br>';
