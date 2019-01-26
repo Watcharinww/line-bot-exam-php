@@ -34,6 +34,7 @@ if ($response->isSucceeded()) {
     echo 'Name    : '.$profile['displayName'].'<br>';
     echo 'Picture : '.$profile['pictureUrl'].'<br>';
     echo 'Status  : '.$profile['statusMessage'].'<br>';
+    echo '-----------------------------'.'<br>;
 }
 
 }
