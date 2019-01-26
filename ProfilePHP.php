@@ -32,7 +32,7 @@ if ($response->isSucceeded()) {
     echo 'UserID  : '.$profile['userId'].'<br>';
     echo 'Name    : '.$profile['displayName'].'<br>';
     echo 'Picture : '.$profile['pictureUrl'].'<br>';
-    echo 'Status  : '.$profile['statusMessage'];
+    echo 'Status  : '.$profile['statusMessage'].'<br>';
 }
 
 }
