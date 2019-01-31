@@ -37,5 +37,13 @@ echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 }
 $conn->close();
 
+if (($response->getHTTPStatus()) == '200 {}'){
+    echo "<script type='text/javascript'>alert('Message Sent Now');</script>";
+    header('Location: '.$_SERVER['PHP_SELF']);
+}
+else{
+    echo "<script type='text/javascript'>alert('Message Can't Sent);</script>";
+    header('Location: '.$_SERVER['PHP_SELF']);
+}
 
 ?>
