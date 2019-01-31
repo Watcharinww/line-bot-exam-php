@@ -31,8 +31,6 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
     $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
 
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-header("Location: ");
-
 //}
 //}
 $conn->close();
