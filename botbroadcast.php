@@ -34,7 +34,7 @@ echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
 
 //}
-}
+//}
 $conn->close();
 
 if (($response->getHTTPStatus()) == '200 {}'){
