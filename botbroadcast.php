@@ -30,20 +30,11 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast'*/$_POST["Anou"]);
     $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
 
-echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
-
+//echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+header(header("Location: "))
 
 //}
 //}
 $conn->close();
-
-if (($response->getHTTPStatus()) == '200 {}'){
-    echo "<script type='text/javascript'>alert('Message Sent Now');</script>";
-    header('Location: '.$_SERVER['PHP_SELF']);
-}
-else{
-    echo "<script type='text/javascript'>alert('Message Can't Sent);</script>";
-    header('Location: '.$_SERVER['PHP_SELF']);
-}
 
 ?>
