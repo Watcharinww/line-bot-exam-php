@@ -6,7 +6,7 @@ $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzY
 
 $channelSecret = '88f693bafb5809e65f319ad3139213ba';
 
-//$pushID = 'Udfd683ae78963f854fcb0966fbe64ef6';
+$pushID = 'U1b80d09ffe5c7f746850ca99a023d30b';
 
 
 $servername = "us-cdbr-iron-east-01.cleardb.net";
@@ -28,7 +28,7 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('Testing Broadcast');
-$response = $bot->pushMessage($row["LineId"], $textMessageBuilder);
+    $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, /*$textMessageBuilder*/$_POST["Sent.A"]);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
