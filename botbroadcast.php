@@ -20,10 +20,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+/*if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-
+*/
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
@@ -33,7 +33,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
 
-}
+//}
 }
 $conn->close();
 
