@@ -39,4 +39,10 @@ $conn->close();
 if(($response->getHTTPStatus())=='200'){
     echo "Message Send Passed";
 }
+else{
+    echo "!!!ERROR Message has PROBLEM!!!";
+}
+
+header('LOCATION: HomePage_Sent.html');
+
 ?>
