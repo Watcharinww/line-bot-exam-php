@@ -37,7 +37,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $conn->close();
 
 if(($response->getHTTPStatus())=='200'){
-    echo "<scrip language = 'javescript'> alert(Message Send Passed); </script>";
+    echo "<script>alert('Sent successful');</script>";
 }
 else{
     echo "!!!ERROR Message has PROBLEM!!!";
