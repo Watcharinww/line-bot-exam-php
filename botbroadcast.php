@@ -27,8 +27,8 @@ if ($result->num_rows > 0) {
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST["Sent.A"]);
-    $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder/*$_POST["Sent.A"]*/);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('Testing Broadcast');
+    $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, /*$textMessageBuilder*/$_POST["Anou"]);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
