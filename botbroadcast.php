@@ -33,9 +33,8 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 //}
 //}
-
-$conn->close();
-if(($response->getHTTPStatus())=='200'){
+if(($response->getHTTPStatus())=="200"){
     echo "Message Send Passed"
 }
+$conn->close();
 ?>
