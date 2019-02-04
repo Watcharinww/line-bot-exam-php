@@ -29,7 +29,7 @@ $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);
 
 function Broadcast(){
-   return $_POST["Anou"]."<br> Sent At : "."<span id="date_time"></span>";
+   return $_POST["Anou"]."<br> Sent At : "."<span id='date_time'></span>";
 }
 
 /*if ($result->num_rows > 0) {
