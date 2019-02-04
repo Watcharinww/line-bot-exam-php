@@ -52,10 +52,10 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 function getReturn(){
     if(($response->getHTTPStatus())=='200'){
-        $msg = "Message sent succesful";
+        return 1;
     }
     else{
-        $msg = "ERROR Message can't sent";
+        return 0;
     }
 }
 
