@@ -34,15 +34,19 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 //}
 //}
 
+function getReturn(){
+    if(($response->getHTTPStatus())=='200'){
+       return "Message sent succesful";
+    }
+    else{
+        return "ERROR Message can't sent";
+    }
+}
+
 $conn->close();
 
-if(($response->getHTTPStatus())=='200'){
-    echo "<script>alert('Sent successful');</script>";
-}
-else{
-    echo "!!!ERROR Message has PROBLEM!!!";
-}
 
-header('LOCATION: HomePage_Sent.html');
 
+//header('LOCATION: HomePage_Sent.html');
+    
 ?>
