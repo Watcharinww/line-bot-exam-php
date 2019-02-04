@@ -29,7 +29,7 @@ $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);
 
     date_default_timezone_set("Asia/Bangkok");
-    $broad = $_POST["Anou"]."<br> Sent At : ".date("h:i:sa - d/m/Y");
+    $broad = "Sent At : ".date("h:i:sa - d/m/Y");
 
 /*if ($result->num_rows > 0) {
     // output data of each row
@@ -37,6 +37,9 @@ $result = $conn->query($sql);
 */
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast' */$_POST["Anou"]);
+    $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
 
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast' $_POST["Anou"]*/ $broad);
     $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
