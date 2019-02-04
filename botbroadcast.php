@@ -55,7 +55,7 @@ function getReturn(){
         $msg = "Message sent succesful";
     }
     else{
-        $msg =  "ERROR Message can't sent";
+        $msg = "ERROR Message can't sent";
     }
 }
 
