@@ -29,8 +29,9 @@ $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);
 
 function Broadcast(){
-   return $_POST["Anou"]."<br> Sent At : "."<span id='date_time'></span>";
-}
+    date_default_timezone_set("Asia/Bangkok");
+    return $_POST["name"]."<br> Sent At : ".date("h:i:sa - d/m/Y");
+ }
 
 /*if ($result->num_rows > 0) {
     // output data of each row
