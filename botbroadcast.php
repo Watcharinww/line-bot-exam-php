@@ -30,8 +30,10 @@ $result = $conn->query($sql);
 
 function Broadcast(){
     date_default_timezone_set("Asia/Bangkok");
-    return $_POST["name"]."<br> Sent At : ".date("h:i:sa - d/m/Y");
+    $broad = $_POST["name"]."<br> Sent At : ".date("h:i:sa - d/m/Y");
+    return $broad;
  }
+ Broadcast();
 
 /*if ($result->num_rows > 0) {
     // output data of each row
@@ -40,7 +42,7 @@ function Broadcast(){
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast' $_POST["Anou"]*/Broadcast(););
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast' $_POST["Anou"]*/$broad);
     $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
 
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
