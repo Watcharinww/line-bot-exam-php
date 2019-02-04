@@ -63,7 +63,7 @@ input[type=submit]:hover {
 
 <?php
 
-  include 'botbroadcast.php';
+  //include 'botbroadcast.php';
 
 ?>
 
