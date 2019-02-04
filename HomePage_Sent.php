@@ -63,13 +63,6 @@ input[type=submit]:hover {
 
 <?php
 
-include 'botbroadcast.php';
-
-if (getReturn() != '')
-    echo "<script>alert('$msg');</script>";
-else {    
-}
-
 ?>
 </head>
 
