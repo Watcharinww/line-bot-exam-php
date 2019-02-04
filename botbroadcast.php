@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Display Date and Time in Javascript</title>
+        <title>Broadcast</title>
         <script type="text/javascript" src="Time.js"></script>
     </head>
     <body>
