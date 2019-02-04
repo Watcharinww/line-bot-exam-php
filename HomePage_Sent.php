@@ -94,7 +94,7 @@ input[type=submit]:hover {
       </p>
     </form></td>
     <td width="37.5%" rowspan="2" valign="top" align="center">
-    <form id="form2" name="form2" method="post" action="<?php include 'botbroadcast.php' ?>" method="post">
+    <form id="form2" name="form2" method="post" action="<?php include 'botbroadcast.php' ?>">
     <p><img src="picture/megaphone.png" width="75%" height="75%" /> </p>
       <p>
         <label for="Anou"></label>
