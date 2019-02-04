@@ -62,16 +62,9 @@ input[type=submit]:hover {
 
 
 <?php
-if(getReturn() == "1"){
-  $msg = "Sent Successful";
-}else{
-  $msg = "Sent Failed";
-}
-if(getReturn() != NULL){
-echo '<script language="javascript">';
-echo "alert('$msg')";
-echo '</script>';
-}
+
+  include 'botbroadcast.php';
+
 ?>
 
 
