@@ -1,3 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Display Date and Time in Javascript</title>
+        <script type="text/javascript" src="Time.js"></script>
+    </head>
+    <body>
 <?php
 
 require "vendor/autoload.php";
@@ -20,6 +28,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);
 
+function Broadcast(){
+    $_POST["Anou"]."<br> Sent At : "."<span id="date_time"></span>";
+}
+
 /*if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
@@ -27,7 +39,7 @@ $result = $conn->query($sql);
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast'*/$_POST["Anou"].$_POST["date_time"]);
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast' $_POST["Anou"]*/Broadcast(););
     $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
 
 //echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
@@ -50,3 +62,5 @@ $conn->close();
 //header('LOCATION: HomePage_Sent.html');
     
 ?>
+ </body>
+</html>
