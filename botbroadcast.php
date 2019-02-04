@@ -61,10 +61,10 @@ function getReturn(){
 
 $conn->close();
 
+header("Location: HomePage_Sent.php");
+die();
 
 
-echo "<script>redirect('HomePage_Sent.php'); </script>";
-    
 ?>
  </body>
 </html>
