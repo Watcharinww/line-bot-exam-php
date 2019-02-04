@@ -63,7 +63,7 @@ input[type=submit]:hover {
 
 <?php
 echo '<script language="javascript">';
-echo 'alert($msg)';
+echo "alert('$msg')";
 echo '</script>';
 ?>
 
