@@ -28,12 +28,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);
 
-function Broadcast(){
     date_default_timezone_set("Asia/Bangkok");
-    $broad = $_POST["name"]."<br> Sent At : ".date("h:i:sa - d/m/Y");
-    return $broad;
- }
- Broadcast();
+    $broad = $_POST["Anou"]." Sent At : ".date("h:i:sa - d/m/Y");
 
 /*if ($result->num_rows > 0) {
     // output data of each row
