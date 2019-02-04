@@ -40,7 +40,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast' */$_POST["Anou"]);
     $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
-    if ($_POST["Anou"] != ' '){
+    if ($_POST["Anou"] != " "){
         $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*'Testing Broadcast' $_POST["Anou"]*/ $broad);
         $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder2);
         }

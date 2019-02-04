@@ -94,7 +94,7 @@ input[type=submit]:hover {
       </p>
     </form></td>
     <td width="37.5%" rowspan="2" valign="top" align="center">
-    <form id="form2" name="form2" method="post" action="<?php include 'botbroadcast.php' ?>">
+    <form id="form2" name="form2" method="post" action="botbroadcast.php">
     <p><img src="picture/megaphone.png" width="75%" height="75%" /> </p>
       <p>
         <label for="Anou"></label>
@@ -107,7 +107,7 @@ input[type=submit]:hover {
     </td>
   </tr>
   <tr>
-    <td align="center"><p><a href="https://chatcedkmutnb1.herokuapp.com/HomePage_Receive.php"><img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
+    <td align="center"><p><a href="HomePage_Receive.php"><img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
     <p class="menu">Receive</p></td>
   </tr>
 </table>
