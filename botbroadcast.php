@@ -29,7 +29,7 @@ $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);
 
     date_default_timezone_set("Asia/Bangkok");
-    $broad = $_POST["Anou"]." Sent At : ".date("h:i:sa - d/m/Y");
+    $broad = $_POST["Anou"]."<br> Sent At : ".date("h:i:sa - d/m/Y");
 
 /*if ($result->num_rows > 0) {
     // output data of each row
