@@ -29,7 +29,7 @@ $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);
 
     date_default_timezone_set("Asia/Bangkok");
-    $broad = "Sent At : ".date("h:i:sa - d/m/Y");
+    $broad = "Broadcast At : ".date("H:i:sa - d/m/Y");
 
 /*if ($result->num_rows > 0) {
     // output data of each row
@@ -48,12 +48,13 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 //}
 //}
 
+
 function getReturn(){
     if(($response->getHTTPStatus())=='200'){
-       return "Message sent succesful";
+        $msg = "Message sent succesful";
     }
     else{
-        return "ERROR Message can't sent";
+        $msg =  "ERROR Message can't sent";
     }
 }
 
@@ -61,7 +62,7 @@ $conn->close();
 
 
 
-//header('LOCATION: HomePage_Sent.html');
+echo "<script>redirect('HomePage_Sent.php'); </script>";
     
 ?>
  </body>

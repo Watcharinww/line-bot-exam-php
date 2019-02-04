@@ -59,6 +59,18 @@ input[type=submit]:hover {
 </style>
 
 <script type="text/javascript" src="Time.js"></script>
+
+
+<?php
+
+include 'botbroadcast.php';
+
+if (getReturn() != '')
+    echo "<script>alert('$msg');</script>";
+else {    
+}
+
+?>
 </head>
 
 <body>
@@ -76,7 +88,7 @@ input[type=submit]:hover {
     </table></td>
   </tr>
   <tr>
-    <td width="25%" align="center"><p><a href="HomePage_Sent.html"><img src="picture/Sent.png" width="50%" height="50%" title="SentPage" /></a></p>
+    <td width="25%" align="center"><p><a href="HomePage_Sent.php"><img src="picture/Sent.png" width="50%" height="50%" title="SentPage" /></a></p>
     <p class="menu">Sent</p></td>
     <td width="37.5%" rowspan="2" valign="top" align="center"><form id="form1" name="form1" method="post" action="">
       <p><img src="picture/book.png"/book.png" width="77%" height="77%" /> </p>
@@ -89,7 +101,7 @@ input[type=submit]:hover {
       </p>
     </form></td>
     <td width="37.5%" rowspan="2" valign="top" align="center">
-    <form id="form2" name="form2" method="post" action="https://chatcedkmutnb1.herokuapp.com/botbroadcast.php" method="post">
+    <form id="form2" name="form2" method="post" action="<?php include 'botbroadcast.php' ?>" method="post">
     <p><img src="picture/megaphone.png" width="75%" height="75%" /> </p>
       <p>
         <label for="Anou"></label>
@@ -102,7 +114,7 @@ input[type=submit]:hover {
     </td>
   </tr>
   <tr>
-    <td align="center"><p><a href="https://chatcedkmutnb1.herokuapp.com/HomePage_Receive.html"><img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
+    <td align="center"><p><a href="https://chatcedkmutnb1.herokuapp.com/HomePage_Receive.php"><img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
     <p class="menu">Receive</p></td>
   </tr>
 </table>
