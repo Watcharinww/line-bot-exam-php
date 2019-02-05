@@ -71,21 +71,16 @@ input[type=submit]:hover {
 <body>
 <table width="100%" height="100%" border="1">
   <tr valign="top" >
-    <td height="100" colspan="3" class="Header" valign="middle">Learning Management System on Line Application</td>
-  </tr>
-  <tr>
-    <td width="25%" align="center"><p><a href="HomePage_Sent.php"><img src="picture/Sent.png" width="250" height="240" alt="" /></a></p>
-    <p class="menu">Sent</p></td>
-    <td width="50%" rowspan="2" valign="top"><table width="100%" height="100%" border="0">
-      <tr>
-        <td class="menu"><table width="100%" border="0" class="menu">
-            <tr>
-              <td>1. Test Work 1</td>
-            </tr>
-            <tr>
-              <td><hr /></td>
-            </tr>
-          </table></td>
+    <td height="100" colspan="3" class="Header" valign="middle"><table width="100%" height="100%" border="0">
+        <tr>
+          <td align="right"><span id="date_time"></span>
+            <script type="text/javascript">window.onload = date_time('date_time');</script>
+            </td>
+        </tr>
+        <tr>
+          <td height="100" colspan="3" class="Header" valign="middle">Learning Management System on Line Application</td>
+        </tr>
+    </table></td>
   </tr>
   <tr>
     <td width="25%" align="center"><p><a href="HomePage_Sent.php"><img src="picture/Sent.png" width="50%" height="50%" title="SentPage" /></a></p>
