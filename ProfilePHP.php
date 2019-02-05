@@ -16,7 +16,7 @@ $dbname = "heroku_5eae676745c3fe6";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
+$sql = "SELECT * FROM heroku_5eae676745c3fe6.student";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-$response = $bot->getProfile($row["LineId"]);
+$response = $bot->getProfile($row["Std-LID"]);
 if ($response->isSucceeded()) {
     $profile = $response->getJSONDecodedBody();
     echo 'Number  : '.$row["Id"].'<br>';

@@ -29,6 +29,9 @@
 }
 </style>
 
+<script type="text/javascript" src="Time.js"></script>
+
+
 
 </head>
 
@@ -38,7 +41,7 @@
     <td height="100" colspan="3" class="Header" valign="middle">Learning Management System on Line Application</td>
   </tr>
   <tr>
-    <td width="25%" align="center"><p><a href="https://chatcedkmutnb1.herokuapp.com/HomePage_Sent.html"><img src="picture/Sent.png" width="250" height="240" alt="" /></a></p>
+    <td width="25%" align="center"><p><a href="HomePage_Sent.php"><img src="picture/Sent.png" width="250" height="240" alt="" /></a></p>
     <p class="menu">Sent</p></td>
     <td width="50%" rowspan="2" valign="top"><table width="100%" height="100%" border="0">
       <tr>
@@ -134,7 +137,7 @@
     </table></td>
   </tr>
   <tr>
-    <td align="center"><p><a href="https://chatcedkmutnb1.herokuapp.com/HomePage_Receive.html"><img src="picture/Receive.png" width="250" height="216" /></a></p>
+    <td align="center"><p><a href="HomePage_Receive.php"><img src="picture/Receive.png" width="250" height="216" /></a></p>
     <p class="menu">Receive</p></td>
   </tr>
 </table>
