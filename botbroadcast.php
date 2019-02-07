@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <title></title>
     <style type="text/css">
 input[type=text]{
   width: 75%;
@@ -60,7 +59,6 @@ input[type=submit]:hover {
         <title>Broadcast</title>
         <script type="text/javascript" src="Time.js"></script>
     </head>
-    <body>
 <?php
 
 require "vendor/autoload.php";
@@ -112,7 +110,7 @@ if($response->getHTTPStatus() == 200){
 
 ?>
 
-
+<body>
 <table width="100%" height="100%" border="1">
   <tr valign="top" >
     <td height="100" colspan="3" class="Header" valign="middle"><table width="100%" height="100%" border="0">
