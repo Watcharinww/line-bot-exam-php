@@ -70,6 +70,7 @@ exit;
   echo '<script language="javascript"> alert(message failed sent) </script>';
 exit;
 }
+continue;
 ?>
 
 
