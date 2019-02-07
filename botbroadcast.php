@@ -49,6 +49,12 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 }
 $conn->close();
 
+if($response->getHTTPStatus() == 200){
+    $status = 1;
+}else{
+    $status = 0;
+}
+
 header("Location: HomePage_Sent.php");
 die();
 

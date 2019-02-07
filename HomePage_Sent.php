@@ -62,7 +62,14 @@ input[type=submit]:hover {
 
 
 <?php
-
+include 'botbroadcast.php';
+if($status == 1){
+echo '<script language="javascript"> alert(message successfully sent) </script>';
+exit;
+}else{
+  echo '<script language="javascript"> alert(message failed sent) </script>';
+exit;
+}
 ?>
 
 
