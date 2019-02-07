@@ -1,64 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <style type="text/css">
-input[type=text]{
-  width: 75%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 50%;
-  background-color: #3F3;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-input[type=text]:focus{
-	border: 1px solid #555;
-}
-
-input[type=submit]:hover {
-  background-color: #393;
-}
-
-.Header {
-	font-size: larger;
-	text-align: center;
-	font-family: "Lucida Console", Monaco, monospace;
-	color: #000000;
-}
-.menu {
-	font-family: "Courier New", Courier, monospace;
-	font-weight: bold;
-	font-size: x-large;
-	text-align: center;
-}
-.Detail {
-	text-align: center;
-	font-size: medium;
-}
-.UnderDetail {
-	font-size: small;
-	text-align: center;
-}
-.name {
-	text-align: left;
-}
-</style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Broadcast</title>
         <script type="text/javascript" src="Time.js"></script>
     </head>
+    <body>
 <?php
 
 require "vendor/autoload.php";
@@ -102,44 +49,10 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 }
 $conn->close();
 
-if($response->getHTTPStatus() == 200){
-    $status = "Message Successful Sent";
-}else{
-    $status = "Message Failed Sent";
-}
+header("Location: HomePage_Sent.php");
+die();
+
 
 ?>
-
-<body>
-<table width="100%" height="100%" border="1">
-  <tr valign="top" >
-    <td height="100" colspan="3" class="Header" valign="middle"><table width="100%" height="100%" border="0">
-        <tr>
-          <td align="right"><span id="date_time"></span>
-            <script type="text/javascript">window.onload = date_time('date_time');</script>
-            </td>
-        </tr>
-        <tr>
-          <td height="100" colspan="3" class="Header" valign="middle">Learning Management System on Line Application</td>
-        </tr>
-    </table></td>
-  </tr>
-  <tr>
-    <td width="25%" align="center"><p><a href="HomePage_Sent.php"><img src="picture/Sent.png" width="50%" height="50%" title="SentPage" /></a></p>
-    <p class="menu">Sent</p></td>
-    <td width="75%" rowspan="2" align="center" valign="middle">
-
-        <?php echo $status; ?>
-        <form action="HomePage_Sent.php">
-            <input type="submit" value="Get back to main page" />
-        </form>
-
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><p><a href="HomePage_Receive.php"><img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
-    <p class="menu">Receive</p></td>
-  </tr>
-</table>
  </body>
 </html>
