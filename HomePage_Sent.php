@@ -61,20 +61,11 @@ input[type=submit]:hover {
 <script type="text/javascript" src="Time.js"></script>
 
 
-<?php
-include 'botbroadcast.php';
-if($status == 1){
-echo '<script language="javascript"> alert(message successfully sent) </script>';
-exit;
-}else{
-  echo '<script language="javascript"> alert(message failed sent) </script>';
-exit;
-}
-continue;
-?>
-
-
 </head>
+
+<?php
+
+?>
 
 <body>
 <table width="100%" height="100%" border="1">
