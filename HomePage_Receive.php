@@ -34,8 +34,39 @@
 
 
 </head>
-
 <body>
+<?php
+
+require "vendor/autoload.php";
+
+$access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
+
+$channelSecret = '88f693bafb5809e65f319ad3139213ba';
+
+//$userID = 'U1b80d09ffe5c7f746850ca99a023d30b';
+
+$servername = "us-cdbr-iron-east-01.cleardb.net";
+$username = "bc2e88a0fd2a0e";
+$password = "6ca79774";
+$dbname = "heroku_5eae676745c3fe6";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+$sql = "SELECT * FROM heroku_5eae676745c3fe6.homework";
+$result = $conn->query($sql);
+
+$work[] = "";
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+      $work[$row] = $row['hw_id'].'. '.$row['hw_name'];
+}
+}
+$conn->close();
+
+?>
 <table width="100%" height="100%" border="1">
   <tr valign="top" >
     <td height="100" colspan="3" class="Header" valign="middle"><table width="100%" height="100%" border="0">
@@ -56,7 +87,13 @@
       <tr>
         <td class="menu"><table width="100%" border="0" class="menu">
             <tr>
-              <td>1. Test Work 1</td>
+              <td>
+              <?php
+                for($i=0;$i<$result->num_rows;$i++){
+                  echo $work[$i]."</br>";
+                }
+              ?>              
+              </td>
             </tr>
             <tr>
               <td><hr /></td>
@@ -139,9 +176,9 @@
           <td class="Header" valign="top">งานที่มอบหมาย<hr /></td>
         </tr>
         <tr>
-          <td height="100%" align="center"><p>1.Test work 1</p>
-          <p>2.Test work 2</p>
-          <p>3.Test work 3</p></td>
+          <td height="100%" align="center">
+          
+          </td>
         </tr>
     </table></td>
   </tr>
