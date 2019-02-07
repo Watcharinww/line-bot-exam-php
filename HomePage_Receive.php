@@ -56,7 +56,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT * FROM heroku_5eae676745c3fe6.homework";
 $result = $conn->query($sql);
 
-$conn->close();
+
 
 $work[] = "";
 $nw = 0;
@@ -65,6 +65,7 @@ while($row = $result->fetch_assoc()) {
   $work[$nw] = $row["hw_id"]. ". " . $row["hw_name"]."</br>";
 }
 
+$conn->close();
 ?>
 <table width="100%" height="100%" border="1">
   <tr valign="top" >
