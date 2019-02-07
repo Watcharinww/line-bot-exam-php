@@ -182,7 +182,7 @@ $conn->close();
     </table></td>
   </tr>
   <tr>
-    <td align="center"><p><a href="HomePage_Receive.php"><img src="picture/Receive.png" width="250" height="216" /></a></p>
+    <td align="center"><p><a href="HomePage_Receive.php"><img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
     <p class="menu">Receive</p></td>
   </tr>
 </table>
