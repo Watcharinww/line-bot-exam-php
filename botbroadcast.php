@@ -39,10 +39,10 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST["Anou"]);
-    $response = $bot->pushMessage($row["LineId"], $textMessageBuilder);
+    $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
     if ($_POST["Anou"] != NULL){
         $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-        $response = $bot->pushMessage($row["LineId"], $textMessageBuilder2);
+        $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder2);
         }
 
 }
