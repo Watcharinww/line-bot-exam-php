@@ -58,6 +58,13 @@ $result = $conn->query($sql);
 
 $conn->close();
 
+$work[] = "";
+$nw = 0;
+
+while($row = $result->fetch_assoc()) {
+  $work[$nw] = $row["hw_id"]. ". " . $row["hw_name"]."</br>";
+}
+
 ?>
 <table width="100%" height="100%" border="1">
   <tr valign="top" >
@@ -80,11 +87,7 @@ $conn->close();
         <td class="menu"><table width="100%" border="0" class="menu">
             <tr>
               <td>
-              <?php
-                while($row = $result->fetch_assoc()) {
-                  echo $row["hw_id"]. ". " . $row["hw_name"]."</br>";
-                }
-              ?>              
+
               </td>
             </tr>
             <tr>
@@ -169,7 +172,11 @@ $conn->close();
         </tr>
         <tr>
           <td height="100%" align="center">
-          
+          <?php
+              for($i=0;$i<$result->num_rows;$i++){
+                echo $work[$i];
+              }
+            ?>
           </td>
         </tr>
     </table></td>
