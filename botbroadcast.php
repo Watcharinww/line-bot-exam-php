@@ -31,9 +31,9 @@ $result = $conn->query($sql);
     date_default_timezone_set("Asia/Bangkok");
     $broad = "Broadcast At : ".date("H:i:sa - d/m/Y");
 
-if ($result->num_rows > 0) {
+/*if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()) {*/
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
@@ -45,8 +45,8 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
         $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder2);
         }
 
-}
-}
+//}
+//}
 $conn->close();
 
 header("Location: HomePage_Sent.php");
