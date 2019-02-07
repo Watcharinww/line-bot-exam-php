@@ -87,7 +87,9 @@ $conn->close();
         <td class="menu"><table width="100%" border="0" class="menu">
             <tr>
               <td>
-
+              <?php
+                echo $work[0];
+              ?>
               </td>
             </tr>
             <tr>
