@@ -58,15 +58,15 @@ $sql = "SELECT *
         join heroku_5eae676745c3fe6.anr
         on heroku_5eae676745c3fe6.anr.hw_id = heroku_5eae676745c3fe6.homework.hw_id
         join heroku_5eae676745c3fe6.student
-        on heroku_5eae676745c3fe6.student.std_id = heroku_5eae676745c3fe6.anr.std_id";
+        on heroku_5eae676745c3fe6.student.std_id = heroku_5eae676745c3fe6.anr.std_id
+        order by heroku_5eae676745c3fe6.anr.ar_id";
 $result = $conn->query($sql);
 
 $nw = 0;
 
-while($row = $result->fetch_assoc()) {
-  if($hw_n[$nw] != $hw_n[$nw-1]){
-  $hw_n[$nw] = $row["hw_id"]. ". " . $row["hw_name"]."</br>";
-  }
+while($row = $result->fetch_assoc()){
+  $hw_id[$nw] = $row["hw_id"];
+  $hw_n[$nw] = $row["hw_name"];
   $std_n[$nw] = $row["std_name"];
   $hw_date_r[$nw] = $row["hw_date_r"];
   $hw_score[$nw] = $row["hw_score"];
@@ -97,7 +97,7 @@ $conn->close();
             <tr>
               <td>
               <?php
-                echo $hw_n[0];
+                echo $hw_id[0] . $hw_n[0];
               ?>
               </td>
             </tr>
@@ -119,6 +119,7 @@ $conn->close();
             </tr>
           <?php
           for($i=0;$i<$result->num_rows;$i++){
+            if($hw_id[$i] = 1)
               echo 
                 "<tr>
                   <td class='name'>$std_n[$i]</td>
@@ -152,7 +153,8 @@ $conn->close();
           <td height="100%" align="center">
           <?php
               for($i=0;$i<$result->num_rows;$i++){
-                echo $hw_n[$i];
+                if($hw_n[$i] != $hw_n[$i-1])
+                echo $hw_id[$i]. " " .$hw_n[$i];
               }
             ?>
           </td>
