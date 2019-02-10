@@ -64,10 +64,12 @@ $result = $conn->query($sql);
 $nw = 0;
 
 while($row = $result->fetch_assoc()) {
-  $hw_n[$nw] = $row["homework.hw_id"]. ". " . $row["homework.hw_name"]."</br>";
-  $std_n[$nw] = $row["student.std_name"];
-  $hw_date_r[$nw] = $row["homework.hw_date_r"];
-  $hw_score[$nw] = $row["homework.hw_score"];
+  if($hw_n[$nw] != $hw_n[$nw-1]){
+  $hw_n[$nw] = $row["hw_id"]. ". " . $row["hw_name"]."</br>";
+  }
+  $std_n[$nw] = $row["std_name"];
+  $hw_date_r[$nw] = $row["hw_date_r"];
+  $hw_score[$nw] = $row["hw_score"];
   $nw++;
 }
 
