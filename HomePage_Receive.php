@@ -25,7 +25,7 @@
 	text-align: center;
 }
 .name {
-	text-align: left;
+	text-align: center;
 }
 </style>
 
@@ -64,10 +64,10 @@ $result = $conn->query($sql);
 $nw = 0;
 
 while($row = $result->fetch_assoc()) {
-  $hw_n[$nw] = $row["hw_id"]. ". " . $row["hw_name"]."</br>";
-  $std_n[$nw] = $row["std_name"];
-  $hw_date_r[$nw] = $row["hw_date_r"];
-  $hw_score[$nw] = $row["hw_score"];
+  $hw_n[$nw] = $row["homework.hw_id"]. ". " . $row["homework.hw_name"]."</br>";
+  $std_n[$nw] = $row["student.std_name"];
+  $hw_date_r[$nw] = $row["homework.hw_date_r"];
+  $hw_score[$nw] = $row["homework.hw_score"];
   $nw++;
 }
 
@@ -121,7 +121,7 @@ $conn->close();
                 "<tr>
                   <td class='name'>$std_n[$i]</td>
                   <td>$hw_date_r[$i]</td>
-                  <td>$hw_score[$i] / 5</td>
+                  <td>$hw_score[$i] / 10</td>
                   <td>";
                   if($hw_score[$i] != NULL){
                     echo "ตรวจแล้ว";
