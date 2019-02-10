@@ -53,14 +53,21 @@ $dbname = "heroku_5eae676745c3fe6";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$sql = "SELECT * FROM heroku_5eae676745c3fe6.homework";
+$sql = "SELECT *
+        FROM heroku_5eae676745c3fe6.homework
+        join heroku_5eae676745c3fe6.anr
+        on heroku_5eae676745c3fe6.anr.hw_id = heroku_5eae676745c3fe6.homework.hw_id
+        join heroku_5eae676745c3fe6.student
+        on heroku_5eae676745c3fe6.student.std_id = heroku_5eae676745c3fe6.anr.std_id";
 $result = $conn->query($sql);
 
-$work[] = "";
 $nw = 0;
 
 while($row = $result->fetch_assoc()) {
-  $work[$nw] = $row["hw_id"]. ". " . $row["hw_name"]."</br>";
+  $hw_n[$nw] = $row["hw_id"]. ". " . $row["hw_name"]."</br>";
+  $std_n[$nw] = $row["std_name"];
+  $hw_date_r[$nw] = $row["hw_date_r"];
+  $hw_score[$nw] = $row["hw_score"];
   $nw++;
 }
 
@@ -88,7 +95,7 @@ $conn->close();
             <tr>
               <td>
               <?php
-                echo $work[0];
+                echo $hw_n[0];
               ?>
               </td>
             </tr>
@@ -101,7 +108,6 @@ $conn->close();
         <td><table width="100%" border="0" align="center" class="UnderDetail">
           <tr class="Detail">
             <td>ชื่อ-นามสกุล</td>
-            <td>ไฟล์ที่แนบมา</td>
             <td>เวลาที่ส่ง</td>
             <td>คะแนนที่ได้</td>
             <td>ตรวจแล้ว</td>
@@ -109,62 +115,30 @@ $conn->close();
           <tr>
             <td colspan="5"><hr></td>
             </tr>
-          <tr>
-            <td class="name">1.ธนศักดิ์ มนทิรมาโนชญ์</td>
-            <td>รายงาน 1</td>
-            <td>23.00</td>
-            <td>4/5</td>
-            <td>ตรวจแล้ว</td>
-          </tr>
-          <tr>
+          <?php
+          for($i=0;$i<$result->num_rows;$i++){
+              echo 
+                "<tr>
+                  <td class='name'>$std_n[$i]</td>
+                  <td>$hw_date_r[$i]</td>
+                  <td>$hw_score[$i] / 5</td>
+                  <td>";
+                  if($hw_score[$i] != NULL){
+                    echo "ตรวจแล้ว";
+                  }else{
+                    echo "ยังไม่ตรวจ";
+                  }
+                    "
+                  </td>
+                </tr>";
+                }
+          ?>
+          <!-- <tr>
             <td class ="name">2.วัชรินทร์ เวียงวิเศษ</span></td>
-            <td>รายงาน a</span></td>
             <td>23.55</span></td>
             <td>-</td>
             <td>ยังไม่ตรวจ</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
+          </tr>           -->
         </table></td>
       </tr>      
     </table></td>
@@ -176,7 +150,7 @@ $conn->close();
           <td height="100%" align="center">
           <?php
               for($i=0;$i<$result->num_rows;$i++){
-                echo $work[$i];
+                echo $hw_n[$i];
               }
             ?>
           </td>

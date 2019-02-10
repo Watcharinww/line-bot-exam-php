@@ -13,6 +13,25 @@ input[type=text]{
   border-radius: 20px;
   box-sizing: border-box;
 }
+input[type=number]{
+  width: 15%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+input{
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
 
 input[type=submit] {
   width: 50%;
@@ -88,7 +107,10 @@ input[type=submit]:hover {
       <p><img src="picture/book.png"/book.png" width="77%" height="77%" /> </p>
       <p>
         <label for="Job"></label>
-        <input type="text" name="Job" id="Job" placeholder="งานที่ต้องการมอบหมาย" />
+        <input type="number" name="hr_job" min="0" max="23">:
+		<input type="number" name="min_job" min="0" max="59">
+        <input type="date" name="d_job" id="d.job"/><br/>
+        <input type="text" name="job" id="job" placeholder="งานที่ต้องการมอบหมาย" />
       </p>
       <p>
   <input type="submit" name="Sent.J" id="Sent.J" value="มอบหมายงาน" />
@@ -98,7 +120,10 @@ input[type=submit]:hover {
     <form id="form2" name="form2" method="post" action="botbroadcast.php">
     <p><img src="picture/megaphone.png" width="75%" height="75%" /> </p>
       <p>
-        <label for="Anou"></label>
+        <label for="Anou"></label><br />
+<br />
+<br />
+
         <input type="text" name="Anou" id="Anou" placeholder="Input Anouncement to broadcast" />
       </p>
       <p>
