@@ -126,10 +126,10 @@ $conn->close();
                   <td>$hw_date_r[$i]</td>
                   <td>$hw_score[$i] / 10</td>
                   <td>";
-                  if($hw_score[$i] != NULL){
-                    echo "ตรวจแล้ว";
-                  }else{
+                  if($hw_score[$i] == NULL){
                     echo "ยังไม่ตรวจ";
+                  }else if($hw_score[$i] != NULL){
+                    echo "ตรวจแล้ว";
                   }
                     "
                   </td>
