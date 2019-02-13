@@ -54,12 +54,12 @@ $dbname = "heroku_5eae676745c3fe6";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 $sql = "SELECT *
-        FROM heroku_5eae676745c3fe6.homework
-        join heroku_5eae676745c3fe6.anr
-        on heroku_5eae676745c3fe6.anr.hw_id = heroku_5eae676745c3fe6.homework.hw_id
-        join heroku_5eae676745c3fe6.student
-        on heroku_5eae676745c3fe6.student.std_id = heroku_5eae676745c3fe6.anr.std_id
-        order by heroku_5eae676745c3fe6.anr.ar_id";
+        FROM /* heroku_5eae676745c3fe6. */homework
+        join /* heroku_5eae676745c3fe6. */anr
+        on /* heroku_5eae676745c3fe6. */anr.hw_id = /* heroku_5eae676745c3fe6. */homework.hw_id
+        join /* heroku_5eae676745c3fe6. */student
+        on /* heroku_5eae676745c3fe6. */student.std_id = /* heroku_5eae676745c3fe6. */anr.std_id
+        order by /* heroku_5eae676745c3fe6. */anr.ar_id";
 $result = $conn->query($sql);
 
 $nw = 0;
@@ -97,7 +97,7 @@ $conn->close();
             <tr>
               <td>
               <?php
-                echo $hw_id[0] . $hw_n[0];
+                echo $hw_id[0].". ".$hw_n[0]; 
               ?>
               </td>
             </tr>
@@ -118,8 +118,8 @@ $conn->close();
             <td colspan="5"><hr></td>
             </tr>
           <?php
-          for($i=0;$i<$result->num_rows;$i++){
-            if($hw_id[$i] = 1)
+          for($i=0;$i<$nw;$i++){
+            if($hw_id[$i] == 1)
               echo 
                 "<tr>
                   <td class='name'>$std_n[$i]</td>
@@ -134,7 +134,7 @@ $conn->close();
                     "
                   </td>
                 </tr>";
-                }
+              }
           ?>
           <!-- <tr>
             <td class ="name">2.วัชรินทร์ เวียงวิเศษ</span></td>
