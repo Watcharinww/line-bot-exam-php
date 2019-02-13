@@ -119,7 +119,7 @@ $conn->close();
             </tr>
           <?php
           for($i=0;$i<$nw;$i++){
-            if($hw_id[$i] == 1)
+            if($hw_id[$i] == 1){
               echo 
                 "<tr>
                   <td class='name'>$std_n[$i]</td>
@@ -128,13 +128,14 @@ $conn->close();
                   <td>";
                   if($hw_score[$i] == NULL){
                     echo "ยังไม่ตรวจ";
-                  }else if($hw_score[$i] != NULL){
+                  }else{
                     echo "ตรวจแล้ว";
                   }
                     "
                   </td>
                 </tr>";
               }
+            }
           ?>
           <!-- <tr>
             <td class ="name">2.วัชรินทร์ เวียงวิเศษ</span></td>
