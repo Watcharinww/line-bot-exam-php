@@ -154,7 +154,7 @@ $conn->close();
           <?php
               for($i=0;$i<$result->num_rows;$i++){
                 if($hw_n[$i] != $hw_n[$i-1])
-                echo $hw_id[$i]. " " .$hw_n[$i];
+                echo $hw_id[$i]. " " .$hw_n[$i]."<br>";
               }
             ?>
           </td>
