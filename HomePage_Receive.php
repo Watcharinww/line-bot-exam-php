@@ -139,7 +139,7 @@ $conn->close();
                   }else{
                     echo "ตรวจแล้ว";
                   }
-                    "
+                  echo  "
                   </td>
                 </tr>";
               }
