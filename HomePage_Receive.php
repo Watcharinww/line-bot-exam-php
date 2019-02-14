@@ -124,7 +124,15 @@ $conn->close();
                 "<tr>
                   <td class='name'>$std_n[$i]</td>
                   <td>$hw_date_r[$i]</td>
-                  <td>$std_score[$i] / 10</td>
+                  <td> ";
+                  
+                  if($std_score[$i] == NULL){
+                    echo "-";
+                  }else{
+                    echo "$std_score[$i]";
+                  }
+                  
+                  " / 10</td>
                   <td>";
                   if($std_score[$i] == NULL){
                     echo "ยังไม่ตรวจ";
