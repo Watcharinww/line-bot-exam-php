@@ -103,14 +103,15 @@ input[type=submit]:hover {
   <tr>
     <td width="25%" align="center"><p><a href="HomePage_Sent.php"><img src="picture/Sent.png" width="50%" height="50%" title="SentPage" /></a></p>
     <p class="menu">Sent</p></td>
-    <td width="37.5%" rowspan="2" valign="top" align="center"><form id="form1" name="form1" method="post" action="">
+    <td width="37.5%" rowspan="2" valign="top" align="center">
+    <form id="form1" name="form1" method="post" action="addjob.php">
       <p><img src="picture/book.png"/book.png" width="77%" height="77%" /> </p>
       <p>
         <label for="Job"></label>
         <input type="number" name="hr_job" min="0" max="23">:
 		<input type="number" name="min_job" min="0" max="59">
         <input type="date" name="d_job" id="d.job"/><br/>
-        <input type="text" name="job" id="job" placeholder="งานที่ต้องการมอบหมาย" />
+        <input type="text" name="job" id="job" placeholder="งานที่ต้องการมอบหมาย" maxlength="25"/>
       </p>
       <p>
   <input type="submit" name="Sent.J" id="Sent.J" value="มอบหมายงาน" />
