@@ -41,7 +41,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_SESSION['jobbroad']);
     $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
-    if ($_POST["Anou"] != NULL){
+    if ($_SESSION['jobbroad'] != NULL){
         $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
         $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder2);
         }
