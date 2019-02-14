@@ -69,7 +69,7 @@ while($row = $result->fetch_assoc()){
   $hw_n[$nw] = $row["hw_name"];
   $std_n[$nw] = $row["std_name"];
   $hw_date_r[$nw] = $row["hw_date_r"];
-  $hw_score[$nw] = $row["hw_score"];
+  $std_score[$nw] = $row["std_score"];
   $nw++;
 }
 
@@ -124,9 +124,9 @@ $conn->close();
                 "<tr>
                   <td class='name'>$std_n[$i]</td>
                   <td>$hw_date_r[$i]</td>
-                  <td>$hw_score[$i] / 10</td>
+                  <td>$std_score[$i] / 10</td>
                   <td>";
-                  if($hw_score[$i] == NULL){
+                  if($std_score[$i] == NULL){
                     echo "ยังไม่ตรวจ";
                   }else{
                     echo "ตรวจแล้ว";
