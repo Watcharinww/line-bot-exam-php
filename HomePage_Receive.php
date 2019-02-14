@@ -59,7 +59,7 @@ $sql = "SELECT *
         on /* heroku_5eae676745c3fe6. */anr.hw_id = /* heroku_5eae676745c3fe6. */homework.hw_id
         join /* heroku_5eae676745c3fe6. */student
         on /* heroku_5eae676745c3fe6. */student.std_id = /* heroku_5eae676745c3fe6. */anr.std_id
-        order by /* heroku_5eae676745c3fe6. */anr.ar_id";
+        order by /* heroku_5eae676745c3fe6. */anr.hw_id";
 $result = $conn->query($sql);
 
 $nw = 0;
