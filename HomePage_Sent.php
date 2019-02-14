@@ -75,6 +75,14 @@ input[type=submit]:hover {
 .name {
 	text-align: left;
 }
+
+#job{
+  text-align: center;
+}
+
+#Anou{
+  text-align: center;
+}
 </style>
 
 <script type="text/javascript" src="Time.js"></script>
