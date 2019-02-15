@@ -10,7 +10,7 @@
 session_start();
 
 require "vendor/autoload.php";
-
+/* 
 $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
 
 $channelSecret = '88f693bafb5809e65f319ad3139213ba';
@@ -24,7 +24,9 @@ $password = "6ca79774";
 $dbname = "heroku_5eae676745c3fe6";
 
 // Create connection to sql database 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname); */
+
+include 'conn.php';
 
 $sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
 $result = $conn->query($sql);

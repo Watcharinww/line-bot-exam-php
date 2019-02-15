@@ -27,6 +27,11 @@
 .name {
 	text-align: center;
 }
+
+#datehw{
+  font-size: medium;
+  font-weight: lighter;
+}
 </style>
 
 <script type="text/javascript" src="Time.js"></script>
@@ -39,7 +44,7 @@
 
 require "vendor/autoload.php";
 
-$access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
+/* $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
 
 $channelSecret = '88f693bafb5809e65f319ad3139213ba';
 
@@ -52,6 +57,10 @@ $dbname = "heroku_5eae676745c3fe6";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+ */
+
+include 'conn.php';
+
 
 $sql = "SELECT *
         FROM /* heroku_5eae676745c3fe6. */homework
@@ -68,6 +77,7 @@ while($row = $result->fetch_assoc()){
   $hw_id[$nw] = $row["hw_id"];
   $hw_n[$nw] = $row["hw_name"];
   $std_n[$nw] = $row["std_name"];
+  $hw_date_s[$nw] = $row["hw_date_s"];
   $hw_date_r[$nw] = $row["hw_date_r"];
   $std_score[$nw] = $row["std_score"];
   $nw++;
@@ -97,8 +107,9 @@ $conn->close();
             <tr>
               <td>
               <?php
-                echo $hw_id[0].". ".$hw_n[0]; 
-              ?>
+                echo $hw_id[0].". ".$hw_n[0]."<br>";
+                ?>
+                <a id= 'datehw'><?php echo "เริ่มสั่งงาน:".$hw_date_s[0]."    "."เวลาส่ง:".$hw_date_r[0] ;?></a>
               </td>
             </tr>
             <tr>
@@ -109,8 +120,7 @@ $conn->close();
       <tr valign="top" >
         <td><table width="100%" border="0" align="center" class="UnderDetail">
           <tr class="Detail">
-            <td>ชื่อ-นามสกุล</td>
-            <td>เวลาที่ส่ง</td>
+            <td>ชื่อ-นามสกุล</td>           
             <td>คะแนนที่ได้</td>
             <td>ตรวจแล้ว</td>
           </tr>
@@ -123,7 +133,6 @@ $conn->close();
               echo 
                 "<tr>
                   <td class='name'>$std_n[$i]</td>
-                  <td>$hw_date_r[$i]</td>
                   <td> ";
 
                   if($std_score[$i] == NULL){
