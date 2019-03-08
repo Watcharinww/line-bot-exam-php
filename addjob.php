@@ -5,8 +5,8 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Bangkok');
-
-/* $servername = "us-cdbr-iron-east-01.cleardb.net";
+/* 
+$servername = "us-cdbr-iron-east-01.cleardb.net";
 $username = "bc2e88a0fd2a0e";
 $password = "6ca79774";
 $dbname = "heroku_5eae676745c3fe6";
@@ -15,6 +15,8 @@ $dbname = "heroku_5eae676745c3fe6";
 $conn = new mysqli($servername, $username, $password, $dbname); */
 
 include 'conn.php';
+
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -28,7 +30,7 @@ if ($conn->connect_error) {
                     VALUE ('$job','$s_time','$r_time')";
     
     if ($conn->query($sql_adddata) == TRUE) {
-        header("Location: broadcastjob.php");
+        header("Location: addanr.php");
         die();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

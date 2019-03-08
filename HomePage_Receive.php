@@ -16,6 +16,13 @@
 	font-size: x-large;
 	text-align: center;
 }
+.menu2 {
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+	font-size: x-large;
+	text-align: center;
+  vertical-align: top;
+}
 .Detail {
 	text-align: center;
 	font-size: medium;
@@ -31,6 +38,18 @@
 #datehw{
   font-size: medium;
   font-weight: lighter;
+}
+
+#click_score{
+  color:black;
+}
+
+div{
+  text-align: center;
+}
+
+a:visited {
+  color:Blue;
 }
 </style>
 
@@ -56,19 +75,17 @@ $password = "6ca79774";
 $dbname = "heroku_5eae676745c3fe6";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
- */
+$conn = new mysqli($servername, $username, $password, $dbname); */
 
 include 'conn.php';
 
-
 $sql = "SELECT *
-        FROM /* heroku_5eae676745c3fe6. */homework
-        join /* heroku_5eae676745c3fe6. */anr
-        on /* heroku_5eae676745c3fe6. */anr.hw_id = /* heroku_5eae676745c3fe6. */homework.hw_id
-        join /* heroku_5eae676745c3fe6. */student
-        on /* heroku_5eae676745c3fe6. */student.std_id = /* heroku_5eae676745c3fe6. */anr.std_id
-        order by /* heroku_5eae676745c3fe6. */anr.hw_id";
+        FROM homework
+        join anr
+        on anr.hw_id = homework.hw_id
+        join student
+        on student.std_id = anr.std_id
+        order by anr.hw_id , anr.std_id";
 $result = $conn->query($sql);
 
 $nw = 0;
@@ -76,15 +93,74 @@ $nw = 0;
 while($row = $result->fetch_assoc()){
   $hw_id[$nw] = $row["hw_id"];
   $hw_n[$nw] = $row["hw_name"];
-  $std_n[$nw] = $row["std_name"];
+  $std_n[$nw] = $row["std_name"];  
+  $std_score[$nw] = $row["std_score"];  
+  $hw_status[$nw] = $row['hw_status'];
+  $nw++;
+}
+
+$sql = "SELECT *
+        FROM homework";
+$result_hw = $conn->query($sql);
+
+$nw = 0;
+while($row = $result_hw->fetch_assoc()){
+  // $std_id[$nw] = $row["std_id"];
+  $hw_id_hw[$nw] = $row["hw_id"];
+  $hw_name_hw[$nw] = $row["hw_name"];
   $hw_date_s[$nw] = $row["hw_date_s"];
   $hw_date_r[$nw] = $row["hw_date_r"];
-  $std_score[$nw] = $row["std_score"];
   $nw++;
 }
 
 $conn->close();
+
+//$num = 1;
+if(isset($_GET['delete'])){
+  $id = intval($_GET['id']);
+  // $name = $hw_name_hw[$id];
+  // if(confrim('คุณต้องการลบการบ้าน $name ใช่หรือไม่'){}
+  $name = strval($_GET['name']);
+
+   deleteHw($id,$name);
+  }
+// }
+
+function deleteHw($id,$name){
+  require 'deleteHw.php';
+  // echo "<script> alert('$id'); </script>";
+  
+  test($id,$name);
+  // return 0;
+  // header('locฝation: HomePage_Receive.php');
+}
+
 ?>
+
+<script>
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getdata.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
+
 <table width="100%" height="100%" border="1">
   <tr valign="top" >
     <td height="100" colspan="3" class="Header" valign="middle"><table width="100%" height="100%" border="0">
@@ -101,79 +177,47 @@ $conn->close();
   <tr>
     <td width="25%" align="center"><p><a href="HomePage_Sent.php"><img src="picture/Sent.png" width="50%" height="50%" title="SentPage" /></a></p>
     <p class="menu">Sent</p></td>
-    <td width="50%" rowspan="2" valign="top"><table width="100%" height="100%" border="0">
+    <td width="50%" rowspan="2" valign="top">
+    <table width="100%" height="100%" border="0">
       <tr>
-        <td class="menu"><table width="100%" border="0" class="menu">
-            <tr>
-              <td>
-              <?php
-                echo $hw_id[0].". ".$hw_n[0]."<br>";
-                ?>
-                <a id= 'datehw'><?php echo "เริ่มสั่งงาน:".$hw_date_s[0]."    "."เวลาส่ง:".$hw_date_r[0] ;?></a>
-              </td>
-            </tr>
-            <tr>
-              <td><hr /></td>
-            </tr>
-          </table></td>
-      </tr>
-      <tr valign="top" >
-        <td><table width="100%" border="0" align="center" class="UnderDetail">
-          <tr class="Detail">
-            <td>ชื่อ-นามสกุล</td>           
-            <td>คะแนนที่ได้</td>
-            <td>ตรวจแล้ว</td>
-          </tr>
-          <tr>
-            <td colspan="5"><hr></td>
-            </tr>
-          <?php
-          for($i=0;$i<$nw;$i++){
-            if($hw_id[$i] == 1){
-              echo 
-                "<tr>
-                  <td class='name'>$std_n[$i]</td>
-                  <td> ";
+        <td class="menu2">
 
-                  if($std_score[$i] == NULL){
-                    echo "-";
-                  }else{
-                    echo "$std_score[$i]";
-                  }
-                  
-                  echo " / 10</td>
-                  <td>";
-                  if($std_score[$i] == NULL){
-                    echo "ยังไม่ตรวจ";
-                  }else{
-                    echo "ตรวจแล้ว";
-                  }
-                  echo  "
-                  </td>
-                </tr>";
-              }
-            }
-          ?>
-          <!-- <tr>
-            <td class ="name">2.วัชรินทร์ เวียงวิเศษ</span></td>
-            <td>23.55</span></td>
-            <td>-</td>
-            <td>ยังไม่ตรวจ</td>
-          </tr>           -->
-        </table></td>
-      </tr>      
-    </table></td>
+        <? echo "<br><br><div id='txtHint'><b>โปรดเลือกงานที่มอบหมาย</b></div>"; ?>
+
+        
+        
+
+
+
+           
+    </table>
+    
+    </td>
     <td width="25%" rowspan="2" valign="top" class="Header"><table width="100%" border="0">
         <tr>
-          <td class="Header" valign="top">งานที่มอบหมาย<hr /></td>
+          <td class="Header" valign="top">งานที่มอบหมาย<hr></td>
         </tr>
         <tr>
-          <td height="100%" align="center">
+          <td height="100%" align="center"> 
+          
           <?php
-              for($i=0;$i<$result->num_rows;$i++){
-                if($hw_n[$i] != $hw_n[$i-1])
-                echo $hw_id[$i]. " " .$hw_n[$i]."<br>";
-              }
+          $conut = 0;
+              for($i=0;$i<$result_hw->num_rows;$i++){
+                // if($hw_name_hw[$i] != $hw_name_hw[$i-1]){
+                
+                echo "<table border = '0' width = '100%'><tr><td align = 'center'>"  ;
+                  
+                echo "<a href = 'javascript:showUser($hw_id_hw[$i])'>";
+                echo ($i+1). " " .$hw_name_hw[$i];
+                echo "</a>";
+                $name = $hw_name_hw[$i];
+                echo "</td><td width = '10%' align = 'right'>";
+                echo "<a onclick=\"javascript: return window.confirm('คุณต้องการจะลบการบ้าน $name ใช่หรือไม่?');\" href = '?delete&id=$hw_id_hw[$i]&name=$name' >|X| </a>";
+                echo "</td></tr></table>";
+                echo "<hr>";         
+                $count++;   
+                }
+              // }              
             ?>
           </td>
         </tr>
