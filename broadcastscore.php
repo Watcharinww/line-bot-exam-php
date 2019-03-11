@@ -9,6 +9,7 @@
 $score = intval(['s']);
 $name = strval(['n']);
 $id = intval(['id']);
+$std_id = intval(['sid']);
         
         require 'vendor/autoload.php';
 
@@ -18,7 +19,7 @@ $id = intval(['id']);
                 from anr
                 join student
                 on anr.std_id = student.std_id
-                where std_id = $id";
+                where anr.hw_id = $id and anr.std_id = $std_id";
 
         $result = $conn->query($sql);
 
@@ -34,13 +35,13 @@ $id = intval(['id']);
             
                 while($row = $result->fetch_assoc()){
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($editscore);
-                $response = $bot->pushMessage($row["student.std_l_id"], $textMessageBuilder);
+                $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
                 
                 $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-                $response = $bot->pushMessage($row["student.std_l_id"], $textMessageBuilder2);
+                $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
                 }
             
-            echo '<script> window.close(); </script>';
+            echo '<script> window.opener.location.reload(true); window.close(); </script>';
             //header('refresh:0; url=HomePage_Receive.php');
     ?>
 </body>

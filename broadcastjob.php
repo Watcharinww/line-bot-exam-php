@@ -28,7 +28,8 @@ $conn = new mysqli($servername, $username, $password, $dbname); */
 
 include 'conn.php';
 
-$sql = "SELECT std_l_id FROM student";
+$sql = "SELECT std_l_id 
+        FROM student";
 $result = $conn->query($sql);
 
     date_default_timezone_set("Asia/Bangkok");
@@ -40,7 +41,7 @@ $result = $conn->query($sql);
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-
+        while($row = mysqli_fetch_array($result)){
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_SESSION['jobbroad']);
     $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
     if ($_SESSION['jobbroad'] != NULL){
@@ -48,7 +49,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
         $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
         }
 
-//}
+    }
 //}
 $conn->close();
 
