@@ -138,7 +138,7 @@ function deleteHw($id,$name){
 ?>
 
 <script>
-function showUser(str) {
+function showUser(str,num) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "";
         return;
@@ -155,7 +155,7 @@ function showUser(str) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","getdata.php?q="+str,true);
+        xmlhttp.open("GET","getdata.php?q="+str+"&n="+num,true);
         xmlhttp.send();
     }
 }
@@ -207,7 +207,7 @@ function showUser(str) {
                 
                 echo "<table border = '0' width = '100%'><tr><td align = 'center'>"  ;
                   
-                echo "<a href = 'javascript:showUser($hw_id_hw[$i])'>";
+                echo "<a href = 'javascript:showUser($hw_id_hw[$i],($i+1))'>";
                 echo ($i+1). " " .$hw_name_hw[$i];
                 echo "</a>";
                 $name = $hw_name_hw[$i];
