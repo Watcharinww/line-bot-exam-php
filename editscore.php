@@ -91,7 +91,7 @@ $result = $conn->query($sql);
   echo "<script> alert('$message'); </script>";
   $conn->query($sql_u);
   $conn->close();
-  header('Location:broadcastscore.php?s='.$sc.'&n='.$name.'&id='.$q.'&sid='.$nw);
+  header("Location:pushscore.php?s=$sc&n=$name&id=$q&sid=$nw");
 }
 
  ?>
