@@ -6,7 +6,7 @@
 
     <?
 
-$score = intval(['s']);
+
 $id = intval(['id']);
 $std_id = intval(['sid']);
         
@@ -14,7 +14,7 @@ $std_id = intval(['sid']);
 
         include 'conn.php';
 
-        $sql = "SELECT *
+        $sql = "SELECT hw_name , std_score , std_l_id
                 from anr
                 join student
                 on anr.std_id = student.std_id
@@ -26,7 +26,7 @@ $std_id = intval(['sid']);
 
         while($row = $result->fetch_assoc()){
             $name = $row['hw_name'];
-            // $score = $row['std_score'];
+            $score = $row['std_score'];
             $id_l = $row['std_l_id'];
         }
       
