@@ -33,7 +33,7 @@ $std_id = intval($_GET['sid']);
         }
       
 
-        $editscore = "คะแนนการบ้าน $name ของคุณคือ " . $hw_score;
+        $editscore = "คะแนนการบ้าน $name ของคุณคือ $hw_score";
 
             date_default_timezone_set('Asia/Bangkok');
             $broad = "Edit Score At : ".date("H:i:sa - d/m/Y");
