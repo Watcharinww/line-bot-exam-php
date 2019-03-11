@@ -28,8 +28,9 @@ $dbname = "heroku_5eae676745c3fe6";
 // Create connection to sql database 
 // $conn = new mysqli($servername, $username, $password, $dbname);
 
-$sql = "SELECT std_l_id FROM Test1";
-$result = $conn->query($sql);
+$sql = "SELECT std_l_id 
+        FROM student";
+$result = mysqli_query($conn,$sql);
 
     date_default_timezone_set("Asia/Bangkok");
     $broad = "Broadcast At : ".date("H:i:sa - d/m/Y");
@@ -40,7 +41,7 @@ $result = $conn->query($sql);
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-
+    while($row = mysqli_fetch_array($result)){
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST["Anou"]);
     $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
     if ($_POST["Anou"] != NULL){
@@ -48,7 +49,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
         $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
         }
 
-//}
+    }
 //}
 $conn->close();
 
