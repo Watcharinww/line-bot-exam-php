@@ -6,10 +6,10 @@
 
     <?
 
-$score = intval(['s']);
-$name = strval(['n']);
-$id = intval(['id']);
-$std_id = intval(['sid']);
+$score = $_GET(['s']);
+$name = $_GET(['n']);
+$id = $_GET(['id']);
+$std_id = $_GET(['sid']);
         
         require 'vendor/autoload.php';
 
