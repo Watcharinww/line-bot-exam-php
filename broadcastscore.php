@@ -32,14 +32,14 @@ $id = intval(['id']);
             
                 while($row = $result->fetch_assoc()){
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($editscore);
-                $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                $response = $bot->pushMessage($row["student.std_l_id"], $textMessageBuilder);
                 
                 $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-                $response = $bot->pushMessage($pushID, $textMessageBuilder2);
+                $response = $bot->pushMessage($row["student.std_l_id"], $textMessageBuilder2);
                 }
             
-            echo '<script> window.close() </script>';
-            header('refresh:0; url=HomePage_Receive.php');
+            echo '<script> window.close(); </script>';
+            //header('refresh:0; url=HomePage_Receive.php');
     ?>
 </body>
 </html>
