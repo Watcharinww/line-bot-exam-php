@@ -24,6 +24,7 @@ $std_id = intval(['sid']);
         while($row = $result->fetch_assoc()){
             $name = $row['std_name']." ".$row['std_l_name'];
             $score = $row['std_score'];
+            $id_l = $row['std_l_id'];
         }
       
 
@@ -36,13 +37,13 @@ $std_id = intval(['sid']);
             $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
             $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
             
-                while($row = $result->fetch_assoc()){
+               
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($editscore);
-                $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
+                $response = $bot->pushMessage($id_l, $textMessageBuilder);
                 
                 $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-                $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
-                }
+                $response = $bot->pushMessage($id_l, $textMessageBuilder2);
+                
             
             echo '<script> window.opener.location.reload(true); window.close(); </script>';
             //header('refresh:0; url=HomePage_Receive.php');

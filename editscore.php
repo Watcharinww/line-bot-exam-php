@@ -88,10 +88,10 @@ $result = $conn->query($sql);
     
   }
 
-  echo "<script> window.alert('$message'); </script>";
+  echo "<script> window.alert('$message'); window.location.href = 'pushscore.php?s=$sc&n=$name&id=$q&sid=$nw' </script>";
   $conn->query($sql_u);
   $conn->close();
-  header("Location:pushscore.php?s=$sc&n=$name&id=$q&sid=$nw");
+  // header("Location:pushscore.php?s=$sc&n=$name&id=$q&sid=$nw");
 }
 
  ?>
