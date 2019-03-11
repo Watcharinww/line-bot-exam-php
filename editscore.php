@@ -91,7 +91,7 @@ $result = $conn->query($sql);
   echo "<script> alert('$message'); </script>";
   $conn->query($sql_u);
   $conn->close();
-  echo "<script> window.close(); </script>";
+  header('Location:broadcastscore.php?s='.$sc.'&n='.$name.'&id='.$q);
 }
 
  ?>
