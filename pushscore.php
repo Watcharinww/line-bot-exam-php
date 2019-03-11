@@ -6,6 +6,7 @@
 
     <?
 
+$score = intval(['s']);
 $id = intval(['id']);
 $std_id = intval(['sid']);
         
@@ -25,7 +26,7 @@ $std_id = intval(['sid']);
 
         while($row = $result->fetch_assoc()){
             $name = $row['hw_name'];
-            $score = $row['std_score'];
+            // $score = $row['std_score'];
             $id_l = $row['std_l_id'];
         }
       
