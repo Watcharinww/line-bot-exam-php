@@ -45,10 +45,11 @@ $std_id = intval($_GET['sid']);
                
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($editscore);
                 $response = $bot->pushMessage($id_l, $textMessageBuilder);
-                if($id_l != NULL){
+               
                     $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
                     $response = $bot->pushMessage($id_l, $textMessageBuilder2);
-                }
+                
+            $conn->close();
             
             echo '<script> window.opener.location.reload(true); window.close(); </script>';
             //header('refresh:0; url=HomePage_Receive.php');
