@@ -48,7 +48,7 @@ $std_id = intval(['sid']);
                 $response = $bot->pushMessage($id_l, $textMessageBuilder2);
                 
             
-            echo '<script> window.opener.location.reload(true); window.close(); </script>';
+            //echo '<script> window.opener.location.reload(true); window.close(); </script>';
             //header('refresh:0; url=HomePage_Receive.php');
     ?>
 </body>
