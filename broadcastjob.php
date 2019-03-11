@@ -28,7 +28,7 @@ $conn = new mysqli($servername, $username, $password, $dbname); */
 
 include 'conn.php';
 
-$sql = "SELECT * FROM heroku_5eae676745c3fe6.test1";
+$sql = "SELECT std_l_id FROM student";
 $result = $conn->query($sql);
 
     date_default_timezone_set("Asia/Bangkok");
@@ -42,10 +42,10 @@ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_SESSION['jobbroad']);
-    $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder);
+    $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
     if ($_SESSION['jobbroad'] != NULL){
         $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-        $response = $bot->pushMessage(/*$row["LineId"]*/$pushID, $textMessageBuilder2);
+        $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
         }
 
 //}

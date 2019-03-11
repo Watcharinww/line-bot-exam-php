@@ -15,7 +15,9 @@ $id = intval(['id']);
         include 'conn.php';
 
         $sql = "SELECT *
-                from heroku_5eae676745c3fe6.test1
+                from anr
+                join student
+                on anr.std_id = student.std_id
                 where std_id = $id";
 
         $result = $conn->query($sql);
