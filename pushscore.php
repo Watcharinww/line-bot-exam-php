@@ -14,13 +14,15 @@ $std_id = intval(['sid']);
 
         include 'conn.php';
 
-        $sql = "SELECT hw_name , std_score , std_l_id
-                from anr
-                join student
-                on anr.std_id = student.std_id
-                join homework
-                on anr.hw_id = homework.hw_id
-                where anr.hw_id = '".$id."' AND anr.std_id = '".$std_id."'";
+        $sql="  SELECT hw_name,std_score,std_l_id 
+        FROM anr
+        join student
+        on anr.std_id = student.std_id  
+        join homework
+        on anr.hw_id = homework.hw_id     
+        WHERE anr.hw_id = '".$id."' AND anr.std_id = '".$std_id."'
+        ORDER by anr.hw_id , anr.std_id
+        ";
 
         $result = $conn->query($sql);
 
