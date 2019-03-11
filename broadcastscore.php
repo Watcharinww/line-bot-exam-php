@@ -15,7 +15,7 @@ $std_id = intval(['sid']);
 
         include 'conn.php';
 
-        $sql = "SELECT *
+        $sql = "SELECT std_l_id
                 from anr
                 join student
                 on anr.std_id = student.std_id
@@ -26,6 +26,7 @@ $std_id = intval(['sid']);
       
 
         $editscore = "คะแนนการบ้าน $name ของคุณคือ $score";
+        
             date_default_timezone_set('Asia/Bangkok');
             $broad = "Edit Score At : ".date("H:i:sa - d/m/Y");
 
@@ -41,7 +42,7 @@ $std_id = intval(['sid']);
                 $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
                 }
             
-            echo '<script> window.opener.location.reload(true); window.close(); </script>';
+            // echo '<script> window.opener.location.reload(true); window.close(); </script>';
             //header('refresh:0; url=HomePage_Receive.php');
     ?>
 </body>
