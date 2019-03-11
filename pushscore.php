@@ -6,16 +6,14 @@
 
     <?
 
-$score = $_GET(['s']);
-$name = $_GET(['n']);
-$id = $_GET(['id']);
-$std_id = $_GET(['sid']);
+$id = intval(['id']);
+$std_id = intval(['sid']);
         
         require 'vendor/autoload.php';
 
         include 'conn.php';
 
-        $sql = "SELECT std_l_id
+        $sql = "SELECT *
                 from anr
                 join student
                 on anr.std_id = student.std_id
@@ -23,6 +21,10 @@ $std_id = $_GET(['sid']);
 
         $result = $conn->query($sql);
 
+        while($row = $result->fetch_assoc()){
+            $name = $row['std_name']." ".$row['std_l_name'];
+            $score = $row['std_score'];
+        }
       
 
         $editscore = "คะแนนการบ้าน $name ของคุณคือ $score";
