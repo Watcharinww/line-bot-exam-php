@@ -28,7 +28,7 @@ $dbname = "heroku_5eae676745c3fe6";
 // Create connection to sql database 
 // $conn = new mysqli($servername, $username, $password, $dbname);
 
-$sql = "SELECT std_l_id FROM student";
+$sql = "SELECT std_l_id FROM Test1";
 $result = $conn->query($sql);
 
     date_default_timezone_set("Asia/Bangkok");
