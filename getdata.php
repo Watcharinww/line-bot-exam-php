@@ -13,6 +13,7 @@
 
 <?php
 $q = intval($_GET['q']);
+$n = intval($_GET['n']);
 
 // $con = mysqli_connect('localhost','root','adminmanager','testphp');
 // if (!$con) {
@@ -52,7 +53,7 @@ while($row = mysqli_fetch_array($result_hw)) {
   echo "  <table width='100%' border = '0' class='menu2'>";
   echo "    <tr>";
   echo "      <td>";
-  echo       $row['hw_id'] ." . ". $row['hw_name']."<br>";
+  echo       $n." . ". $row['hw_name']."<br>";
   echo "      <a id = 'datehw'> เริ่มสั่งงาน : ".$row['hw_date_s']."   "."เวลาที่ส่ง : ".$row['hw_date_r']."</a";
   echo "      </td>";
   echo "    </tr>";
@@ -70,16 +71,16 @@ while($row = mysqli_fetch_array($result_hw)) {
 while($row = mysqli_fetch_array($result)){ 
   $nw++;
   echo "      <tr class='Detail'>";
-  echo "        <td class='name'>".$row['std_name']." ".$row['std_l_name']."</td>";
-  echo "        <td>";
+  echo "        <td class='name' witdh = '40%'>".$row['std_name']." ".$row['std_l_name']."</td>";
+  echo "        <td width = '20%'>";
                 if($row['std_score'] == NULL)
                   echo "-";
                 else
                   echo $row['std_score'];
   echo "        / 10 </td>";
-  echo "        <td>";
+  echo "        <td width = '40%'>";
                 if($row['std_score'] == NULL)
-                  echo "<a href='#' id='click_score' onclick=window.open('editscore.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');>ยังไม่ได้ตรวจ</a>";
+                  echo "<a href='#' id=''editscoreclick_score' onclick=window.open(.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');>ยังไม่ได้ตรวจ</a>";
                 else 
                   echo "<a href='#' id='click_score' onclick=if(window.confirm('ต้องการแก้คะแนน?')){window.open('editscore.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');}>ตรวจแล้ว</a>";
   echo "        </td>";

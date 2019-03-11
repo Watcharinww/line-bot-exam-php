@@ -6,10 +6,10 @@
 
     <?
 
-$score = intval(['s']);
-$name = strval(['n']);
-$id = intval(['id']);
-$std_id = intval(['sid']);
+$score = intval($_GET['s']);
+$name = strval($_GET['n']);
+$id = intval($_GET['id']);
+$std_id = intval($_GET['sid']);
         
         require 'vendor/autoload.php';
 
@@ -26,7 +26,7 @@ $std_id = intval(['sid']);
       
 
         $editscore = "คะแนนการบ้าน $name ของคุณคือ $score";
-        
+
             date_default_timezone_set('Asia/Bangkok');
             $broad = "Edit Score At : ".date("H:i:sa - d/m/Y");
 
