@@ -86,6 +86,8 @@ echo $result . "\r\n";
 
 echo "OK";
 */
+session_start();
+
 
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
@@ -118,6 +120,7 @@ else if($message == "userID"){
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
+	$arrayPostData['messages'][1]['text'] = "**คำเตือน สำคัญมาก ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด**";
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
