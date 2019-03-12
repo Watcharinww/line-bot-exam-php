@@ -3,7 +3,6 @@
 <body>
 <script type="text/javascript" src="Time.js"></script>
 <?php
-session_start();
 date_default_timezone_set('Asia/Bangkok');
 /* 
 $servername = "us-cdbr-iron-east-01.cleardb.net";
@@ -14,7 +13,9 @@ $dbname = "heroku_5eae676745c3fe6";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname); */
 
+
 include 'conn.php';
+session_start();
 
 
 // Check connection

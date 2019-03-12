@@ -20,8 +20,8 @@
 	font-family: "Courier New", Courier, monospace;
 	font-weight: bold;
 	font-size: x-large;
-	text-align: center;
-  vertical-align: top;
+	text-align: center; 
+	vertical-align:top;
 }
 .Detail {
 	text-align: center;
@@ -44,9 +44,10 @@
   color:black;
 }
 
-div{
-  text-align: center;
+#r_border{
+	background-color:#F00;
 }
+
 
 a:visited {
   color:Blue;
@@ -60,8 +61,13 @@ a:visited {
 </head>
 <body>
 <?php
+session_start();
 
 require "vendor/autoload.php";
+if($_SESSION['status'] != 'correct'){
+  header('location:index.php');
+  exit();
+}
 
 /* $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
 
@@ -180,9 +186,9 @@ function showUser(str,num) {
     <td width="50%" rowspan="2" valign="top">
     <table width="100%" height="100%" border="0">
       <tr>
-        <td class="menu2">
+        <td class='menu2'>
 
-        <? echo "<br><br><div id='txtHint'><b>โปรดเลือกงานที่มอบหมาย</b></div>"; ?>
+        <? 	echo "<div id='txtHint'><b><p style='color:red' ><br><br><br>*โปรดเลือกงานที่มอบหมาย*</p></b></div>"; ?>
 
         
         

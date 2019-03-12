@@ -7,7 +7,6 @@
     </head>
     <body>
 <?php
-session_start();
 
 require "vendor/autoload.php";
 /* 
@@ -27,9 +26,9 @@ $dbname = "heroku_5eae676745c3fe6";
 $conn = new mysqli($servername, $username, $password, $dbname); */
 
 include 'conn.php';
+session_start();
 
-$sql = "SELECT std_l_id 
-        FROM student";
+$sql = "SELECT * FROM student";
 $result = $conn->query($sql);
 
     date_default_timezone_set("Asia/Bangkok");
@@ -39,24 +38,35 @@ $result = $conn->query($sql);
     // output data of each row
     while($row = $result->fetch_assoc()) {*/
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+/* $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-        while($row = mysqli_fetch_array($result)){
+
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_SESSION['jobbroad']);
-    $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
+    $response = $bot->pushMessage(/*$row["LineId"]$pushID, $textMessageBuilder);
     if ($_SESSION['jobbroad'] != NULL){
         $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-        $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
-        }
+        $response = $bot->pushMessage(/*$row["LineId"]$pushID, $textMessageBuilder2);
+        } */
 
-    }
 //}
+//}
+if ($_SESSION['jobbroad'] != NULL){
+    while($row = $result->fetch_assoc()){
+        echo "Testbroadcast to LINE<br>";
+        echo "channelSecret : $channelSecret <br>";
+        echo "pushId : $row[std_l_id] <br>";    
+        echo "Text : $_SESSION[jobbroad] <br>";
+        echo "$broad<hr>";
+        
+    }
+}
+
 $conn->close();
 
-unset($_SESSION['jobbroad']);
-header("Location: HomePage_Sent.php");
-die();
-
+unset($_SESSION[jobbroad]);
+// header("Location: HomePage_Sent.php");
+// die();
+echo "<a href = 'HomePage_Sent.php'>Go Back </a>"
 
 ?>
  </body>

@@ -7,6 +7,7 @@
 date_default_timezone_set('Asia/Bangkok');
 
 include 'conn.php';
+session_start();
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

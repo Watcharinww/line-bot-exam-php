@@ -92,6 +92,13 @@ input[type=submit]:hover {
 
 <?php
 
+session_start();
+
+if($_SESSION['status'] != 'correct'){
+  header('location:index.php');
+  exit();
+}
+
 ?>
 
 <body>

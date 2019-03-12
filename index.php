@@ -1,3 +1,3 @@
 <?php
-header("Location:HomePage_Sent.php")
+header("Location:login.php")
 ?>
