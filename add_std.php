@@ -16,6 +16,8 @@ $std_UserId = $_POST['std_l_id'];
 $sql = "SELECT std_l_id
         FROM student";
 
+$result = $conn->query($sql);
+
 $result = mysqli_query($conn,$sql);
 while($row = myseli_fetch_array($sql)){
     if($std_UserId == $row['std_l_id']){
