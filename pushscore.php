@@ -51,7 +51,8 @@ $std_id = intval($_GET['sid']);
                 
             $conn->close();
             
-            echo '<script> window.opener.location.reload(true); window.close(); </script>';
+            //echo '<script> window.opener.location.reload(true); window.close(); </script>';
+            echo '<script> window.close(); </script>';
             //header('refresh:0; url=HomePage_Receive.php');
     ?>
 </body>
