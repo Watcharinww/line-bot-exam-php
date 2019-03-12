@@ -14,7 +14,7 @@ $std_y = $_POST['std_y'];
 $std_UserId = $_POST['std_l_id'];
 
 $sql = "SELECT std_l_id
-        FROM studen";
+        FROM student";
 
 $result = mysqli_query($conn,$sql);
 while($row = myseli_fetch_array($sql)){
