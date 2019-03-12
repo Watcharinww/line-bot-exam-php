@@ -69,7 +69,7 @@ while($row = mysqli_fetch_array($result_hw)) {
 }
 
 while($row = mysqli_fetch_array($result)){ 
-  $nw++;
+  $nw = $row['std_id'];
   echo "      <tr class='Detail'>";
   echo "        <td class='name' witdh = '40%'>".$row['std_name']." ".$row['std_l_name']."</td>";
   echo "        <td width = '20%'>";
