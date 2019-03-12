@@ -43,11 +43,11 @@ $std_id = intval($_GET['sid']);
             $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
             
                
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$pushscore/n$broad");
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$pushscore");
                 $response = $bot->pushMessage($id_l, $textMessageBuilder);
                
-                    // $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-                    // $response = $bot->pushMessage($id_l, $textMessageBuilder2);
+                    $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
+                    $response = $bot->pushMessage($id_l, $textMessageBuilder2);
                 
             $conn->close();
             
