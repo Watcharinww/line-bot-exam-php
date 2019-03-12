@@ -33,7 +33,7 @@ $std_id = intval($_GET['sid']);
         }
       
 
-        //$editscore = "คะแนนการบ้าน $name ของคุณคือ $hw_score";
+        $pushscore = "คะแนนการบ้าน $name ของคุณคือ $hw_score";
 
             date_default_timezone_set('Asia/Bangkok');
             $broad = "Edit Score At : ".date("H:i:sa - d/m/Y");
@@ -43,7 +43,7 @@ $std_id = intval($_GET['sid']);
             $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
             
                
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder(/*$editscore*/ 'TestPushScore');
+    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($pushscore);
                 $response = $bot->pushMessage($id_l, $textMessageBuilder);
                
                     $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
