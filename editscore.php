@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <style>
 
-.body{
+body{
 	height:600px;
 	width:600px;	
 	}
