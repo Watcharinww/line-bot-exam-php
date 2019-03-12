@@ -116,11 +116,13 @@ else if($message == "ฝันดี"){
 }
 
 #ให้ส่ง userId กลับมา
-else if($message == "userID"){
+else if($message == "register"){
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
 	$arrayPostData['messages'][0]['type'] = "text";
 	$arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
 	$arrayPostData['messages'][1]['text'] = "**คำเตือน สำคัญมาก ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด**";
+	$arrayPostData['messages'][2]['text'] = "เข้าลิงค์ข้างล่างเพื่อยืนยันตัวตนของท่าน";
+	$arrayPostData['messages'][1]['text'] = "http://chatcedkmutnb1.herokuapp.com/register.php";
 	replyMsg($arrayHeader,$arrayPostData);
 }
 
