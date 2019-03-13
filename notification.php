@@ -62,11 +62,14 @@
                                 homework.hw_date_r <= '$de'
                             order by anr.hw_id ASC;
                             ";
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
+                $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
                 $result_hw = mysqli_query($conn,$sql_hw);
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_d);
                 $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
-                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
-                $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_a);
+                $response = $bot->pushMessage($pushID, $textMessageBuilder);
+               
 
                  while($row = mysqli_fetch_array($result_hw)){
                 $txt_c = "$row[hw_name] ";
@@ -80,8 +83,7 @@
         }
         
         
-                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_a);
-                $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                
                 
 
         echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
