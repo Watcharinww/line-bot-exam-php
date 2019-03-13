@@ -16,6 +16,7 @@
         date_default_timezone_set('Asia/Bangkok');
 
         include 'conn.php';
+        $pushID = 'U1b80d09ffe5c7f746850ca99a023d30b';
 
             // $d = mktime(0,0,0,2,24,2019);
             // $da=strtotime("tomorrow");
@@ -23,16 +24,24 @@
             $ds = date('Y-m-d',strtotime('tomorrow'));
             $de = date('Y-m-d',strtotime('+2 days'));
 
+            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+            $bot = \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+
+
+            $txt = 'hello';
+
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt);
+            $response = $bot->pushMessage($pushID, $textMessageBuilder);
+
+
                 $sql_std = "SELECT *
                             FROM student
                             ";
             $result_std = mysqli_query($conn,$sql_std);
-            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-            $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+           
 
             while($row_std = mysqli_fetch_array($result_std)){
                 $std_id = $row_std['std_id'];
-                $l_id = 'U1b80d09ffe5c7f746850ca99a023d30b';
 
                 // echo $row_std['std_name']."|".$row_std['std_l_id']."<br>";
                 $sql_hw = "SELECT  *
@@ -54,32 +63,17 @@
                             ";
                  $result_hw = mysqli_query($conn,$sql_hw);
 
-                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('การบ้านที่ต้องส่งพรุ่งนี้คือ | ');
-                 $response = $bot->pushMessage($l_id, $textMessageBuilder);
-                //  echo "การบ้านที่ต้องส่งพรุ่งนี้คือ | ";
-            //     // $count = 0;
-            // while($row = mysqli_fetch_array($result_hw)){
-            //     //echo $row['hw_name'].":".$row['std_name'].":".$row['std_score']."<br>";
-            //     $msg =  "$row[hw_name] | ";
+            while($row = mysqli_fetch_array($result_hw)){
+                //echo $row['hw_name'].":".$row['std_name'].":".$row['std_score']."<br>";
                 
-            //     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
-            //     $response = $bot->pushMessage($l_id, $textMessageBuilder);
-            //     // $count++;
-            // }
-
-            // $message = "อย่าลืมทำส่งด้วยครับ ***หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง***";
-            // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-            // $response = $bot->pushMessage($l_id, $textMessageBuilder);
-            // echo "<br>อย่าลืมทำส่งด้วยครับ <br>";
-            // echo "**หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
-            // echo "<br>";
-            // echo "<hr>";
-            echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+                echo "การบ้านค้างที่มี : $row[hw_name]  เวลาที่ต้องส่ง : $row[hw_date_r] <br>";
+            }
+            echo "<hr>";
         }
 
+        echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
             $conn->close();
-            
         ?>
 
 
