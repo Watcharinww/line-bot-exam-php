@@ -23,19 +23,20 @@ while($row = $result->fetch_assoc()){
         Echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
                 window.location.href = 'register.php' </script>";
                 exit();
-    }else{
-        $sql_a = "INSERT INTO student(`std_name`,`std_l_name`,`std_year`,`std_l_id`)
-                    VALUE ('$std_name','$std_l_name','$std_y','$std_UserId')";
-        if($conn->query($sql_a) == TRUE) {        
-        Echo "<script> alert('ลงทะเบียนเสร็จสิ้น!'); 
-                window.location.href = 'register.php' </script>";
-                exit();
-            }else{
-                echo "ERROR: ".$conn->error."<br>";
-            }
+    }
 }
 
-}
+    $sql_a = "INSERT INTO student(`std_name`,`std_l_name`,`std_year`,`std_l_id`)
+                VALUE ('$std_name','$std_l_name','$std_y','$std_UserId')";
+    if($conn->query($sql_a) == TRUE) {        
+    Echo "<script> alert('ลงทะเบียนเสร็จสิ้น!'); 
+            window.close(); </script>";
+            exit();
+        }else{
+            echo "ERROR: ".$conn->error."<br>";
+        }
+
+
 
     $conn->close();
 ?>
