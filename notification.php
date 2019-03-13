@@ -33,7 +33,7 @@
 
           
 
-            echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+            
 
                 $sql_std = "SELECT *
                             FROM student
@@ -64,7 +64,7 @@
                             ";
                  $result_hw = mysqli_query($conn,$sql_hw);
                  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
-                    $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                 $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
             while($row = mysqli_fetch_array($result_hw)){
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_c);
@@ -76,7 +76,7 @@
         //     echo "<hr>";
         }
 
-        
+        echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
             $conn->close();
         ?>
