@@ -29,6 +29,7 @@
 
 
             $txt_c = "hello";
+            $txt_b = "test";
 
           
 
@@ -62,6 +63,8 @@
                             order by anr.hw_id ASC;
                             ";
                  $result_hw = mysqli_query($conn,$sql_hw);
+                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
+                    $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
             while($row = mysqli_fetch_array($result_hw)){
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_c);
