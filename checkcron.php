@@ -20,6 +20,8 @@
 
         $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('check corn');
         $response = $bot->pushMessage($pushID, $textMessageBuilder);
+        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('helloS');
+        $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
     ?>
