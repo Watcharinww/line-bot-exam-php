@@ -29,7 +29,7 @@
 
 
             // $txt_c = "คุณมงานค้า";
-            $txt_b = "คุณมีการบ้านที่ต้องส่งพรุ่งนี้คือ | ";
+            $txt_b = "!คุณมีการบ้านที่ต้องส่งพรุ่งนี้คือ!";
 
           
 
@@ -67,7 +67,7 @@
                  $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
 
             while($row = mysqli_fetch_array($result_hw)){
-                $txt_c = "$row[hw_name] |";
+                $txt_c = "$row[hw_name] ";
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_c);
                 $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
                 //echo $row['hw_name'].":".$row['std_name'].":".$row['std_score']."<br>";
