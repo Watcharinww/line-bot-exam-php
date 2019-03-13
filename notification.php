@@ -24,14 +24,14 @@
             $ds = date('Y-m-d',strtotime('tomorrow'));
             $de = date('Y-m-d',strtotime('+2 days'));
 
-            $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-            $bot = \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+            // $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+            // $bot = \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
             $txt = 'hello';
 
-            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt);
-            $response = $bot->pushMessage($pushID, $textMessageBuilder);
+            // $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt);
+            // $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
 
                 $sql_std = "SELECT *
@@ -71,7 +71,7 @@
             echo "<hr>";
         }
 
-        echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
+        // echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
             $conn->close();
         ?>
