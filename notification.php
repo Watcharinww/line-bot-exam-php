@@ -53,21 +53,21 @@
                             order by anr.hw_id ASC;
                             ";
                  $result_hw = mysqli_query($conn,$sql_hw);
-                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("การบ้านที่ต้องส่งพรุ่งนี้คือ | ");
+                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('การบ้านที่ต้องส่งพรุ่งนี้คือ | ');
                  $response = $bot->pushMessage($l_id, $textMessageBuilder);
                 //  echo "การบ้านที่ต้องส่งพรุ่งนี้คือ | ";
-                $count = 0;
+                // $count = 0;
             while($row = mysqli_fetch_array($result_hw)){
                 //echo $row['hw_name'].":".$row['std_name'].":".$row['std_score']."<br>";
-                // echo "$row[hw_name] | ";
-                $textMessageBuilder+$count = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$row[hw_name] |");
-                $response = $bot->pushMessage($l_id, $textMessageBuilder+$count);
-                $count++;
+                $msg =  "$row[hw_name] | ";
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($msg);
+                $response = $bot->pushMessage($l_id, $textMessageBuilder);
+                // $count++;
             }
 
             $message = "อย่าลืมทำส่งด้วยครับ ***หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง***";
-            $textMessageBuilder+$count = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-            $response = $bot->pushMessage($l_id, $textMessageBuilder2);
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
+            $response = $bot->pushMessage($l_id, $textMessageBuilder);
             // echo "<br>อย่าลืมทำส่งด้วยครับ <br>";
             // echo "**หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
             // echo "<br>";
