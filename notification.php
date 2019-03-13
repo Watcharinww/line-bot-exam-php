@@ -30,8 +30,8 @@
 
             // $txt_c = "คุณมงานค้า";
             $txt_b = "!คุณมีการบ้านที่ต้องส่งพรุ่งนี้คือ!";
-
-          
+            $txt_d = "**หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
+            $txt_a = "อย่าลืมส่งด้วยนะครับ";
 
             
 
@@ -62,11 +62,13 @@
                                 homework.hw_date_r <= '$de'
                             order by anr.hw_id ASC;
                             ";
-                 $result_hw = mysqli_query($conn,$sql_hw);
-                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
-                 $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
+                $result_hw = mysqli_query($conn,$sql_hw);
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_d);
+                $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
+                $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
 
-            while($row = mysqli_fetch_array($result_hw)){
+                 while($row = mysqli_fetch_array($result_hw)){
                 $txt_c = "$row[hw_name] ";
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_c);
                 $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
@@ -75,14 +77,12 @@
         //         echo "การบ้านค้างที่มี : $row[hw_name]  เวลาที่ต้องส่ง : $row[hw_date_r] <br>";
             }
         //     echo "<hr>";
-        $txt_a = "อย่าลืมส่งด้วยนะครับ";
-        $txt_d = "**หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
-                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_a);
-                $response = $bot->pushMessage($pushID, $textMessageBuilder);
-                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_d);
-                $response = $bot->pushMessage($pushID, $textMessageBuilder);
         }
         
+        
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_a);
+                $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                
 
         echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
