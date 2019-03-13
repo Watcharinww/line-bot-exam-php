@@ -28,7 +28,7 @@
             $bot = \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-            $txt = 'hello';
+            $txt = "hello";
 
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt);
             $response = $bot->pushMessage($pushID, $textMessageBuilder);
