@@ -75,13 +75,14 @@
         //         echo "การบ้านค้างที่มี : $row[hw_name]  เวลาที่ต้องส่ง : $row[hw_date_r] <br>";
             }
         //     echo "<hr>";
-        }
         $txt_a = "อย่าลืมส่งด้วยนะครับ";
         $txt_d = "**หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_a);
                 $response = $bot->pushMessage($pushID, $textMessageBuilder);
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_d);
                 $response = $bot->pushMessage($pushID, $textMessageBuilder);
+        }
+        
 
         echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
