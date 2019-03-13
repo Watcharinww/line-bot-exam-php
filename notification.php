@@ -64,7 +64,7 @@
                             ";
                 $result_hw = mysqli_query($conn,$sql_hw);
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_d);
-                $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
                 $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
 
