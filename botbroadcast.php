@@ -45,8 +45,8 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($_POST["Anou"]);
     $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
     if ($_POST["Anou"] != NULL){
-        $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-        $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
+        $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
+        $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
         }
 
     }
