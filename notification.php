@@ -16,6 +16,7 @@
         date_default_timezone_set('Asia/Bangkok');
 
         include 'conn.php';
+        require "vendor/autoload.php";
         // $pushID = 'U1b80d09ffe5c7f746850ca99a023d30b';
 
             // $d = mktime(0,0,0,2,24,2019);
