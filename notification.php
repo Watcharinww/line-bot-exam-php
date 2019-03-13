@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,12 +8,12 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <script src="main.js"></script>
 </head>
-<body>
+<body> -->
 
     
 
         <?
-        date_default_timezone_set('Asia/Bangkok');
+        // date_default_timezone_set('Asia/Bangkok');
 
         include 'conn.php';
         // require "vendor/autoload.php";
@@ -31,7 +31,7 @@
 
             $txt = "hello";
 
-            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$txt");
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt);
             $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
             echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
@@ -79,5 +79,5 @@
         ?>
 
 
-</body>
-</html>
+<!-- </body>
+</html> -->
