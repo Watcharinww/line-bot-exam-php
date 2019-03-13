@@ -76,8 +76,11 @@
             }
         //     echo "<hr>";
         }
-        $txt_a = "อย่าลืมส่งด้วยนะครับ **หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
+        $txt_a = "อย่าลืมส่งด้วยนะครับ";
+        $txt_d = "**หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_a);
+                $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_d);
                 $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
         echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
