@@ -14,7 +14,7 @@
 
         <?
         // date_default_timezone_set('Asia/Bangkok');
-
+        require "vendor/autoload.php";
         include 'conn.php';
         // require "vendor/autoload.php";
         // $pushID = 'U1b80d09ffe5c7f746850ca99a023d30b';
