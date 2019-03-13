@@ -31,7 +31,7 @@
 
             $txt = "hello";
 
-            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt);
+            $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt);            $response = $bot->pushMessage($pushID, $textMessageBuilder);
             $response = $bot->pushMessage($pushID, $textMessageBuilder);
             echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
