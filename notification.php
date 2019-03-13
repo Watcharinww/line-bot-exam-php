@@ -28,8 +28,8 @@
             $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-            $txt_c = "hello";
-            $txt_b = "test";
+            // $txt_c = "คุณมงานค้า";
+            $txt_b = "คุณมีการบ้านที่ต้องส่งพรุ่งนี้คือ | ";
 
           
 
@@ -64,17 +64,21 @@
                             ";
                  $result_hw = mysqli_query($conn,$sql_hw);
                  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
-                 $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                 $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
 
             while($row = mysqli_fetch_array($result_hw)){
+                $txt_c = "$row[hw_name] |";
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_c);
-                $response = $bot->pushMessage($pushID, $textMessageBuilder);
+                $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
                 //echo $row['hw_name'].":".$row['std_name'].":".$row['std_score']."<br>";
                 
         //         echo "การบ้านค้างที่มี : $row[hw_name]  เวลาที่ต้องส่ง : $row[hw_date_r] <br>";
             }
         //     echo "<hr>";
         }
+        $txt_a = "อย่าลืมส่งด้วยนะครับ **หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
+                $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_a);
+                $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
         echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
 
