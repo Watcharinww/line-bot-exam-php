@@ -77,6 +77,7 @@
 
 
             $conn->close();
+            echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
         ?>
 
 
