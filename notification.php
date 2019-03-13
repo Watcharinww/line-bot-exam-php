@@ -31,8 +31,8 @@
             $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
             while($row_std = mysqli_fetch_array($result_std)){
-                // $std_id = $row_std['std_id'];
-                $std_id = 'U1b80d09ffe5c7f746850ca99a023d30b';
+                $std_id = $row_std['std_id'];
+                $l_id = 'U1b80d09ffe5c7f746850ca99a023d30b';
 
                 // echo $row_std['std_name']."|".$row_std['std_l_id']."<br>";
                 $sql_hw = "SELECT  *
@@ -54,20 +54,20 @@
                             ";
                  $result_hw = mysqli_query($conn,$sql_hw);
                  $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("การบ้านที่ต้องส่งพรุ่งนี้คือ | ");
-                 $response = $bot->pushMessage($std_id, $textMessageBuilder);
+                 $response = $bot->pushMessage($l_id, $textMessageBuilder);
                 //  echo "การบ้านที่ต้องส่งพรุ่งนี้คือ | ";
                 $count = 0;
             while($row = mysqli_fetch_array($result_hw)){
                 //echo $row['hw_name'].":".$row['std_name'].":".$row['std_score']."<br>";
                 // echo "$row[hw_name] | ";
                 $textMessageBuilder+$count = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$row[hw_name] |");
-                $response = $bot->pushMessage($std_id, $textMessageBuilder+$count);
+                $response = $bot->pushMessage($l_id, $textMessageBuilder+$count);
                 $count++;
             }
 
             $message = "อย่าลืมทำส่งด้วยครับ ***หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง***";
             $textMessageBuilder+$count = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
-            $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder2);
+            $response = $bot->pushMessage($l_id, $textMessageBuilder2);
             // echo "<br>อย่าลืมทำส่งด้วยครับ <br>";
             // echo "**หากไม่มีบอก แสดงว่าไม่มีการบ้านที่ลืมส่ง**";
             // echo "<br>";
