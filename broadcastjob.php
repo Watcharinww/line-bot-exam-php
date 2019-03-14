@@ -54,7 +54,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 $conn->close();
 
 unset($_SESSION['jobbroad']);
-header("Location: HomePage_Sent.php");
+header("Location: index.php");
 die();
 
 

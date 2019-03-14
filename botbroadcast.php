@@ -53,7 +53,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 //}
 $conn->close();
 
-header("Location: HomePage_Sent.php");
+header("Location: index.php");
 die();
 
 

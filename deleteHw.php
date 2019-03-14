@@ -20,7 +20,7 @@
             echo "<script> alert('ลบ $name ไม่สำเร็จ') </script>";
              
         }
-        header('refresh:0; url=HomePage_Receive.php');
+        echo '<script> window.close(); </script>';
         $conn->close();
         // echo "<script> alert('$id') </script>";
     

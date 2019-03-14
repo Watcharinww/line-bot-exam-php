@@ -34,7 +34,7 @@ function p_alert(){
         
         if($pass == md5(md5($inpass))){
 			$_SESSION['status'] = 'correct';
-			echo "<script> window.alert('Welcome to Line-LMS'); window.location.href = 'HomePage_Sent.php'; </script>";			
+			echo "<script> window.alert('Welcome to Line-LMS'); window.location.href = 'index.php'; </script>";			
 			
 		}else{
     	    echo "<script>p_alert();</script>";
