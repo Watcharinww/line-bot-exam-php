@@ -21,7 +21,7 @@ include 'changepage.php'; ?>
         <script src="Time.js"></script>
         <div class='header-background'>
             <table width="100%" height="100%" border="0" ">
-            <tr><td class ='top-header'><span id=" date_time" class='header-time'></span>
+            <tr><td class ='top-header'><span id="date_time" class='header-time'></span>
                 <script type="text/javascript">
                     window.onload = date_time('date_time');
                 </script>
