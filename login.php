@@ -5,10 +5,10 @@
 <title>LINE-LMS</title>
 </head>
 <style>
-body{
+/* body{
 	text-align:center;
 	vertical-align:middle;	
-}
+} */
 </style>
 
 <body>
@@ -34,7 +34,7 @@ function p_alert(){
         
         if($pass == md5(md5($inpass))){
 			$_SESSION['status'] = 'correct';
-			echo "<script> window.alert('Welcome to Line-LMS'); window.location.href = 'index.php'; </script>";			
+			echo "<script> window.alert('Welcome to Line-LMS'); window.location.href = 'homepage.php'; </script>";			
 			
 		}else{
     	    echo "<script>p_alert();</script>";
@@ -44,11 +44,19 @@ function p_alert(){
 
 
 
+<table class='color-blue border' width='100%'>
+<tr>
+<td>
+<form action="<? echo $_SERVER['PHP_SELF'] ?>" method="POST" class='color-blue text-center' >
 
-<form action="<? echo $_SERVER['PHP_SELF'] ?>" method="POST" >
-<p>Welcome</p>
-Password :<input type="password" name="password"><br><br>
+<h1>Welcome</h1>
+<a class='font-xlarge'>Password :</a><input type="password" name="password">
 
-<input type="Submit"  value="Submit">
+<input type="Submit" class='login'  value="Submit">
+
+<br><br><br>
+</td>
+</tr>
+</table>
 </body>
 </html>

@@ -158,3 +158,11 @@ button{
     background-color: #92D5E8;
     font-size: medium;
 }
+
+input.login{
+    width: 90px;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: #197005;
+    font-size: medium;
+}
