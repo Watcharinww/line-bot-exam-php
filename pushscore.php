@@ -1,22 +1,14 @@
-<html>
+<script src='Time.js'></script>
 
-<head>
-    <script src='Time.js'></script>
-</head>
+<?
+$id = intval($_GET['id']);
+$std_id = intval($_GET['sid']);
 
-<body>
+require 'vendor/autoload.php';
 
-    <?
+include 'conn.php';
 
-
-    $id = intval($_GET['id']);
-    $std_id = intval($_GET['sid']);
-
-    require 'vendor/autoload.php';
-
-    include 'conn.php';
-
-    $sql = "  SELECT hw_name,std_score,std_l_id 
+$sql = "  SELECT hw_name,std_score,std_l_id 
                 FROM anr
                 join student
                 on anr.std_id = student.std_id  
@@ -26,37 +18,34 @@
                 ORDER by anr.hw_id , anr.std_id
                 ";
 
-    $result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
 
-    while ($row = mysqli_fetch_array($result)) {
-        $name = $row['hw_name'];
-        $hw_score = $row['std_score'];
-        $id_l = $row['std_l_id'];
-    }
-
-
-    $pushscore = "คะแนนการบ้าน $name ของคุณคือ $hw_score";
-
-    date_default_timezone_set('Asia/Bangkok');
-    $broad = "Edit Score At : " . date("H:i:sa - d/m/Y");
+while ($row = mysqli_fetch_array($result)) {
+    $name = $row['hw_name'];
+    $hw_score = $row['std_score'];
+    $id_l = $row['std_l_id'];
+}
 
 
-    $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
-    $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+$pushscore = "คะแนนการบ้าน $name ของคุณคือ $hw_score";
+
+date_default_timezone_set('Asia/Bangkok');
+$broad = "Edit Score At : " . date("H:i:sa - d/m/Y");
 
 
-    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$pushscore");
-    $response = $bot->pushMessage($id_l, $textMessageBuilder);
-
-    $textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
-    $response = $bot->pushMessage($id_l, $textMessageBuilder2);
-
-    $conn->close();
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 
-    echo '<script> window.close(); </script>';
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("$pushscore");
+$response = $bot->pushMessage($id_l, $textMessageBuilder);
 
-    ?>
-</body>
+$textMessageBuilder2 = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($broad);
+$response = $bot->pushMessage($id_l, $textMessageBuilder2);
 
-</html> 
+$conn->close();
+
+
+echo '<script> window.close(); </script>';
+
+?> 
