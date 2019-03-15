@@ -14,12 +14,12 @@ $result = $conn->query($sql);
 $nw = 0;
 
 while ($row = $result->fetch_assoc()) {
-  $hw_id[$nw] = $row["hw_id"];
-  $hw_n[$nw] = $row["hw_name"];
-  $std_n[$nw] = $row["std_name"];
-  $std_score[$nw] = $row["std_score"];
-  $hw_status[$nw] = $row['hw_status'];
-  $nw++;
+    $hw_id[$nw] = $row["hw_id"];
+    $hw_n[$nw] = $row["hw_name"];
+    $std_n[$nw] = $row["std_name"];
+    $std_score[$nw] = $row["std_score"];
+    $hw_status[$nw] = $row['hw_status'];
+    $nw++;
 }
 
 $sql = "SELECT *
@@ -29,29 +29,14 @@ $result_hw = $conn->query($sql);
 $nw = 0;
 while ($row = $result_hw->fetch_assoc()) {
 
-  $hw_id_hw[$nw] = $row["hw_id"];
-  $hw_name_hw[$nw] = $row["hw_name"];
-  $hw_date_s[$nw] = $row["hw_date_s"];
-  $hw_date_r[$nw] = $row["hw_date_r"];
-  $nw++;
+    $hw_id_hw[$nw] = $row["hw_id"];
+    $hw_name_hw[$nw] = $row["hw_name"];
+    $hw_date_s[$nw] = $row["hw_date_s"];
+    $hw_date_r[$nw] = $row["hw_date_r"];
+    $nw++;
 }
 
 $conn->close();
-
-if (isset($_GET['delete'])) {
-  $id = intval($_GET['id']);
-
-  $name = strval($_GET['name']);
-
-  deleteHw($id, $name);
-}
-
-function deleteHw($id, $name)
-{
-  require 'deleteHw.php';
-  test($id, $name);
-}
-
 ?>
 
 <script>
@@ -104,15 +89,16 @@ function deleteHw($id, $name)
                         <?php
                         $conut = 0;
                         for ($i = 0; $i < $result_hw->num_rows; $i++) {
-                          echo "<table border = '0' width = '100%'><tr><td align = 'center' class='border-bottom-list'>";
-                          echo "<a href = 'javascript:showUser($hw_id_hw[$i],($i+1))'>";
-                          echo ($i + 1) . " " . $hw_name_hw[$i];
-                          echo "</a>";
-                          $name = $hw_name_hw[$i];
-                          echo "</td><td width = '10%' align = 'right'>";
-                          echo "<a class='border-close' onclick=\"javascript: return window.confirm('คุณต้องการจะลบการบ้าน $name ใช่หรือไม่?');\" href = 'deleteHw.php?id=$hw_id_hw[$i]&name=$name' > X </a>";
-                          echo "</td></tr></table>";
-                          $count++;
+                            echo "<table border = '0' width = '100%'><tr><td align = 'center' class='border-bottom-list'>";
+                            echo "<a href = 'javascript:showUser($hw_id_hw[$i],($i+1))'>";
+                            echo ($i + 1) . " " . $hw_name_hw[$i];
+                            echo "</a>";
+                            $name = $hw_name_hw[$i];
+                            echo "</td><td width = '10%' align = 'right'>";
+                            echo "<a class='border-close' onclick=\"javascript: return window.confirm('คุณต้องการจะลบการบ้าน $name ใช่หรือไม่?');\"
+                                    href = 'deleteHw.php?id=$hw_id_hw[$i]&name=$name' > X </a>";
+                            echo "</td></tr></table>";
+                            $count++;
                         }
                         ?>
 

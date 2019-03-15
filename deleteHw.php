@@ -22,5 +22,4 @@ function test($id, $name)
     }
     header('refresh:0; url=index.php');
     $conn->close();
-    // echo "<script> alert('$id') </script>";
 }
