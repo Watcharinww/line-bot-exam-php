@@ -18,25 +18,25 @@ $sql = "SELECT std_l_id
 
 $result = $conn->query($sql);
 
-while($row = $result->fetch_assoc()){
-    if($std_UserId == $row['std_l_id']){
-        Echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
+while ($row = $result->fetch_assoc()) {
+    if ($std_UserId == $row['std_l_id']) {
+        echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
                 window.location.href = 'register.php' </script>";
-                exit();
+        exit();
     }
 }
 
-    $sql_a = "INSERT INTO student(`std_name`,`std_l_name`,`std_year`,`std_l_id`)
+$sql_a = "INSERT INTO student(`std_name`,`std_l_name`,`std_year`,`std_l_id`)
                 VALUE ('$std_name','$std_l_name','$std_y','$std_UserId')";
-    if($conn->query($sql_a) == TRUE) {        
-    Echo "<script> alert('ลงทะเบียนเสร็จสิ้น!'); 
+if ($conn->query($sql_a) == true) {
+    echo "<script> alert('ลงทะเบียนเสร็จสิ้น!'); 
             window.close(); </script>";
-            exit();
-        }else{
-            echo "ERROR: ".$conn->error."<br>";
-        }
+    exit();
+} else {
+    echo "ERROR: " . $conn->error . "<br>";
+}
 
 
 
-    $conn->close();
-?>
+$conn->close();
+ 

@@ -1,6 +1,3 @@
-<html>
-<head></head>
-<body>
 <script type="text/javascrip" src="Time.js"></script>
 <?php
 
@@ -11,7 +8,7 @@ session_start();
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
 $sql_hw = "SELECT hw_id 
             FROM homework 
@@ -26,21 +23,21 @@ $_SESSION['jobbroad'] = $_SESSION['jobbroad'];
 
 
 
-while($row_hw = $hw_id->fetch_assoc()){
-    while($row_std = $std_id->fetch_assoc()){
+while ($row_hw = $hw_id->fetch_assoc()) {
+    while ($row_std = $std_id->fetch_assoc()) {
         $sqlanr = "INSERT INTO anr(hw_id,t_id,std_id)
                     VALUE ($row_hw[hw_id],1,$row_std[std_id])";
-                    if ($conn->query($sqlanr) == TRUE) {
-                        header("Location: broadcastjob.php");
-                    } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
-                        die();
-                    }
+        if ($conn->query($sqlanr) == true) {
+            header("Location: broadcastjob.php");
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+            die();
+        }
     }
 }
 
 
-die();  
+die();
 
 
 

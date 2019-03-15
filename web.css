@@ -1,157 +1,153 @@
-body{
+body {
     width: 99%;
-    
 }
 
-.body-size{
+.body-size {
     height: 600px;
 }
 
-.text-center{
+.text-center {
     text-align: center;
 }
-.header-background{    
+
+.header-background {
     background: #00C400;
 }
 
-.header-time{
-    background:#C5FFFB;
+.header-time {
+    background: #C5FFFB;
     border-radius: 15px;
     padding: 5px;
     font-size: x-large;
 }
 
-.bold{
+.bold {
     font-weight: bolder;
 }
 
-.footer{
+.footer {
     background: #00C400;
     height: 100%;
     width: 100%;
     padding: 5px;
 }
 
-.font-footer{
-    color:whitesmoke;
+.font-footer {
+    color: whitesmoke;
     font-size: medium;
 }
 
-.header{    
+.header {
     width: 100%;
     height: 80px;
-    border: 15px solid white ;
+    border: 15px solid white;
     padding: 10px;
-    /* margin: 30px;    */
-    /* background: #3DF382; */
 }
-.top-header{
+
+.top-header {
     height: 30px;
     text-align: left;
 }
 
-.main-padding{
+.main-padding {
     padding: 5px;
     width: 150px;
     height: 90px;
-    
 }
 
-.breting{
+.breting {
     animation: breting;
     animation-duration: 5s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-timing-function: ease;
-    /* animation-direction: alternate; */
 }
 
-@keyframes breting{ 
-    from{opacity: 0;}    
-    to{text-opacity: 1;}
+@keyframes breting {
+    from {
+        opacity: 0;
+    }
+    to {
+        text-opacity: 1;
+    }
 }
 
-.font-xlarge{
+.font-xlarge {
     font-size: x-large;
 }
 
-.font-xxlarge{
+.font-xxlarge {
     font-size: xx-large;
 }
 
 .head-font {
-    color:whitesmoke;
+    color: whitesmoke;
     font-size: xx-large;
-    text-align: center; 
+    text-align: center;
 }
 
-.container{
+.container {
     align-content: center;
-    width:100%;
-    /* border: 1px solid black ; */
-    /* padding: 30px;  */
+    width: 100%;
 }
 
-.font-color-hardgreen{
-    color:#003D1D;
+.font-color-hardgreen {
+    color: #003D1D;
 }
-.color-blue{
+
+.color-blue {
     background: #9AD4FF;
 }
 
-.border{
-    border:5px solid #154C16;
+.border {
+    border: 5px solid #154C16;
     border-radius: 10px;
     padding: 10px;
 }
 
-.padding{
+.padding {
     padding: 15px;
 }
 
-.border-bottom{
+.border-bottom {
     border-bottom: 5px solid #154C16;
 }
 
-.border-bottom-list{
+.border-bottom-list {
     border-bottom: 3px solid #154C16;
 }
 
-a:link{
+a:link {
     color: black;
 }
 
-.border-close{
+.border-close {
     border: 3px dotted red;
     padding: 4px;
 }
 
-
-
-
-input{
+input {
     width: 300px;
     padding: 10px;
     border-radius: 15px;
     background-color: #EBFFF5;
 }
 
-input[type = number]{
+input[type=number] {
     width: 100px;
-    
 }
 
-input[type = date]{
-    width: 120px;   
+input[type=date] {
+    width: 120px;
 }
 
-input[type = submit]{
-    background-color:#197005;
+input[type=submit] {
+    background-color: #197005;
     font-size: large;
-    color:whitesmoke;
+    color: whitesmoke;
 }
 
-button{
+button {
     width: 100px;
     padding: 5px;
     border-radius: 15px;
@@ -159,7 +155,7 @@ button{
     font-size: medium;
 }
 
-input.login{
+input.login {
     width: 90px;
     padding: 5px;
     border-radius: 15px;
