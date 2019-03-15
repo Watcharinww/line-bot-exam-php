@@ -3,6 +3,11 @@
 </head>
 <body>
     <?
+    $id = intval($_GET['id']);
+    $name = strval($_GET['name']);
+    
+    test($id,$name);
+    
     function test($id,$name){
         include 'conn.php';
         $sql = "DELETE 
