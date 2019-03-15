@@ -8,8 +8,6 @@
 $q = intval($_GET['q']);
 $n = intval($_GET['n']);
 
-
-
 include 'conn.php';
 
 $sql = "  SELECT * 

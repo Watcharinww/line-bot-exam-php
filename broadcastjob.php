@@ -30,5 +30,3 @@ $conn->close();
 unset($_SESSION['jobbroad']);
 header("Location: index.php");
 die();
-
-

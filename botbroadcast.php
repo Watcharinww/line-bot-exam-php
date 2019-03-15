@@ -29,5 +29,3 @@ $conn->close();
 
 header("Location: index.php");
 die();
-
-

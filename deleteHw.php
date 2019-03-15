@@ -24,5 +24,3 @@ function test($id, $name)
     $conn->close();
     // echo "<script> alert('$id') </script>";
 }
-
-

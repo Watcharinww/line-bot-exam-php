@@ -1,7 +1,5 @@
 <footer>
 
-
-
     <table class='footer text-center font-footer' border:none>
         <tr>
             <td>Deverlop : Watcharin Wiangwised</td>
@@ -12,10 +10,7 @@
             <td colspan='3'> &copy; 2019-<?php echo date("Y"); ?> </td>
         </tr>
     </table>
-
-
-
-
+    
 </footer>
 
 </body>
