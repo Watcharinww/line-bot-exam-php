@@ -131,7 +131,7 @@ function showUser(str,num) {
                 echo "</a>";
                 $name = $hw_name_hw[$i];
                 echo "</td><td width = '10%' align = 'right'>";
-                echo "<a class='border-close' onclick=\"javascript: return window.confirm('คุณต้องการจะลบการบ้าน $name ใช่หรือไม่?');\" href = 'deleteHW.php?id=$hw_id_hw[$i]&name=$name' > X </a>";
+                echo "<a class='border-close' onclick=\"javascript: return window.confirm('คุณต้องการจะลบการบ้าน $name ใช่หรือไม่?');\" href = 'deleteHw.php?id=$hw_id_hw[$i]&name=$name' > X </a>";
                 echo "</td></tr></table>";
                 
                 $count++;   
