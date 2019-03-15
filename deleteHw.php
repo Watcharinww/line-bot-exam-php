@@ -20,7 +20,7 @@
             echo "<script> alert('ลบ $name ไม่สำเร็จ') </script>";
              
         }
-        echo '<script> window.close(); </script>';
+        header('refresh:0; url=index.php');
         $conn->close();
         // echo "<script> alert('$id') </script>";
     
