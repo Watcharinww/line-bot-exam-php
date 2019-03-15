@@ -18,7 +18,7 @@
         include 'conn.php';
         // $pushID = 'U1b80d09ffe5c7f746850ca99a023d30b';
 
-            $d = mktime(0,0,0,2,24,2019);
+            //$d = mktime(0,0,0,2,24,2019);
             $da=strtotime("tomorrow");
             $db=strtotime('+2 days');
             $ds = date('Y-m-d',strtotime('tomorrow'));
@@ -63,12 +63,13 @@
                             order by anr.hw_id ASC;
                             ";
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_b);
-                $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
-                $result_hw = mysqli_query($conn,$sql_hw);
+                $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);               
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_d);
                 $response = $bot->pushMessage($row_std['std_l_id'], $textMessageBuilder);
                 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($txt_a);
                 $response = $bot->pushMessage($pushID, $textMessageBuilder);
+
+                $result_hw = mysqli_query($conn,$sql_hw);
                
 
                  while($row = mysqli_fetch_array($result_hw)){
