@@ -40,7 +40,7 @@ $conn->close();
 ?>
 
 <script>
-    function showUser(str, num) {
+    function showHomework(str, num) {
         if (str == "") {
             document.getElementById("txtHint").innerHTML = "";
             return;
@@ -90,7 +90,7 @@ $conn->close();
                         $conut = 0;
                         for ($i = 0; $i < $result_hw->num_rows; $i++) {
                             echo "<table border = '0' width = '100%'><tr><td align = 'center' class='border-bottom-list'>";
-                            echo "<a href = 'javascript:showUser($hw_id_hw[$i],($i+1))'>";
+                            echo "<a href = 'javascript:showHomework($hw_id_hw[$i],($i+1))'>";
                             echo ($i + 1) . " " . $hw_name_hw[$i];
                             echo "</a>";
                             $name = $hw_name_hw[$i];
