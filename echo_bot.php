@@ -79,14 +79,14 @@ if (!is_null($events['events'])) {
                                     'layout' => 'horizontal',
                                     'contents' => [
                                         [
-                                            'type' => 'text',
-                                            'text' => 'Testleft',
-                                            'flex' => 0
+                                            ' type ' => ' text ',
+                                            ' text ' => ' Testleft ',
+                                            ' flex ' => 0
                                         ],
                                         [
-                                            'type' => 'text',
-                                            'text' => 'testright',
-                                            'align' => 'end'
+                                            ' type ' => ' text ',
+                                            ' text ' => ' testright ',
+                                            ' align ' => ' end '
                                         ]
                                     ]
                                 ]
@@ -98,10 +98,8 @@ if (!is_null($events['events'])) {
 
             // Make a POST Request to Messaging API to reply to sender
 
-            $url = 'https://api.line.me/v2/bot/message/reply';
-
+            $url = ' https: //api.line.me/v2/bot/message/reply';
             $data = [
-
                 'replyToken' => $replyToken,
 
                 'messages' => [$messages],
