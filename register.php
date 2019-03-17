@@ -14,7 +14,18 @@
 </style>
 <?php
     $userId = strval($_GET['id']);
+    $sql = "SELECT std_l_id
+            FROM student";
 
+    $result = $conn->query($sql);
+
+    while ($row = $result->fetch_assoc()) {
+        if ($userId == $row['std_l_id']) {
+            echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
+                    window.location.href = 'register.php' </script>";
+            exit();
+    }
+}
 ?>
 <body>
     <form action="add_std.php">
@@ -54,7 +65,7 @@
                         <label for="name"><b>UserId</b></label>
                     </td>
                     <td>
-                        <input type="password" placeholder="UserId" name="std_l_id" value=<?php echo $userId ?> required><br>
+                        <input disabled type="password" placeholder="UserId" name="std_l_id" value=<?php echo $userId ?> required><br>
                     </td>
             </table>
             <hr>
