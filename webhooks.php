@@ -67,7 +67,7 @@ if (!is_null($events['events'])) {
 											'text' => '**คำเตือน สำคัญมาก**',
 											'size' => 'xl',
 											'margin' => 'xxl',
-											'algin' => 'center'
+											'align' => 'center'
 										],
 										[
 											'type' => 'text',
@@ -82,14 +82,20 @@ if (!is_null($events['events'])) {
 										],
 										[
 											'type' => 'text',
-											'text' => $event['source']['userId']
+											'text' => $event['source']['userId'],
+											'margin' => 'xl',
+											'align' => 'center'
+										],
+										[
+											'type' => 'separator',
+											'margin' => 'xl'
 										],
 										[
 											'type' => 'button',
 											'action' => [
-												'type' => 'url',
-												'lable' => 'Regist',
-												'url' => 'http://chatcedkmutnb1.herokuapp.com/register.php'
+												'type' => 'uri',
+												'label' => 'Regist',
+												'uri' => 'http://chatcedkmutnb1.herokuapp.com/register.php'
 											]
 										]
 
