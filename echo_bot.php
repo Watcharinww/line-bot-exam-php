@@ -66,6 +66,15 @@ if (!is_null($events['events'])) {
                                 'weight' => 'bold',
                                 'color' => '#1DB446',
                                 'size' => 'xxl'
+                            ],
+                            [
+                                'type' => 'separator',
+                                'margin' => 'l'
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => 'Testing',
+                                'size' => 's'
                             ]
                         ]
                     ]
