@@ -12,7 +12,10 @@
         text-align: center;
     }
 </style>
+<?php
+    $userId = $_GET['id'];
 
+?>
 <body>
     <form action="add_std.php">
         <div class="container">
@@ -51,7 +54,7 @@
                         <label for="name"><b>UserId</b></label>
                     </td>
                     <td>
-                        <input type="password" placeholder="UserId" name="std_l_id" required><br>
+                        <input type="password" placeholder="UserId" name="std_l_id" value="<?php $userId ?>" required><br>
                     </td>
             </table>
             <hr>

@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
 				];
 			} else if ($event['message']['text'] == "register") {
 				$messages = [
-					[
+					
 						'type' => 'flex',
 						'altText' => 'Register',
 						'contents' => [
@@ -86,7 +86,7 @@ if (!is_null($events['events'])) {
 												'action' => [
 													'type' => 'uri',
 													'label' => 'Regist',
-													'uri' => 'http://chatcedkmutnb1.herokuapp.com/register.php'
+													'uri' => 'http://chatcedkmutnb1.herokuapp.com/register.php?id='.$event['source']['userId']
 												]
 											]
 
@@ -95,11 +95,7 @@ if (!is_null($events['events'])) {
 								]
 							]
 						]
-					],
-					[
-						'type' => 'text',
-						'text' => $event['source']['userId']
-					]
+					
 				];
 			} else {
 
@@ -110,7 +106,7 @@ if (!is_null($events['events'])) {
 				$messages = [
 
 					'type' => 'text',
-					'text' => $event['message']['text']
+					'text' => 'user = '.$event['message']['text']
 				];
 			}
 			// Get replyToken
