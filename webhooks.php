@@ -31,10 +31,10 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => 'ก็จะทดลองทำไมอะ'
 				];
-			} else if ($event['message']['text'] == "ทดลองflex") {
+			} else if ($event['message']['text'] == "register") {
 				$messages = [
 					'type' => 'flex',
-					'altText' => 'alt test',
+					'altText' => 'Register',
 					'contents' => [
 						'type' => 'bubble',
 						'styles' => [
@@ -48,9 +48,10 @@ if (!is_null($events['events'])) {
 							'contents' => [
 								[
 									'type' => 'text',
-									'text' => 'Hello',
+									'text' => 'REGISTER',
 									'weight' => 'bold',
 									'color' => '#1DB446',
+									'align' => 'center',
 									'size' => 'xxl'
 								],
 								[
@@ -63,17 +64,33 @@ if (!is_null($events['events'])) {
 									'contents' => [
 										[
 											'type' => 'text',
-											'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
-											'size' => 'sm',
+											'text' => '**คำเตือน สำคัญมาก**',
+											'size' => 'xl',
 											'margin' => 'xxl',
-											'maxLines' => 0
+											'algin' => 'center'
 										],
 										[
 											'type' => 'text',
-											'text' => '20.30 19/18/30',
+											'text' => 'ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด',
 											'size' => 'sm',
-											'align' => 'end'
+											'align' => 'center'
 
+										],
+										[
+											'type' => 'separator',
+											'margin' => 'xl'
+										],
+										[
+											'type' => 'text',
+											'text' => $event['source']['userId']
+										],
+										[
+											'type' => 'button',
+											'action' => [
+												'type' => 'url',
+												'lable' => 'Regist',
+												'url' => 'http://chatcedkmutnb1.herokuapp.com/register.php'
+											]
 										]
 
 									]
@@ -81,12 +98,7 @@ if (!is_null($events['events'])) {
 							]
 						]
 					]
-				];
-			}else if ($event['message']['text'] == "ทดลองdata") {
-				$userId = $event['source']['userId'];
-				include 'testpushid.php';
-				push($userId);
-				continue;
+				];			
 			} else {
 
 				// Get text sent
