@@ -21,9 +21,16 @@ $message = $arrayJson['events'][0]['message']['text'];
 
 #ตัวอย่าง Message Type "Text"
 if ($message == "สวัสดี") {
-	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+	// $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	// $arrayPostData['messages'][0]['type'] = "text";
+	// $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+	$arrayPostData=[
+		'replyToken' => $arrayJson['event'][0]['replyToken'],
+		'messages' => [
+			'type' => 'text',
+			'text' => 'สวัสดีจ้าาา'
+		]
+	];
 	replyMsg($arrayHeader, $arrayPostData);
 }
 #ตัวอย่าง Message Type "Sticker"
@@ -36,18 +43,18 @@ else if ($message == "ฝันดี") {
 }
 
 #ให้ส่ง userId กลับมา
-else if ($message == "register") {
-	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
-	$arrayPostData['messages'][1]['type'] = "text";
-	$arrayPostData['messages'][1]['text'] = "**คำเตือน สำคัญมาก ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด**";
-	$arrayPostData['messages'][2]['type'] = "text";
-	$arrayPostData['messages'][2]['text'] = "เข้าลิงค์ข้างล่างเพื่อยืนยันตัวตนของท่าน";
-	$arrayPostData['messages'][3]['type'] = "text";
-	$arrayPostData['messages'][3]['text'] = "http://chatcedkmutnb1.herokuapp.com/register.php";
-	replyMsg($arrayHeader, $arrayPostData);
-}
+// else if ($message == "register") {
+// 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+// 	$arrayPostData['messages'][0]['type'] = "text";
+// 	$arrayPostData['messages'][0]['text'] = $arrayJson['events'][0]['source']['userId'];
+// 	$arrayPostData['messages'][1]['type'] = "text";
+// 	$arrayPostData['messages'][1]['text'] = "**คำเตือน สำคัญมาก ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด**";
+// 	$arrayPostData['messages'][2]['type'] = "text";
+// 	$arrayPostData['messages'][2]['text'] = "เข้าลิงค์ข้างล่างเพื่อยืนยันตัวตนของท่าน";
+// 	$arrayPostData['messages'][3]['type'] = "text";
+// 	$arrayPostData['messages'][3]['text'] = "http://chatcedkmutnb1.herokuapp.com/register.php";
+// 	replyMsg($arrayHeader, $arrayPostData);
+// }
 
 #ตัวอย่าง Message Type "Image"
 else if ($message == "รูปน้องแมว") {
