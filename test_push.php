@@ -31,9 +31,9 @@ $accessToken = $access_token; //copy ข้อความ Channel access token 
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
-//    $arrayHeader = array();
-//    $arrayHeader[] = "Content-Type: application/json";
-//    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+   $arrayHeader = array();
+   $arrayHeader[] = "Content-Type: application/json";
+   $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
 $arrayHeader = array(
     'Content-Type : application/json',
@@ -44,11 +44,11 @@ $arrayHeader = array(
 $message = $arrayJson['events'][0]['message']['text'];
 
 //รับ id ของผู้ใช้
-//    $id = $arrayJson['events'][0]['source']['userId'];
+   $id = $arrayJson['events'][0]['source']['userId'];
 
 #ตัวอย่าง Message Type "Text + Sticker"
 if ($message == "สวัสดี") {
-    $arrayPostData['to'] = $pushId;
+    $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
     $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
     $arrayPostData['messages'][1]['type'] = "sticker";
@@ -57,7 +57,7 @@ if ($message == "สวัสดี") {
     pushMsg($arrayHeader, $arrayPostData);
 } else {
     $message = [
-        'to' => $pushId,
+        'to' => $id,
         'messages' => [
             'type' => 'text',
             'text' => 'สวัสดี'
