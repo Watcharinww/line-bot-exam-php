@@ -68,6 +68,10 @@ if (!is_null($events['events'])) {
                                 'size' => 'xxl'
                             ],
                             [
+                                'type' => 'separator',
+                                'margin' => 'xxl'
+                            ],
+                            [
                                 'type' => 'box',
                                 'layout' => 'vertical',
                                 'contents' => [
@@ -76,7 +80,8 @@ if (!is_null($events['events'])) {
                                     'contents' => [
                                         [
                                             'type' => 'text',
-                                            'text' => 'Testleft'
+                                            'text' => 'Testleft',
+                                            'flex' => 0
                                         ],
                                         [
                                             'type' => 'text',
