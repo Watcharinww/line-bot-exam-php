@@ -43,9 +43,49 @@ if (!is_null($events['events'])) {
 
             $messages = [
 
-                'type' => 'text',
+                // 'type' => 'text',
 
-                'text' => $text
+                // 'text' => $text
+
+                'type' => 'flex',
+                'altText' => 'alt test',
+                'contents' => [
+                    'type' => 'bubble',
+                    'body' => [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => [
+                            [
+                                'type' => 'text',
+                                'text' => 'Hello,'
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => 'World!'
+                            ]
+                        ]
+                    ]
+                ],
+                'quickReply' => [
+                    'items' => [
+                        [
+                            'type' => 'action',
+                            'action' => [
+                                'type' => 'message',
+                                'label' => 'reply1',
+                                'text' => 'Reply1'
+                            ]
+                        ],
+                        [
+                            'type' => 'action',
+                            'action' => [
+                                'type' => 'message',
+                                'label' => 'reply2',
+                                'text' => 'Reply2'
+                            ]
+                        ]
+                    ]
+                ]
 
             ];
 
