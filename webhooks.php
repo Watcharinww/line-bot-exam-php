@@ -17,122 +17,122 @@ $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 
-    // Loop through each event
+	// Loop through each event
 
-    foreach ($events['events'] as $event) {
+	foreach ($events['events'] as $event) {
 
-        // Reply only when message sent is in 'text' format
+		// Reply only when message sent is in 'text' format
 
-        if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-
-
-            if ($event['message']['text'] == "ทดลอง") {
-                $text = "ก็จะทดลองทำไมอะ";
-            } else {
-
-                // Get text sent
-
-                // $text = $event['source']['userId'];
-                $text = $event['message']['text'];
-            }
-            // Get replyToken
-
-            $replyToken = $event['replyToken'];
-
-            // Build message to reply back
-
-            $messages = [
-
-                'type' => 'text',
-
-                'text' => $text
-
-                // 'type' => 'flex',
-                // 'altText' => 'alt test',
-                // 'contents' => [
-                //     'type' => 'bubble',
-                //     'styles' => [
-                //         'footer' => [
-                //             'separator' => true
-                //         ]
-                //     ],
-                //     'body' => [
-                //         'type' => 'box',
-                //         'layout' => 'vertical',
-                //         'contents' => [
-                //             [
-                //                 'type' => 'text',
-                //                 'text' => 'Hello',
-                //                 'weight' => 'bold',
-                //                 'color' => '#1DB446',
-                //                 'size' => 'xxl'
-                //             ],
-                //             [
-                //                 'type' => 'separator',
-                //                 'margin' => 'xl'
-                //             ],
-                //             [
-                //                 'type' => 'box',
-                //                 'layout' => 'vertical',
-                //                 'contents' => [
-                //                     [
-                //                         'type' => 'text',
-                //                         'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
-                //                         'size' => 'sm',
-                //                         'margin' => 'xxl',
-                //                         'maxLines' => 0
-                //                     ],
-                //                     [
-                //                         'type' => 'text',
-                //                         'text' => '20.30 19/18/30',
-                //                         'size' => 'sm',
-                //                         'align' => 'end'
-        
-                //                     ]
-                                    
-                //                 ]
-                //             ]
-                //         ]
-                //     ]
-                // ]
-            ];
-
-            // Make a POST Request to Messaging API to reply to sender
-
-            $url = 'https://api.line.me/v2/bot/message/reply';
-
-            $data = [
-
-                'replyToken' => $replyToken,
-
-                'messages' => [$messages],
-
-            ];
-        }
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 
 
-        $post = json_encode($data);
+			if ($event['message']['text'] == "ทดลอง") {
+				$messages = [
+					'type' => 'text',
+					'text' => 'ก็จะทดลองทำไมอะ'
+				];
+			} else {
 
-        $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+				// Get text sent
 
-        $ch = curl_init($url);
+				// $text = $event['source']['userId'];
 
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+				$messages = [
 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					'type' => 'text',
+					'text' => $event['message']['text']
+				];
+			}
+			// Get replyToken
 
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			$replyToken = $event['replyToken'];
 
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			// Build message to reply back			
+				// 'type' => 'flex',
+				// 'altText' => 'alt test',
+				// 'contents' => [
+				//     'type' => 'bubble',
+				//     'styles' => [
+				//         'footer' => [
+				//             'separator' => true
+				//         ]
+				//     ],
+				//     'body' => [
+				//         'type' => 'box',
+				//         'layout' => 'vertical',
+				//         'contents' => [
+				//             [
+				//                 'type' => 'text',
+				//                 'text' => 'Hello',
+				//                 'weight' => 'bold',
+				//                 'color' => '#1DB446',
+				//                 'size' => 'xxl'
+				//             ],
+				//             [
+				//                 'type' => 'separator',
+				//                 'margin' => 'xl'
+				//             ],
+				//             [
+				//                 'type' => 'box',
+				//                 'layout' => 'vertical',
+				//                 'contents' => [
+				//                     [
+				//                         'type' => 'text',
+				//                         'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
+				//                         'size' => 'sm',
+				//                         'margin' => 'xxl',
+				//                         'maxLines' => 0
+				//                     ],
+				//                     [
+				//                         'type' => 'text',
+				//                         'text' => '20.30 19/18/30',
+				//                         'size' => 'sm',
+				//                         'align' => 'end'
 
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				//                     ]
 
-        $result = curl_exec($ch);
+				//                 ]
+				//             ]
+				//         ]
+				//     ]
+				// ]			
 
-        curl_close($ch);
+			// Make a POST Request to Messaging API to reply to sender
 
-        echo $result . "\r\n";
-    }
+			$url = 'https://api.line.me/v2/bot/message/reply';
+
+			$data = [
+
+				'replyToken' => $replyToken,
+
+				'messages' => [$messages],
+
+			];
+		}
+
+
+		$post = json_encode($data);
+
+		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+		$ch = curl_init($url);
+
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+
+		$result = curl_exec($ch);
+
+		curl_close($ch);
+
+		echo $result . "\r\n";
+	}
 }
 
 echo "OK";
