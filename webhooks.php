@@ -31,6 +31,57 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => 'ก็จะทดลองทำไมอะ'
 				];
+			} else if ($event['message']['text'] == "ทดลองflex") {
+				$messages = [
+					'type' => 'flex',
+					'altText' => 'alt test',
+					'contents' => [
+						'type' => 'bubble',
+						'styles' => [
+							'footer' => [
+								'separator' => true
+							]
+						],
+						'body' => [
+							'type' => 'box',
+							'layout' => 'vertical',
+							'contents' => [
+								[
+									'type' => 'text',
+									'text' => 'Hello',
+									'weight' => 'bold',
+									'color' => '#1DB446',
+									'size' => 'xxl'
+								],
+								[
+									'type' => 'separator',
+									'margin' => 'xl'
+								],
+								[
+									'type' => 'box',
+									'layout' => 'vertical',
+									'contents' => [
+										[
+											'type' => 'text',
+											'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
+											'size' => 'sm',
+											'margin' => 'xxl',
+											'maxLines' => 0
+										],
+										[
+											'type' => 'text',
+											'text' => '20.30 19/18/30',
+											'size' => 'sm',
+											'align' => 'end'
+
+										]
+
+									]
+								]
+							]
+						]
+					]
+				];
 			} else {
 
 				// Get text sent
@@ -46,56 +97,6 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 
 			$replyToken = $event['replyToken'];
-
-			// Build message to reply back			
-				// 'type' => 'flex',
-				// 'altText' => 'alt test',
-				// 'contents' => [
-				//     'type' => 'bubble',
-				//     'styles' => [
-				//         'footer' => [
-				//             'separator' => true
-				//         ]
-				//     ],
-				//     'body' => [
-				//         'type' => 'box',
-				//         'layout' => 'vertical',
-				//         'contents' => [
-				//             [
-				//                 'type' => 'text',
-				//                 'text' => 'Hello',
-				//                 'weight' => 'bold',
-				//                 'color' => '#1DB446',
-				//                 'size' => 'xxl'
-				//             ],
-				//             [
-				//                 'type' => 'separator',
-				//                 'margin' => 'xl'
-				//             ],
-				//             [
-				//                 'type' => 'box',
-				//                 'layout' => 'vertical',
-				//                 'contents' => [
-				//                     [
-				//                         'type' => 'text',
-				//                         'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
-				//                         'size' => 'sm',
-				//                         'margin' => 'xxl',
-				//                         'maxLines' => 0
-				//                     ],
-				//                     [
-				//                         'type' => 'text',
-				//                         'text' => '20.30 19/18/30',
-				//                         'size' => 'sm',
-				//                         'align' => 'end'
-
-				//                     ]
-
-				//                 ]
-				//             ]
-				//         ]
-				//     ]
-				// ]			
 
 			// Make a POST Request to Messaging API to reply to sender
 
