@@ -50,20 +50,22 @@ if (!is_null($events['events'])) {
             ];
 
             $bubble = [
-                'type' => 'flex',
-                'altText' => 'test flex message',
-                'contents' => [
-                    'type' => 'bubble',
-                    'body' => [
-                        'type' => 'box',
-                        'layouy' => 'vertical',
-                        'contents' => [
-                            'type' => 'text',
-                            'text' => 'hello'
-                        ], [
-                            'type' => 'text',
-                            'text' => 'wrold'
-                        ]
+                "type" => "bubble",
+                "styles" => [
+                    "footer"=> [
+                        "separator" => true
+                    ]
+                ],
+                "body"=> [
+                    "type"=> "box",
+                    "layout"=> "vertical",
+                    "contents"=> [[
+                    "type"=> "text",
+                    "text"=> "RECEIPT",
+                    "weight"=> "bold",
+                    "color"=> "#1DB446",
+                    "size"=> "xxl"
+                    ]
                     ]
                 ]
             ];
@@ -76,7 +78,7 @@ if (!is_null($events['events'])) {
 
                 'replyToken' => $replyToken,
 
-                'bubble' => [$bubble],
+                '$messages' => [$bubble],
 
             ];
         }
