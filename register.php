@@ -13,20 +13,24 @@
     }
 </style>
 <?php
-    $userId = strval($_GET['id']);
-    // $sql = "SELECT std_l_id
-    //         FROM student";
+$userId = strval($_GET['id']);
 
-    // $result = $conn->query($sql);
+require_once 'conn.php';
 
-    // while ($row = $result->fetch_assoc()) {
-    //     if ($userId == $row['std_l_id']) {
-    //         echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
-    //                 window.location.href = 'register.php' </script>";
-    //         exit();
-    // }
-// }
+$sql = "SELECT std_l_id
+FROM student";
+
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_assoc()) {
+    if ($std_UserId == $row['std_l_id']) {
+        echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
+      window.close(); </script>";
+        exit();
+    }
+}
 ?>
+
 <body>
     <form action="add_std.php">
         <div class="container">
@@ -73,4 +77,4 @@
   </div>
 </form> 
 </body>
-</html>      
+</html>       
