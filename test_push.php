@@ -19,27 +19,27 @@ $arrayJson = json_decode($content, true);
 $message = $arrayJson['events'][0]['message']['text'];
 
 //รับ id ของผู้ใช้
-   $id = $arrayJson['events'][0]['source']['userId'];
+//    $id = $arrayJson['events'][0]['source']['userId'];
 
 #ตัวอย่าง Message Type "Text + Sticker"
-if ($message == "สวัสดี") {
-    $message_sent['to'] = $id;
+// if ($message == "สวัสดี") {
+    $message_sent['to'] = $pushId;
     $message_sent['messages'][0]['type'] = "text";
     $message_sent['messages'][0]['text'] = "สวัสดีจ้าาา";
     $message_sent['messages'][1]['type'] = "sticker";
     $message_sent['messages'][1]['packageId'] = "2";
     $message_sent['messages'][1]['stickerId'] = "34";
     // pushMsg($arrayHeader, $arrayPostData);
-} else {
-    $message_sent = [
-        'to' => $id,
-        'messages' => [
-            'type' => 'text',
-            'text' => 'สวัสดีไงหละะะะ อีกแบบอะ'
-        ]
-    ];
-    // pushMsg($arrayHeader, $message);
-}
+// } else {
+//     $message_sent = [
+//         'to' => $id,
+//         'messages' => [
+//             'type' => 'text',
+//             'text' => 'สวัสดีไงหละะะะ อีกแบบอะ'
+//         ]
+//     ];
+//     // pushMsg($arrayHeader, $message);
+// }
 
 $url = 'https://api.line.me/v2/bot/message/push';
 
