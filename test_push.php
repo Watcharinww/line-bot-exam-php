@@ -4,7 +4,7 @@ require 'conn.php';
 
 $pushId = 'U1b80d09ffe5c7f746850ca99a023d30b';
 
-
+use LINE\LINEBot\MessageBuilder\RawMessageBuilder;
 
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
@@ -14,11 +14,9 @@ $text = [
     'text' => 'จะทดลองทำไมอะ'
 ];
 
-$post = json_encode($text);
+// $RawMessageBuilder = new RawMessageBuilder($text);
+$response = $bot->pushMessage($pushId, new RawMessageBuilder($text));
 
-
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
-$response = $bot->pushMessage($pushId, $textMessageBuilder);
-
+echo $response->getHTTPStatus();
 
 $conn->close();
