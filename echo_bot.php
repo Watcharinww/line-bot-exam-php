@@ -49,6 +49,25 @@ if (!is_null($events['events'])) {
 
             ];
 
+            $bubble = [
+                'type' => 'flex',
+                'altText' => 'test flex message',
+                'contents' => [
+                    'type' => 'bubble',
+                    'body' => [
+                        'type' => 'box',
+                        'layouy' => 'vertical',
+                        'contents' => [
+                            'type' => 'text',
+                            'text' => 'hello'
+                        ], [
+                            'type' => 'text',
+                            'text' => 'wrold'
+                        ]
+                    ]
+                ]
+            ];
+
             // Make a POST Request to Messaging API to reply to sender
 
             $url = 'https://api.line.me/v2/bot/message/reply';
@@ -57,7 +76,7 @@ if (!is_null($events['events'])) {
 
                 'replyToken' => $replyToken,
 
-                'messages' => [$messages],
+                'messages' => [$bubble],
 
             ];
         }
