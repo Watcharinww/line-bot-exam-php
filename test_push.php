@@ -21,7 +21,6 @@ use LINE\LINEBot;
 use LINE\LINEBot\Constant\Flex\ComponentLayout;
 use LINE\LINEBot\MessageBuilder\RawMessageBuilder;
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
-use LINE\Tests\LINEBot\Util\DummyHttpClient;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\BoxComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\ButtonComponentBuilder;
 use LINE\LINEBot\MessageBuilder\Flex\ComponentBuilder\IconComponentBuilder;
@@ -50,158 +49,193 @@ use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 
 $pushId = 'U1b80d09ffe5c7f746850ca99a023d30b';
 $httpClient = new CurlHTTPClient($access_token);
+
 $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-        $res = $bot->pushMessage(
-            $pushId,
-            FlexMessageBuilder::builder()
-                ->setAltText('Shopping')
-                ->setContents(
-                    CarouselContainerBuilder::builder()
-                        ->setContents([
-                            BubbleContainerBuilder::builder()
-                                ->setHero(
-                                    ImageComponentBuilder::builder()
-                                        ->setSize(ComponentImageSize::FULL)
-                                        ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
-                                        ->setAspectMode(ComponentImageAspectMode::COVER)
-                                        ->setUrl('https://example.com/photo1.png')
-                                )
-                                ->setBody(
-                                    BoxComponentBuilder::builder()
-                                        ->setLayout(ComponentLayout::VERTICAL)
-                                        ->setSpacing(ComponentSpacing::SM)
-                                        ->setContents([
-                                            TextComponentBuilder::builder()
-                                                ->setText('Arm Chair, White')
-                                                ->setWrap(true)
-                                                ->setWeight(ComponentFontWeight::BOLD)
-                                                ->setSize(ComponentFontSize::XL),
-                                            BoxComponentBuilder::builder()
-                                                ->setLayout(ComponentLayout::BASELINE)
-                                                ->setContents([
-                                                    TextComponentBuilder::builder()
-                                                        ->setText('$49')
-                                                        ->setWrap(true)
-                                                        ->setWeight(ComponentFontWeight::BOLD)
-                                                        ->setSize(ComponentFontSize::XL)
-                                                        ->setFlex(0),
-                                                    TextComponentBuilder::builder()
-                                                        ->setText('.99')
-                                                        ->setWrap(true)
-                                                        ->setWeight(ComponentFontWeight::BOLD)
-                                                        ->setSize(ComponentFontSize::SM)
-                                                        ->setFlex(0)
-                                                ])
-                                        ])
-                                )
-                                ->setFooter(
-                                    BoxComponentBuilder::builder()
-                                        ->setLayout(ComponentLayout::VERTICAL)
-                                        ->setSpacing(ComponentSpacing::SM)
-                                        ->setContents([
-                                            ButtonComponentBuilder::builder()
-                                                ->setStyle(ComponentButtonStyle::PRIMARY)
-                                                ->setAction(
-                                                    new UriTemplateActionBuilder(
-                                                        'Add to Cart',
-                                                        'https://example.com'
-                                                    )
-                                                ),
-                                            ButtonComponentBuilder::builder()
-                                                ->setAction(
-                                                    new UriTemplateActionBuilder(
-                                                        'Add to wishlist',
-                                                        'https://example.com'
-                                                    )
-                                                )
-                                        ])
-                                ),
-                            BubbleContainerBuilder::builder()
-                                ->setHero(
-                                    ImageComponentBuilder::builder()
-                                        ->setSize(ComponentImageSize::FULL)
-                                        ->setAspectRatio(ComponentImageAspectRatio::R20TO13)
-                                        ->setAspectMode(ComponentImageAspectMode::COVER)
-                                        ->setUrl('https://example.com/photo2.png')
-                                )
-                                ->setBody(
-                                    BoxComponentBuilder::builder()
-                                        ->setLayout(ComponentLayout::VERTICAL)
-                                        ->setSpacing(ComponentSpacing::SM)
-                                        ->setContents([
-                                            TextComponentBuilder::builder()
-                                                ->setText('Metal Desk Lamp')
-                                                ->setWrap(true)
-                                                ->setWeight(ComponentFontWeight::BOLD)
-                                                ->setSize(ComponentFontSize::XL),
-                                            BoxComponentBuilder::builder()
-                                                ->setLayout(ComponentLayout::BASELINE)
-                                                ->setContents([
-                                                    TextComponentBuilder::builder()
-                                                        ->setText('$11')
-                                                        ->setWrap(true)
-                                                        ->setWeight(ComponentFontWeight::BOLD)
-                                                        ->setSize(ComponentFontSize::XL)
-                                                        ->setFlex(0),
-                                                    TextComponentBuilder::builder()
-                                                        ->setText('.99')
-                                                        ->setWrap(true)
-                                                        ->setWeight(ComponentFontWeight::BOLD)
-                                                        ->setSize(ComponentFontSize::SM)
-                                                        ->setFlex(0)
-                                                ]),
-                                            TextComponentBuilder::builder()
-                                                ->setText('Temporarily out of stock')
-                                                ->setWrap(true)
-                                                ->setSize(ComponentFontSize::XXS)
-                                                ->setMargin(ComponentMargin::MD)
-                                                ->setColor('#ff5551')
-                                                ->setFlex(0)
-                                        ])
-                                )
-                                ->setFooter(
-                                    BoxComponentBuilder::builder()
-                                        ->setLayout(ComponentLayout::VERTICAL)
-                                        ->setSpacing(ComponentSpacing::SM)
-                                        ->setContents([
-                                            ButtonComponentBuilder::builder()
-                                                ->setStyle(ComponentButtonStyle::PRIMARY)
-                                                ->setColor('#aaaaaa')
-                                                ->setAction(
-                                                    new UriTemplateActionBuilder(
-                                                        'Add to Cart',
-                                                        'https://example.com'
-                                                    )
-                                                ),
-                                            ButtonComponentBuilder::builder()
-                                                ->setAction(
-                                                    new UriTemplateActionBuilder(
-                                                        'Add to wishlist',
-                                                        'https://example.com'
-                                                    )
-                                                )
-                                        ])
-                                ),
-                            BubbleContainerBuilder::builder()
-                                ->setBody(
-                                    BoxComponentBuilder::builder()
-                                        ->setLayout(ComponentLayout::VERTICAL)
-                                        ->setSpacing(ComponentSpacing::SM)
-                                        ->setContents([
-                                            ButtonComponentBuilder::builder()
-                                                ->setFlex(1)
-                                                ->setGravity(ComponentGravity::CENTER)
-                                                ->setAction(
-                                                    new UriTemplateActionBuilder(
-                                                        'See more',
-                                                        'https://example.com'
-                                                    )
-                                                )
-                                        ])
-                                )
-                        ])
-                )
-        );
-        $this->assertEquals(200, $res->getHTTPStatus());
-        $this->assertTrue($res->isSucceeded());
-        $this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+$res = $bot->pushMessage(
+    $pushId,
+    new RawMessageBuilder(
+        [
+            'type' => 'flex',
+            'altText' => 'Shopping',
+            'contents' => [
+                'type' => 'carousel',
+                'contents' => [
+                    [
+                        'type' => 'bubble',
+                        'hero' => [
+                            'type' => 'image',
+                            'size' => 'full',
+                            'aspectRatio' => '20:13',
+                            'aspectMode' => 'cover',
+                            'url' => 'https://example.com/photo1.png'
+                        ],
+                        'body' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'spacing' => 'sm',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => 'Arm Chair, White',
+                                    'wrap' => true,
+                                    'weight' => 'bold',
+                                    'size' => 'xl'
+                                ],
+                                [
+                                    'type' => 'box',
+                                    'layout' => 'baseline',
+                                    'contents' => [
+                                        [
+                                            'type' => 'text',
+                                            'text' => '$49',
+                                            'wrap' => true,
+                                            'weight' => 'bold',
+                                            'size' => 'xl',
+                                            'flex' => 0
+                                        ],
+                                        [
+                                            'type' => 'text',
+                                            'text' => '.99',
+                                            'wrap' => true,
+                                            'weight' => 'bold',
+                                            'size' => 'sm',
+                                            'flex' => 0
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ],
+                        'footer' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'spacing' => 'sm',
+                            'contents' => [
+                                [
+                                    'type' => 'button',
+                                    'style' => 'primary',
+                                    'action' => [
+                                        'type' => 'uri',
+                                        'label' => 'Add to Cart',
+                                        'uri' => 'https://example.com'
+                                    ]
+                                ],
+                                [
+                                    'type' => 'button',
+                                    'action' => [
+                                        'type' => 'uri',
+                                        'label' => 'Add to wishlist',
+                                        'uri' => 'https://example.com'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    [
+                        'type' => 'bubble',
+                        'hero' => [
+                            'type' => 'image',
+                            'size' => 'full',
+                            'aspectRatio' => '20:13',
+                            'aspectMode' => 'cover',
+                            'url' => 'https://example.com/photo2.png'
+                        ],
+                        'body' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'spacing' => 'sm',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => 'Metal Desk Lamp',
+                                    'wrap' => true,
+                                    'weight' => 'bold',
+                                    'size' => 'xl'
+                                ],
+                                [
+                                    'type' => 'box',
+                                    'layout' => 'baseline',
+                                    'contents' => [
+                                        [
+                                            'type' => 'text',
+                                            'text' => '$11',
+                                            'wrap' => true,
+                                            'weight' => 'bold',
+                                            'size' => 'xl',
+                                            'flex' => 0
+                                        ],
+                                        [
+                                            'type' => 'text',
+                                            'text' => '.99',
+                                            'wrap' => true,
+                                            'weight' => 'bold',
+                                            'size' => 'sm',
+                                            'flex' => 0
+                                        ]
+                                    ]
+                                ],
+                                [
+                                    'type' => 'text',
+                                    'text' => 'Temporarily out of stock',
+                                    'wrap' => true,
+                                    'size' => 'xxs',
+                                    'margin' => 'md',
+                                    'color' => '#ff5551',
+                                    'flex' => 0
+                                ]
+                            ]
+                        ],
+                        'footer' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'spacing' => 'sm',
+                            'contents' => [
+                                [
+                                    'type' => 'button',
+                                    'style' => 'primary',
+                                    'color' => '#aaaaaa',
+                                    'action' => [
+                                        'type' => 'uri',
+                                        'label' => 'Add to Cart',
+                                        'uri' => 'https://example.com'
+                                    ]
+                                ],
+                                [
+                                    'type' => 'button',
+                                    'action' => [
+                                        'type' => 'uri',
+                                        'label' => 'Add to wishlist',
+                                        'uri' => 'https://example.com'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    [
+                        'type' => 'bubble',
+                        'body' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'spacing' => 'sm',
+                            'contents' => [
+                                [
+                                    'type' => 'button',
+                                    'flex' => 1,
+                                    'gravity' => 'center',
+                                    'action' => [
+                                        'type' => 'uri',
+                                        'label' => 'See more',
+                                        'uri' => 'https://example.com'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    )
+);
+$this->assertEquals(200, $res->getHTTPStatus());
+$this->assertTrue($res->isSucceeded());
+$this->assertEquals(200, $res->getJSONDecodedBody()['status']);
+
