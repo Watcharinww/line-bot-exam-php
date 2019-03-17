@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 
 			if($event['message']['text'] == 'สวัสดี'){
 				$message = [
-					'tpye' => 'text',
+					'type' => 'text',
 					'text' => 'สวัสดีจ้าาา'
 				];
 			}
@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
 		}
 		$data = [
 			'replyToken' => $replyToken,
-			'message' => [$message]
+			'messages' => [$message]
 		];
 		$url = 'https://api.line.me/v2/bot/message/reply';
 		$post = json_encode($date);
