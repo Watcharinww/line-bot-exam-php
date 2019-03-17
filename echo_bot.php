@@ -25,11 +25,16 @@ if (!is_null($events['events'])) {
 
         if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 
-            // Get text sent
 
-            $text = $event['source']['userId'];
-            $text2 = $event['message']['text'];
+            if ($event['message']['text'] == "ทดลอง") {
+                $text = "ก็จะทดลองทำไมอะ";
+            } else {
 
+                // Get text sent
+
+                // $text = $event['source']['userId'];
+                $text = $event['message']['text'];
+            }
             // Get replyToken
 
             $replyToken = $event['replyToken'];
@@ -40,7 +45,7 @@ if (!is_null($events['events'])) {
 
                 'type' => 'text',
 
-                'text' => $text2
+                'text' => $text
 
             ];
 
