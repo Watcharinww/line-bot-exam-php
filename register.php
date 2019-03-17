@@ -13,7 +13,7 @@
     }
 </style>
 <?php
-    $userId = $_GET['id'];
+    $userId = strval($_GET['id']);
 
 ?>
 <body>
