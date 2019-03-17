@@ -65,28 +65,7 @@ if (!is_null($events['events'])) {
                             ]
                         ]
                     ]
-                ],
-                'quickReply' => [
-                    'items' => [
-                        [
-                            'type' => 'action',
-                            'action' => [
-                                'type' => 'message',
-                                'label' => 'reply1',
-                                'text' => 'Reply1'
-                            ]
-                        ],
-                        [
-                            'type' => 'action',
-                            'action' => [
-                                'type' => 'message',
-                                'label' => 'reply2',
-                                'text' => 'Reply2'
-                            ]
-                        ]
-                    ]
                 ]
-
             ];
 
             // Make a POST Request to Messaging API to reply to sender
