@@ -5,48 +5,44 @@
     <title>
     </title>
 </head>
-<style>
-    body {
-        height: 600px;
-        width: 600px;
-        text-align: center;
-    }
-</style>
 <?php
-$userId = strval($_GET['id']);
+require 'conn.php';
 
-require_once 'conn.php';
+$user = strval($_GET['id']);
+
 
 $sql = "SELECT std_l_id
-FROM student";
+        FROM student";
 
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_assoc()) {
-    if ($userId == $row['std_l_id']) {
+    if ($user == $row['std_l_id']) {
         echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
-      window.close(); </script>";
+              window.close(); </script>";
         exit();
     }
 }
 ?>
+<link rel="stylesheet" type="text/css" href="web.css">
 
-<body>
-    <form action="add_std.php">
-        <div class="container">
+<body class="head-font">
+
+    <form action="add_std.php" class="border header-background">
+        <div class="container text-center">
             <h1>Register</h1>
             <p>Please fill in this form to create an account.</p>
             <hr>
             <table border='0' align='center'>
                 <tr>
-                    <td>
+                    <td align="right">
                         <label for="name"><b>ชื่อ</b></label>
                     </td>
                     <td>
                         <input type="text" placeholder="โปรดใส่ชื่อ" name="std_name" required><br>
                     </td>
                 <tr>
-                    <td>
+                    <td align="right">
                         <label for="l_name"><b>นามสกุล</b></label>
                     </td>
                     <td>
@@ -69,12 +65,15 @@ while ($row = $result->fetch_assoc()) {
                         <label for="name"><b>UserId</b></label>
                     </td>
                     <td>
-                        <input readonly type="password" placeholder="UserId" name="std_l_id" value=<?php echo $userId ?> required><br>
+                        <input type="text" placeholder="UserId" name="std_l_id" value=<? echo $user ?> readonly required><br>
                     </td>
             </table>
             <hr>
+
             <button type="submit" ">Register</button>
   </div>
+
 </form> 
+
 </body>
-</html>       
+</html> 
