@@ -28,6 +28,7 @@ if (!is_null($events['events'])) {
             // Get text sent
 
             $text = $event['source']['userId'];
+            $text2 = $event['message']['text'];
 
             // Get replyToken
 
@@ -39,7 +40,7 @@ if (!is_null($events['events'])) {
 
                 'type' => 'text',
 
-                'text' => $text
+                'text' => $text2
 
             ];
 
