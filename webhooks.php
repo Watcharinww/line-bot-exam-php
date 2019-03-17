@@ -83,7 +83,9 @@ if (!is_null($events['events'])) {
 					]
 				];
 			}else if ($event['message']['text'] == "ทดลองdata") {
+				$userId = $event['source']['userId'];
 				require_once 'testpushid.php';
+				push($userId);
 			} else {
 
 				// Get text sent
