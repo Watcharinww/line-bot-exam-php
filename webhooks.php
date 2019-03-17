@@ -1,11 +1,11 @@
 <?php  // callback.php
 
 require "vendor/autoload.php";
-// require 'conn.php';
+require 'conn.php';
 
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
-$access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
+// $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
 
 
 // Get POST body content
@@ -32,8 +32,8 @@ if (!is_null($events['events'])) {
 
                 // Get text sent
 
-                $text = $event['source']['userId'];
-                // $text2 = $event['message']['text'];
+                // $text = $event['source']['userId'];
+                $text = $event['message']['text'];
             }
             // Get replyToken
 
@@ -43,58 +43,58 @@ if (!is_null($events['events'])) {
 
             $messages = [
 
-                // 'type' => 'text',
+                'type' => 'text',
 
-                // 'text' => $text
+                'text' => $text
 
-                'type' => 'flex',
-                'altText' => 'alt test',
-                'contents' => [
-                    'type' => 'bubble',
-                    'styles' => [
-                        'footer' => [
-                            'separator' => true
-                        ]
-                    ],
-                    'body' => [
-                        'type' => 'box',
-                        'layout' => 'vertical',
-                        'contents' => [
-                            [
-                                'type' => 'text',
-                                'text' => 'Hello',
-                                'weight' => 'bold',
-                                'color' => '#1DB446',
-                                'size' => 'xxl'
-                            ],
-                            [
-                                'type' => 'separator',
-                                'margin' => 'xl'
-                            ],
-                            [
-                                'type' => 'box',
-                                'layout' => 'vertical',
-                                'contents' => [
-                                    [
-                                        'type' => 'text',
-                                        'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
-                                        'size' => 'sm',
-                                        'margin' => 'xxl',
-                                        'maxLines' => 0
-                                    ],
-                                    [
-                                        'type' => 'text',
-                                        'text' => '20.30 19/18/30',
-                                        'size' => 'sm',
-                                        'align' => 'end'
+                // 'type' => 'flex',
+                // 'altText' => 'alt test',
+                // 'contents' => [
+                //     'type' => 'bubble',
+                //     'styles' => [
+                //         'footer' => [
+                //             'separator' => true
+                //         ]
+                //     ],
+                //     'body' => [
+                //         'type' => 'box',
+                //         'layout' => 'vertical',
+                //         'contents' => [
+                //             [
+                //                 'type' => 'text',
+                //                 'text' => 'Hello',
+                //                 'weight' => 'bold',
+                //                 'color' => '#1DB446',
+                //                 'size' => 'xxl'
+                //             ],
+                //             [
+                //                 'type' => 'separator',
+                //                 'margin' => 'xl'
+                //             ],
+                //             [
+                //                 'type' => 'box',
+                //                 'layout' => 'vertical',
+                //                 'contents' => [
+                //                     [
+                //                         'type' => 'text',
+                //                         'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
+                //                         'size' => 'sm',
+                //                         'margin' => 'xxl',
+                //                         'maxLines' => 0
+                //                     ],
+                //                     [
+                //                         'type' => 'text',
+                //                         'text' => '20.30 19/18/30',
+                //                         'size' => 'sm',
+                //                         'align' => 'end'
         
-                                    ]
+                //                     ]
                                     
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
+                //                 ]
+                //             ]
+                //         ]
+                //     ]
+                // ]
             ];
 
             // Make a POST Request to Messaging API to reply to sender
