@@ -29,7 +29,7 @@ if ($message == "สวัสดี") {
     $arrayPostData['messages'][1]['type'] = "sticker";
     $arrayPostData['messages'][1]['packageId'] = "2";
     $arrayPostData['messages'][1]['stickerId'] = "34";
-    pushMsg($arrayHeader, $arrayPostData);
+    // pushMsg($arrayHeader, $arrayPostData);
 } else {
     $message = [
         'to' => $id,
@@ -38,26 +38,40 @@ if ($message == "สวัสดี") {
             'text' => 'สวัสดีไงหละะะะ อีกแบบอะ'
         ]
     ];
-    pushMsg($arrayHeader, $message);
+    // pushMsg($arrayHeader, $message);
 }
 
-function pushMsg($arrayHeader, $arrayPostData)
-{
-    $strUrl = "https://api.line.me/v2/bot/message/push";
+$url = 'https://api.line.me/v2/bot/message/push';
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $strUrl);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    $result = curl_exec($ch);
-    curl_close($ch);
+$post = json_encode($message);
+$ch = curl_init($url);
+      curl_setopt($ch, CURLOPT_HEADER, false);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      $result = curl_exec($ch);
+      curl_close ($ch);
 
-    echo $result . "\r\n";
-}
 
-exit;
+// function pushMsg($arrayHeader, $arrayPostData)
+// {
+//     $strUrl = "https://api.line.me/v2/bot/message/push";
+
+//     $ch = curl_init();
+//     curl_setopt($ch, CURLOPT_URL, $strUrl);
+//     curl_setopt($ch, CURLOPT_HEADER, false);
+//     curl_setopt($ch, CURLOPT_POST, true);
+//     curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+//     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+//     $result = curl_exec($ch);
+//     curl_close($ch);
+
+//     echo $result . "\r\n";
+// }
+
+// exit;
 ?> 
