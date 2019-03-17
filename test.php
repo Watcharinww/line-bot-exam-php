@@ -3,7 +3,7 @@
 include 'conn.php';
 require_once('LINEBOT.php');
 
-$channelAccessToken = '$channelAccessToken';
+$channelAccessToken = '$access_token';
 $channelSecret = '$channelSecret';
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
