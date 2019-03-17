@@ -17,7 +17,7 @@ $text = [
 $post = json_encode($text);
 
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($post);
 $response = $bot->pushMessage($pushId, $textMessageBuilder);
 
 
