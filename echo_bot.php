@@ -27,49 +27,54 @@ if (!is_null($events['events'])) {
 
 
             if ($event['message']['text'] == "ทดลอง") {
-                $text = "ก็จะทดลองทำไมอะ";
-            } else {
+                $messages = [
+
+                    'type' => 'text',
+    
+                    'text' => 'ก็จะทดลองทำไมอะ'
+    
+                ];
+            } else if($event['message']['text'] == "ทดลองflex") {
+                $message = [
+                    'type' => 'flex',
+                    'altText' => 'alt test',
+                    'contents' => [
+                        'type' => 'bubble',
+                        'body' => [
+                            'type' => 'box',
+                            'layout' => 'vertical',
+                            'contents' => [
+                                [
+                                    'type' => 'text',
+                                    'text' => 'Hello,'
+                                ],
+                                [
+                                    'type' => 'text',
+                                    'text' => 'World!'
+                                ]
+                            ]
+                        ]
+                    ]
+                ];
+            }
+            else {
 
                 // Get text sent
 
                 // $text = $event['source']['userId'];
-                $text = $event['message']['text'];
+                $messages = [
+
+                    'type' => 'text',
+    
+                    'text' => $event['message']['text']
+    
+                ];    
             }
             // Get replyToken
 
             $replyToken = $event['replyToken'];
 
-            // Build message to reply back
-
-            $messages = [
-
-                'type' => 'text',
-
-                'text' => $text
-
-            ];
-
-            $bubble = [
-                'type' => 'flex',
-                'altText' => 'alt test',
-                'contents' => [
-                    'type' => 'bubble',
-                    'body' => [
-                        'type' => 'box',
-                        'layout' => 'vertical',
-                        'contents' => [
-                            [
-                                'type' => 'text',
-                                'text' => 'Hello,'
-                            ],
-                            [
-                                'type' => 'text',
-                                'text' => 'World!'
-                            ]
-                        ]
-                    ]
-                ]
-            ];
+            // Build message to reply back           
 
             // Make a POST Request to Messaging API to reply to sender
 
@@ -79,7 +84,7 @@ if (!is_null($events['events'])) {
 
                 'replyToken' => $replyToken,
 
-                '$messages' => [$bubble],
+                '$messages' => [$message],
 
             ];
         }
