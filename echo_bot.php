@@ -72,9 +72,24 @@ if (!is_null($events['events'])) {
                                 'margin' => 'xl'
                             ],
                             [
-                                'type' => 'text',
-                                'text' => 'Testing',
-                                'size' => 'sm'
+                                'type' => 'box',
+                                'layout' => 'horizontal',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
+                                        'size' => 'sm',
+                                        'margin' => 'xxl'
+                                    ],
+                                    [
+                                        'type' => 'text',
+                                        'text' => '20.30 19/18/30',
+                                        'size' => 'sm',
+                                        'align' => 'end'
+        
+                                    ]
+                                    
+                                ]
                             ]
                         ]
                     ]
