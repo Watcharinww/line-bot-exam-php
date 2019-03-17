@@ -54,8 +54,11 @@ if (!is_null($events['events'])) {
 			'messages' => [$message]
 		];
 		$url = 'https://api.line.me/v2/bot/message/reply';
+
 		$post = json_encode($date);
-		$headers = array('Content-Type: application/json' , 'Authorizarion;Bearer '.$access_token);
+
+		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+		
 		$ch = curl_init($url);
 
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
