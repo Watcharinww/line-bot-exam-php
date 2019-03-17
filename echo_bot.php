@@ -69,12 +69,12 @@ if (!is_null($events['events'])) {
                             ],
                             [
                                 'type' => 'separator',
-                                'margin' => 'l'
+                                'margin' => 'xl'
                             ],
                             [
                                 'type' => 'text',
                                 'text' => 'Testing',
-                                'size' => 's'
+                                'size' => 'sm'
                             ]
                         ]
                     ]
