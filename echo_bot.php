@@ -50,22 +50,26 @@ if (!is_null($events['events'])) {
             ];
 
             $bubble = [
-                'type' => 'bubble',
-                'styles' => [
-                    'footer' => [
-                        'separator' => true
-                    ]
-                ],
-                'body' => [
-                    'type' => 'box',
-                    'layout' => 'vertical',
-                    'contents' => [
-                        [
-                            'type' => 'text',
-                            'text' => 'RECEIPT',
-                            'weight' => 'bold',
-                            'color' => '#1DB446',
-                            'size' => 'xxl'
+                'type' => 'flex',
+                'altText' => 'alt test',
+                'contents' => [
+                    'type' => 'bubble',
+                    'styles' => [
+                        'footer' => [
+                            'separator' => true
+                        ]
+                    ],
+                    'body' => [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => [
+                            [
+                                'type' => 'text',
+                                'text' => 'RECEIPT',
+                                'weight' => 'bold',
+                                'color' => '#1DB446',
+                                'size' => 'xxl'
+                            ]
                         ]
                     ]
                 ]
