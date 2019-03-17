@@ -53,7 +53,7 @@ $result = $conn->query($sql);
 <form method="post" action = "<? $_SERVER['php_self'] ?>">
 <table align="center" width="300" height="300" border="0">
   <tr>
-    <td height="10%"><? echo $row['hw_id'].":".$row['hw_name'] ; ?></td>
+    <td height="10%"><? echo $row['hw_name'] ; ?></td>
   </tr>
   <tr>
     <td height="10%"> <?  echo $row['std_name']." ".$row['std_l_name']; ?></td>
