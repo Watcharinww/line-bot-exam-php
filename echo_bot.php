@@ -79,14 +79,14 @@ if (!is_null($events['events'])) {
                                     'layout' => 'horizontal',
                                     'contents' => [
                                         [
-                                            ' type ' => ' text ',
-                                            ' text ' => ' Testleft ',
-                                            ' flex ' => 0
+                                            'type' => 'text',
+                                            'text' => 'Testleft',
+                                            'flex' => 0
                                         ],
                                         [
-                                            ' type ' => ' text ',
-                                            ' text ' => ' testright ',
-                                            ' align ' => ' end '
+                                            'type' => 'text',
+                                            'text' => 'testright',
+                                            'align' => 'end'
                                         ]
                                     ]
                                 ]
