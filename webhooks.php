@@ -6,46 +6,7 @@ require 'conn.php';
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 // $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
-function getdata($userId)
-{
-	$sql_hw = "SELECT  *
-				FROM
-				 	anr
-				JOIN
-				 	homework
-				ON
-				 	anr.hw_id = homework.hw_id
-				JOIN
-				 	student
-				ON
-				 	anr.std_id = student.std_id	
-				where
-					anr.std_score is null
-				AND
-					std.std_l_id = $userId";
 
-	$result_std = mysqli_query($conn, $sql_hw);
-	while ($row = mysql_fetch_array($result_std)) {
-		$date = date("Y-m-d", $row['hw_date_r']);
-		$name = $row['hw_name'];
-		$text_messages += "[
-								'type' => 'text',
-								'text' => $name,
-								'size' => 'sm',
-								'margin' => 'xxl',
-								'maxLines' => 0
-							],
-							[
-								'type' => 'text',
-								'text' => $date,
-								'size' => 'sm',
-								'align' => 'end'
-
-							]
-	";
-	}
-	return ($text_message);
-}
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -70,7 +31,7 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => 'ก็จะทดลองทำไมอะ'
 				];
-			} else if ($event['message']['text'] == "ทดลองdata") {
+			} else if ($event['message']['text'] == "ทดลองflex") {
 				$messages = [
 					'type' => 'flex',
 					'altText' => 'alt test',
@@ -100,43 +61,6 @@ if (!is_null($events['events'])) {
 									'type' => 'box',
 									'layout' => 'vertical',
 									'contents' => [
-										getdata($userId)
-									]
-								]
-							]
-						]
-					]
-				];
-			} else if ($event['message']['text'] == "ทดลองflex") {
-				$messages = [
-					'type' => 'flex',
-					'altText' => 'alt test',
-					'contents' => [
-						'type' => 'bubble',
-						'styles' => [
-							'footer' => [
-								'separator' => true
-							]
-						],
-						'body' => [
-							'type' => 'box',
-							'layout' => 'vertical',
-							'contents' => [
-								[
-									'type' => 'text',
-									'text' => 'Hello',
-									'weight' => 'bold',
-									'color' => '#1DB446',
-									'size' => 'xxl'
-								],
-								[
-									'type' => 'box',
-									'layout' => 'vertical',
-									'contents' => [
-										[
-											'type' => 'separator',
-											'margin' => 'xl'
-										],
 										[
 											'type' => 'text',
 											'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
@@ -158,6 +82,8 @@ if (!is_null($events['events'])) {
 						]
 					]
 				];
+			}else if ($event['message']['text'] == "ทดลองdata") {
+				require_once 'testpushid.php';
 			} else {
 
 				// Get text sent
@@ -205,7 +131,6 @@ if (!is_null($events['events'])) {
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 
 		$result = curl_exec($ch);
-
 
 		curl_close($ch);
 
