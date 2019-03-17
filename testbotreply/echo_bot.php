@@ -1,51 +1,87 @@
-<?php
+<?php // callback.php
 
-/**
- * Copyright 2016 LINE Corporation
- *
- * LINE Corporation licenses this file to you under the Apache License,
- * version 2.0 (the "License"); you may not use this file except in compliance
- * with the License. You may obtain a copy of the License at:
- *
- *   https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations
- * under the License.
- */
+require "vendor/autoload.php";
+require 'conn.php';
 
-require_once('./LINEBotTiny.php');
+require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
-$channelAccessToken = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
-$channelSecret = '88f693bafb5809e65f319ad3139213ba';
+$access_token = '$access_token';
 
-$client = new LINEBotTiny($channelAccessToken, $channelSecret);
-foreach ($client->parseEvents() as $event) {
-    switch ($event['type']) {
-        case 'message':
-            $message = $event['message'];
-            switch ($message['type']) {
-                case 'text':
-                    $client->replyMessage(array(
-                        'replyToken' => $event['replyToken'],
-                        'messages' => array(
-                            array(
-                                'type' => 'text',
-                                'text' => $message['text']
-                            )
-                        )
-                    ));
-                    break;
-                default:
-                    error_log("Unsupporeted message type: " . $message['type']);
-                    break;
-            }
-            break;
-        default:
-            error_log("Unsupporeted event type: " . $event['type']);
-            break;
-    }
-};
-echo $client ;
+
+// Get POST body content
+$content = file_get_contents('php://input');
+
+// Parse JSON
+$events = json_decode($content, true);
+
+// Validate parsed JSON data
+if (!is_null($events['events'])) {
+
+// Loop through each event
+
+foreach ($events['events'] as $event) {
+
+// Reply only when message sent is in 'text' format
+
+if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+
+// Get text sent
+
+$text = $event['source']['userId'];
+$text2 = $event['text'];
+
+// Get replyToken
+
+$replyToken = $event['replyToken'];
+
+// Build message to reply back
+
+$messages = [
+
+'type' => 'text',
+
+'text' => $text2
+
+];
+
+// Make a POST Request to Messaging API to reply to sender
+
+$url = 'https://api.line.me/v2/bot/message/reply';
+
+$data = [
+
+'replyToken' => $replyToken,
+
+'messages' => [$messages],
+
+];
+
+$post = json_encode($data);
+
+$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+$ch = curl_init($url);
+
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+
+$result = curl_exec($ch);
+
+curl_close($ch);
+
+echo $result . "\r\n";
+
+}
+
+}
+
+}
+
+echo "OK";
