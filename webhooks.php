@@ -33,78 +33,74 @@ if (!is_null($events['events'])) {
 				];
 			} else if ($event['message']['text'] == "register") {
 				$messages = [
-					'type' => 'flex',
-					'altText' => 'Register',
-					'contents' => [
-						'type' => 'bubble',
-						'styles' => [
-							'footer' => [
-								'separator' => true
-							]
-						],
-						'body' => [
-							'type' => 'box',
-							'layout' => 'vertical',
-							'contents' => [
-								[
-									'type' => 'text',
-									'text' => 'REGISTER',
-									'weight' => 'bold',
-									'color' => '#1DB446',
-									'align' => 'center',
-									'size' => 'xxl'
-								],
-								[
-									'type' => 'separator',
-									'margin' => 'xl'
-								],
-								[
-									'type' => 'box',
-									'layout' => 'vertical',
-									'contents' => [
-										[
-											'type' => 'text',
-											'text' => '**คำเตือน สำคัญมาก**',
-											'size' => 'xl',
-											'margin' => 'xxl',
-											'align' => 'center'
-										],
-										[
-											'type' => 'text',
-											'text' => 'ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด',
-											'size' => 'sm',
-											'align' => 'center'
+					[
+						'type' => 'flex',
+						'altText' => 'Register',
+						'contents' => [
+							'type' => 'bubble',
+							'styles' => [
+								'footer' => [
+									'separator' => true
+								]
+							],
+							'body' => [
+								'type' => 'box',
+								'layout' => 'vertical',
+								'contents' => [
+									[
+										'type' => 'text',
+										'text' => 'REGISTER',
+										'weight' => 'bold',
+										'color' => '#1DB446',
+										'align' => 'center',
+										'size' => 'xxl'
+									],
+									[
+										'type' => 'separator',
+										'margin' => 'xl'
+									],
+									[
+										'type' => 'box',
+										'layout' => 'vertical',
+										'contents' => [
+											[
+												'type' => 'text',
+												'text' => '**คำเตือน สำคัญมาก**',
+												'size' => 'xl',
+												'margin' => 'xxl',
+												'align' => 'center'
+											],
+											[
+												'type' => 'text',
+												'text' => 'ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด',
+												'size' => 'sm',
+												'align' => 'center'
 
-										],
-										[
-											'type' => 'separator',
-											'margin' => 'xl'
-										],
-										[
-											'type' => 'text',
-											'text' => $event['source']['userId'],
-											'margin' => 'xl',
-											'align' => 'center'
-										],
-										[
-											'type' => 'separator',
-											'margin' => 'xl'
-										],
-										[
-											'type' => 'button',
-											'action' => [
-												'type' => 'uri',
-												'label' => 'Regist',
-												'uri' => 'http://chatcedkmutnb1.herokuapp.com/register.php'
+											],
+											[
+												'type' => 'separator',
+												'margin' => 'xl'
+											],
+											[
+												'type' => 'button',
+												'action' => [
+													'type' => 'uri',
+													'label' => 'Regist',
+													'uri' => 'http://chatcedkmutnb1.herokuapp.com/register.php'
+												]
 											]
-										]
 
+										]
 									]
 								]
 							]
 						]
+					],
+					[
+						'type' => 'text',
+						'text' => $event['source']['userId']
 					]
-				];			
+				];
 			} else {
 
 				// Get text sent
