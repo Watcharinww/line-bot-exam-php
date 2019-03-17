@@ -27,54 +27,27 @@ if (!is_null($events['events'])) {
 
 
             if ($event['message']['text'] == "ทดลอง") {
-                $messages = [
-
-                    'type' => 'text',
-    
-                    'text' => 'ก็จะทดลองทำไมอะ'
-    
-                ];
-            } else if($event['message']['text'] == "ทดลองflex") {
-                $message = [
-                    'type' => 'flex',
-                    'altText' => 'alt test',
-                    'contents' => [
-                        'type' => 'bubble',
-                        'body' => [
-                            'type' => 'box',
-                            'layout' => 'vertical',
-                            'contents' => [
-                                [
-                                    'type' => 'text',
-                                    'text' => 'Hello,'
-                                ],
-                                [
-                                    'type' => 'text',
-                                    'text' => 'World!'
-                                ]
-                            ]
-                        ]
-                    ]
-                ];
-            }
-            else {
+                $text = "ก็จะทดลองทำไมอะ";
+            } else {
 
                 // Get text sent
 
-                // $text = $event['source']['userId'];
-                $messages = [
-
-                    'type' => 'text',
-    
-                    'text' => $event['message']['text']
-    
-                ];    
+                $text = $event['source']['userId'];
+                // $text2 = $event['message']['text'];
             }
             // Get replyToken
 
             $replyToken = $event['replyToken'];
 
-            // Build message to reply back           
+            // Build message to reply back
+
+            $messages = [
+
+                'type' => 'text',
+
+                'text' => $text
+
+            ];
 
             // Make a POST Request to Messaging API to reply to sender
 
@@ -84,7 +57,7 @@ if (!is_null($events['events'])) {
 
                 'replyToken' => $replyToken,
 
-                '$messages' => [$message],
+                'messages' => [$messages],
 
             ];
         }
