@@ -54,26 +54,21 @@ if (!is_null($events['events'])) {
                 'altText' => 'alt test',
                 'contents' => [
                     'type' => 'bubble',
-                    'styles' => [
-                        'footer' => [
-                            'separator' => true
-                        ]
-                    ],
                     'body' => [
                         'type' => 'box',
                         'layout' => 'vertical',
                         'contents' => [
                             [
                                 'type' => 'text',
-                                'text' => 'RECEIPT',
-                                'weight' => 'bold',
-                                'color' => '#1DB446',
-                                'size' => 'xxl'
+                                'text' => 'Hello,'
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => 'World!'
                             ]
                         ]
                     ]
-                ]
-            ];
+                            ];
 
             // Make a POST Request to Messaging API to reply to sender
 
