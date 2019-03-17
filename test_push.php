@@ -13,7 +13,7 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $text = [
     'type' => 'text',
-    'text' => '"็จะทดลองทำไมอะ'
+    'text' => 'จะทดลองทำไมอะ'
 ];
 
 
