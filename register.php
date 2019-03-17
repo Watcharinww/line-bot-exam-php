@@ -25,7 +25,7 @@
     //                 window.location.href = 'register.php' </script>";
     //         exit();
     // }
-}
+// }
 ?>
 <body>
     <form action="add_std.php">
