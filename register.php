@@ -60,12 +60,12 @@
                             <option value=4>4</option>
                         </select><br>
                     </td>
-                <tr>
+                <tr hidden>
                     <td>
                         <label for="name"><b>UserId</b></label>
                     </td>
                     <td>
-                        <input disabled type="password" placeholder="UserId" name="std_l_id" value=<?php echo $userId ?> required><br>
+                        <input readonly type="password" placeholder="UserId" name="std_l_id" value=<?php echo $userId ?> required><br>
                     </td>
             </table>
             <hr>
