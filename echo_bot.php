@@ -76,7 +76,7 @@ if (!is_null($events['events'])) {
 
                 'replyToken' => $replyToken,
 
-                'messages' => [$bubble],
+                'bubble' => [$bubble],
 
             ];
         }
