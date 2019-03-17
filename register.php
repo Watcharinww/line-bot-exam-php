@@ -23,7 +23,7 @@ FROM student";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_assoc()) {
-    if ($std_UserId == $row['std_l_id']) {
+    if ($userId == $row['std_l_id']) {
         echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
       window.close(); </script>";
         exit();
