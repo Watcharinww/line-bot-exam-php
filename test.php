@@ -1,53 +1,46 @@
-<?php  // callback.php
-
-require "vendor/autoload.php";
-
-require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+<?php
 
 include 'conn.php';
+require_once('.vendor/line-bot-sdk/LINEBotTiny.php');
 
-$content = file_get_contents('php://input');
-$arrayJson = json_decode($content, true);
+$channelAccessToken = '$channelAccessToken';
+$channelSecret = '$channelSecret';
 
-$arrayHeader = array();
-$arrayHeader[] = "Content-Type: application/json";
-$arrayHeader[] = "Authorization: Bearer {$access_token}";
-
-//รับข้อความจากผู้ใช้
-$message = $arrayJson['events'][0]['message']['text'];
-
-function replyMsg($arrayHeader, $arrayPostData)
-{
-  $strUrl = "https://api.line.me/v2/bot/message/reply";
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $strUrl);
-  curl_setopt($ch, CURLOPT_HEADER, false);
-  curl_setopt($ch, CURLOPT_POST, true);
-  curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-  $result = curl_exec($ch);
-  curl_close($ch);
-}
-
-if ($message == "test") {
-  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-  $arrayPostData['messages'][0]['type'] = "bubble";
-  $arrayPostData['header'][0]['type'] = "box";
-  $arrayPostData['header'][0]['layout'] = "vertical";
-  $arrayPostData['contents'][0]['type'] = "text";
-  $arrayPostData['contents'][0]['text'] = "TEST";
-  $arrayPostData['contents'][0]['size'] = "xxl";
-  replyMsg($arrayHeader, $arrayPostData);
-}
-else {
-	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-	$arrayPostData['messages'][0]['type'] = "text";
-	$arrayPostData['messages'][0]['text'] = $message;
-	replyMsg($arrayHeader, $arrayPostData);
-}
-
-
-
-exit;
+$client = new LINEBotTiny($channelAccessToken, $channelSecret);
+foreach ($client->parseEvents() as $event) {
+    switch ($event['type']) {
+        case 'message':
+            $message = $event['message'];
+            switch ($message['type']) {
+                case 'text':
+                    $client->replyMessage(array(
+                        'replyToken' => $event['replyToken'],
+                        'messages' => array(
+                            array(
+                                'type' => 'text',
+                                'text' => $message['text']
+                            )
+                        )
+                    ));
+                    break;
+                case 'text' == "test":
+                    $client->replyMessage(array(
+                        'replyToken' => $event['replyMessage'],
+                        'messages' => array(
+                            array(
+                                'type' => 'text',
+                                'text' => 'hello'
+                            )
+                        )
+                    ));
+                default:
+                    error_log("Unsupporeted message type: " . $message['type']);
+                    break;
+            }
+            break;
+        default:
+            error_log("Unsupporeted event type: " . $event['type']);
+            break;
+    }
+};
+echo $client;
