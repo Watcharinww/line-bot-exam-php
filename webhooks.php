@@ -1,65 +1,121 @@
 <?php  // callback.php
 
 require "vendor/autoload.php";
+// require 'conn.php';
 
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
-include 'conn.php';
+$access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzYk4jN9n0zEqc86nVJQTyIVJOimoI9CPzcuaCUyysOLMvBtooxc7BK6pfNYdRZ6mzobVVvb7/DlYxK/LdHddOHrrwdB04t89/1O/w1cDnyilFU=';
 
+
+// Get POST body content
 $content = file_get_contents('php://input');
 
-$event = json_decode($content, true);
+// Parse JSON
+$events = json_decode($content, true);
 
+// Validate parsed JSON data
 if (!is_null($events['events'])) {
-	foreach ($events['events'] as $event) {
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 
-			$replyToken = $event['replyToken'];
+    // Loop through each event
 
-			if($event['message']['text'] == 'สวัสดี'){
-				$message = [
-					'type' => 'text',
-					'text' => 'สวัสดีจ้าาา'
-				];
-			}
-			else if ($event['message']['text'] == 'register'){
-				$message = [
-					[
-						'type' => 'text',
-						'text' => '**คำเตือน สำคัญมาก ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด**'
-					],
-					[
-						'type' => 'text',
-						'text' => $event['source']['userId']
-					],
-					[
-						'type' => 'text',
-						'text' => 'เข้าลิงค์ข้างล่างเพื่อยืนยันตัวตนของท่าน'
-					],
-					[
-						'type' => 'text',
-						'text' => 'http://chatcedkmutnb1.herokuapp.com/register.php'
-					]
-				];
-			}
-			else{
-				$message = [
-					'type' => 'text',
-					'text' => $event['message']['text']
-				];
-			}
-		}
-		$data = [
-			'replyToken' => $replyToken,
-			'messages' => [$message]
-		];
-		$url = 'https://api.line.me/v2/bot/message/reply';
+    foreach ($events['events'] as $event) {
 
-		$post = json_encode($date);
+        // Reply only when message sent is in 'text' format
 
-		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-		
-		$ch = curl_init($url);
+        if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+
+
+            if ($event['message']['text'] == "ทดลอง") {
+                $text = "ก็จะทดลองทำไมอะ";
+            } else {
+
+                // Get text sent
+
+                $text = $event['source']['userId'];
+                // $text2 = $event['message']['text'];
+            }
+            // Get replyToken
+
+            $replyToken = $event['replyToken'];
+
+            // Build message to reply back
+
+            $messages = [
+
+                // 'type' => 'text',
+
+                // 'text' => $text
+
+                'type' => 'flex',
+                'altText' => 'alt test',
+                'contents' => [
+                    'type' => 'bubble',
+                    'styles' => [
+                        'footer' => [
+                            'separator' => true
+                        ]
+                    ],
+                    'body' => [
+                        'type' => 'box',
+                        'layout' => 'vertical',
+                        'contents' => [
+                            [
+                                'type' => 'text',
+                                'text' => 'Hello',
+                                'weight' => 'bold',
+                                'color' => '#1DB446',
+                                'size' => 'xxl'
+                            ],
+                            [
+                                'type' => 'separator',
+                                'margin' => 'xl'
+                            ],
+                            [
+                                'type' => 'box',
+                                'layout' => 'vertical',
+                                'contents' => [
+                                    [
+                                        'type' => 'text',
+                                        'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
+                                        'size' => 'sm',
+                                        'margin' => 'xxl',
+                                        'maxLines' => 0
+                                    ],
+                                    [
+                                        'type' => 'text',
+                                        'text' => '20.30 19/18/30',
+                                        'size' => 'sm',
+                                        'align' => 'end'
+        
+                                    ]
+                                    
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ];
+
+            // Make a POST Request to Messaging API to reply to sender
+
+            $url = 'https://api.line.me/v2/bot/message/reply';
+
+            $data = [
+
+                'replyToken' => $replyToken,
+
+                'messages' => [$messages],
+
+            ];
+        }
+
+
+        $post = json_encode($data);
+
+        $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+        $ch = curl_init($url);
 
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 
@@ -76,111 +132,7 @@ if (!is_null($events['events'])) {
         curl_close($ch);
 
         echo $result . "\r\n";
-	}
+    }
 }
 
-echo "ok";
-
-// #ตัวอย่าง Message Type "Text"
-// if ($message == "สวัสดี") {
-// 	// $arrayPostData['replyToken'] = $event['events'][0]['replyToken'];
-// 	// $arrayPostData['messages'][0]['type'] = "text";
-// 	// $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-// 	$arrayPostData=[
-// 		'replyToken' => $event['event'][0]['replyToken'],
-// 		'messages' => [
-// 			'type' => 'text',
-// 			'text' => 'สวัสดีจ้าาา'
-// 		]
-// 	];
-// 	replyMsg($arrayHeader, $arrayPostData);
-// }
-// #ตัวอย่าง Message Type "Sticker"
-// else if ($message == "ฝันดี") {
-// 	$arrayPostData['replyToken'] = $event['events'][0]['replyToken'];
-// 	$arrayPostData['messages'][0]['type'] = "sticker";
-// 	$arrayPostData['messages'][0]['packageId'] = "2";
-// 	$arrayPostData['messages'][0]['stickerId'] = "46";
-// 	replyMsg($arrayHeader, $arrayPostData);
-// }
-
-// #ให้ส่ง userId กลับมา
-// // else if ($message == "register") {
-// // 	$arrayPostData['replyToken'] = $event['events'][0]['replyToken'];
-// // 	$arrayPostData['messages'][0]['type'] = "text";
-// // 	$arrayPostData['messages'][0]['text'] = $event['events'][0]['source']['userId'];
-// // 	$arrayPostData['messages'][1]['type'] = "text";
-// // 	$arrayPostData['messages'][1]['text'] = "**คำเตือน สำคัญมาก ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด**";
-// // 	$arrayPostData['messages'][2]['type'] = "text";
-// // 	$arrayPostData['messages'][2]['text'] = "เข้าลิงค์ข้างล่างเพื่อยืนยันตัวตนของท่าน";
-// // 	$arrayPostData['messages'][3]['type'] = "text";
-// // 	$arrayPostData['messages'][3]['text'] = "http://chatcedkmutnb1.herokuapp.com/register.php";
-// // 	replyMsg($arrayHeader, $arrayPostData);
-// // }
-
-// #ตัวอย่าง Message Type "Image"
-// else if ($message == "รูปน้องแมว") {
-// 	$image_url = "https://i.pinimg.com/originals/cc/22/d1/cc22d10d9096e70fe3dbe3be2630182b.jpg";
-// 	$arrayPostData['replyToken'] = $event['events'][0]['replyToken'];
-// 	$arrayPostData['messages'][0]['type'] = "image";
-// 	$arrayPostData['messages'][0]['originalContentUrl'] = $image_url;
-// 	$arrayPostData['messages'][0]['previewImageUrl'] = $image_url;
-// 	replyMsg($arrayHeader, $arrayPostData);
-// }
-// #ตัวอย่าง Message Type "Location"
-// else if ($message == "พิกัดสยามพารากอน") {
-// 	$arrayPostData['replyToken'] = $event['events'][0]['replyToken'];
-// 	$arrayPostData['messages'][0]['type'] = "location";
-// 	$arrayPostData['messages'][0]['title'] = "สยามพารากอน";
-// 	$arrayPostData['messages'][0]['address'] =   "13.7465354,100.532752";
-// 	$arrayPostData['messages'][0]['latitude'] = "13.7465354";
-// 	$arrayPostData['messages'][0]['longitude'] = "100.532752";
-// 	replyMsg($arrayHeader, $arrayPostData);
-// }
-// #ตัวอย่าง Message Type "Text + Sticker ใน 1 ครั้ง"
-// else if ($message == "ลาก่อน") {
-// 	$arrayPostData['replyToken'] = $event['events'][0]['replyToken'];
-// 	$arrayPostData['messages'][0]['type'] = "text";
-// 	$arrayPostData['messages'][0]['text'] = "อย่าทิ้งกันไป";
-// 	$arrayPostData['messages'][1]['type'] = "sticker";
-// 	$arrayPostData['messages'][1]['packageId'] = "1";
-// 	$arrayPostData['messages'][1]['stickerId'] = "131";
-// 	replyMsg($arrayHeader, $arrayPostData);
-// }
-
-// else if($message == "testflex"){
-// 	$arrayPostData['replyToken'] = $event['events'][0]['replyToken'];
-// 	$arrayPostData['messages'][0]['type'] = "flex";
-// 	$arrayPostData['messages'][0]['altText'] = "test";
-// 	$arrayPostData['messages'][0]['contests'][0]['type'] = "bubble";
-// 	$arrayPostData['messages'][0]['contests'][0]['body'][0]['type'] = "box";
-// 	$arrayPostData['messages'][0]['contests'][0]['body'][0]['body'][0]['layout'] = "vertical";
-// 	$arrayPostData['messages'][0]['contests'][0]['body'][0]['body'][0]['contents'][0]['type'] = "text";
-// 	$arrayPostData['messages'][0]['contests'][0]['body'][0]['body'][0]['contents'][0]['text'] = "hello";
-// 	$arrayPostData['messages'][0]['contests'][0]['body'][0]['body'][0]['contents'][0]['size'] = "xxl";
-// }
-// #ข้อความอื่นๆ ส่งกลับ
-// else {
-// 	$arrayPostData['replyToken'] = $event['events'][0]['replyToken'];
-// 	$arrayPostData['messages'][0]['type'] = "text";
-// 	$arrayPostData['messages'][0]['text'] = $message;
-// 	replyMsg($arrayHeader, $arrayPostData);
-// }
-
-// function replyMsg($arrayHeader, $arrayPostData)
-// {
-// 	$strUrl = "https://api.line.me/v2/bot/message/reply";
-// 	$ch = curl_init();
-// 	curl_setopt($ch, CURLOPT_URL, $strUrl);
-// 	curl_setopt($ch, CURLOPT_HEADER, false);
-// 	curl_setopt($ch, CURLOPT_POST, true);
-// 	curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-// 	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
-// 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// 	$result = curl_exec($ch);
-// 	curl_close($ch);
-// }
-
-// exit;
- 
+echo "OK";
