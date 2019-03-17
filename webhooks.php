@@ -25,8 +25,8 @@ function getdata($userId)
 					std.std_l_id = $userId";
 
 	$result_std = mysqli_query($conn, $sql_hw);
-	while($row = mysql_fetch_array($result_std)){
-		$date = date("Y-m-d",$row['hw_date_r']);
+	while ($row = mysql_fetch_array($result_std)) {
+		$date = date("Y-m-d", $row['hw_date_r']);
 		$name = $row['hw_name'];
 		$text_messages += "[
 								'type' => 'text',
@@ -44,6 +44,7 @@ function getdata($userId)
 							]
 	";
 	}
+	return ($text_message);
 }
 
 // Get POST body content
@@ -99,8 +100,7 @@ if (!is_null($events['events'])) {
 									'type' => 'box',
 									'layout' => 'vertical',
 									'contents' => [
-										getdata($userId),
-										$text_messages
+										getdata($userId)
 									]
 								]
 							]
