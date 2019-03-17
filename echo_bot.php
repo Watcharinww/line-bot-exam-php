@@ -79,7 +79,8 @@ if (!is_null($events['events'])) {
                                         'type' => 'text',
                                         'text' => 'การบ้านวิชาเนียอะ ลืมได้ไง เอออ ทำไมลืมอะ ฮะะ',
                                         'size' => 'sm',
-                                        'margin' => 'xxl'
+                                        'margin' => 'xxl',
+                                        'maxLines' => 0
                                     ],
                                     [
                                         'type' => 'text',
