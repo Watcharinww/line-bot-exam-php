@@ -62,7 +62,7 @@ $result = $conn->query($sql);
     <td><input class="score" name="sc" type="text" size="2" maxlength="2" placeholder="0" /> / 10
     <br /><br />
     <a id= "war">**ถ้าไม่ใส่คะแนน<br>จะถือว่าลบคะแนนออก**</a><br>
-    <input type = "submit" name="submit" type="button" value="ให้คะแนน" /></td>
+    <input type="submit" class="submit" name="submit" value="ให้คะแนน" /></td>
   </tr>
 </table>
 

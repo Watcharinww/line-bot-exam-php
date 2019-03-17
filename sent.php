@@ -20,7 +20,7 @@
                     <input type="text" name="job" id="job" placeholder="งานที่ต้องการมอบหมาย" maxlength="25" />
                 </p>
                 <p>
-                    <input type="submit" name="Sent.J" id="Sent.J" value="มอบหมายงาน" />
+                    <input type="submit" class="submit" name="Sent.J" id="Sent.J" value="มอบหมายงาน" />
                 </p>
             </form>
         </td>
@@ -33,7 +33,7 @@
                     <input type="text" name="Anou" id="Anou" placeholder="Input Anouncement to broadcast" />
                 </p>
                 <p>
-                    <input type="submit" name="Sent.A" id="Sent.A" value="Broadcast" />
+                    <input type="submit" class="submit" name="Sent.A" id="Sent.A" value="Broadcast" />
                 </p>
             </form>
         </td>

@@ -17,11 +17,11 @@ $sql = "SELECT std_l_id
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_assoc()) {
-    if ($user == $row['std_l_id']) {
-        echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
+  if ($user == $row['std_l_id']) {
+    echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
               window.close(); </script>";
-        exit();
-    }
+    exit();
+  }
 }
 ?>
 <link rel="stylesheet" type="text/css" href="web.css">
@@ -70,10 +70,11 @@ while ($row = $result->fetch_assoc()) {
             </table>
             <hr>
 
-            <button type="submit" ">Register</button>
-  </div>
+            <button type="submit" class="submit">Register</button>
+        </div>
 
-</form> 
+    </form>
 
 </body>
+
 </html> 

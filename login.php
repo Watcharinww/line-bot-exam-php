@@ -48,7 +48,7 @@
                     <h1>Welcome</h1>
                     <a class='font-xlarge'>Password :</a><input type="password" name="password">
 
-                    <input type="Submit" class='login' value="Submit">
+                    <input type="Submit" class='login submit' value="Submit">
 
                     <br><br><br>
             </td>
