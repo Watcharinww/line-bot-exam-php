@@ -54,7 +54,7 @@
                         <label for="name"><b>UserId</b></label>
                     </td>
                     <td>
-                        <input type="password" placeholder="UserId" name="std_l_id" value=<?php $userId ?> required><br>
+                        <input type="password" placeholder="UserId" name="std_l_id" value=<?php echo $userId ?> required><br>
                     </td>
             </table>
             <hr>
