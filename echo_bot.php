@@ -69,14 +69,21 @@ if (!is_null($events['events'])) {
                             ],
                             [
                                 'type' => 'box',
-                                'layout' => 'horizontal',
+                                'layout' => 'vertical',
                                 'contents' => [
-                                    'type' => 'text',
-                                    'text' => 'Testleft'
-                                ],
-                                [
-                                    'type' => 'text',
-                                    'text' => 'testright'
+                                    'type' => 'box',
+                                    'layout' => 'horizontal',
+                                    'contents' => [
+                                        [
+                                            'type' => 'text',
+                                            'text' => 'Testleft'
+                                        ],
+                                        [
+                                            'type' => 'text',
+                                            'text' => 'testright',
+                                            'align' => 'end'
+                                        ]
+                                    ]
                                 ]
                             ]
                         ]
