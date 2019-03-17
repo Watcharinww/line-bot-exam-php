@@ -14,17 +14,17 @@
 </style>
 <?php
     $userId = strval($_GET['id']);
-    $sql = "SELECT std_l_id
-            FROM student";
+    // $sql = "SELECT std_l_id
+    //         FROM student";
 
-    $result = $conn->query($sql);
+    // $result = $conn->query($sql);
 
-    while ($row = $result->fetch_assoc()) {
-        if ($userId == $row['std_l_id']) {
-            echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
-                    window.location.href = 'register.php' </script>";
-            exit();
-    }
+    // while ($row = $result->fetch_assoc()) {
+    //     if ($userId == $row['std_l_id']) {
+    //         echo "<script> alert('**UserID ซ้ำ** กรุณากรอกใหม่หรือติดต่อครูผู้สอน'); 
+    //                 window.location.href = 'register.php' </script>";
+    //         exit();
+    // }
 }
 ?>
 <body>
