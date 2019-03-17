@@ -78,6 +78,18 @@ else if ($message == "ลาก่อน") {
 	$arrayPostData['messages'][1]['stickerId'] = "131";
 	replyMsg($arrayHeader, $arrayPostData);
 }
+
+else if($message == "testflex"){
+	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+	$arrayPostData['messages'][0]['type'] = "flex";
+	$arrayPostData['messages'][0]['altText'] = "test";
+	$arrayPostData['contests'][0]['type'] = "bubble";
+	$arrayPostData['body'][0]['type'] = "box";
+	$arrayPostData['body'][0]['layout'] = "vertical";
+	$arrayPostData['contents'][0]['type'] = "text";
+	$arrayPostData['contents'][0]['text'] = "hello";
+	$arrayPostData['contents'][0]['size'] = "xxl";
+}
 #ข้อความอื่นๆ ส่งกลับ
 else {
 	$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
