@@ -11,10 +11,10 @@ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
 $text = [
     'type' => 'text',
-    'text' => '"็จะทดลองทำไมอะ'
+    'text' => 'จะทดลองทำไมอะ'
 ];
 
-$post = json_encode($text);
+$post = array(json_encode($text));
 
 
 $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($post);
