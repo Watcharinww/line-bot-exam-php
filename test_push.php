@@ -31,9 +31,9 @@ $accessToken = $access_token; //copy ข้อความ Channel access token 
 $content = file_get_contents('php://input');
 $arrayJson = json_decode($content, true);
 
-   $arrayHeader = array();
-   $arrayHeader[] = "Content-Type: application/json";
-   $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+//    $arrayHeader = array();
+//    $arrayHeader[] = "Content-Type: application/json";
+//    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
 $arrayHeader = array(
     'Content-Type : application/json',
