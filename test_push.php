@@ -23,15 +23,15 @@ $message = $arrayJson['events'][0]['message']['text'];
 
 #ตัวอย่าง Message Type "Text + Sticker"
 if ($message == "สวัสดี") {
-    $arrayPostData['to'] = $id;
-    $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-    $arrayPostData['messages'][1]['type'] = "sticker";
-    $arrayPostData['messages'][1]['packageId'] = "2";
-    $arrayPostData['messages'][1]['stickerId'] = "34";
+    $message_sent['to'] = $id;
+    $message_sent['messages'][0]['type'] = "text";
+    $message_sent['messages'][0]['text'] = "สวัสดีจ้าาา";
+    $message_sent['messages'][1]['type'] = "sticker";
+    $message_sent['messages'][1]['packageId'] = "2";
+    $message_sent['messages'][1]['stickerId'] = "34";
     // pushMsg($arrayHeader, $arrayPostData);
 } else {
-    $message = [
+    $message_sent = [
         'to' => $id,
         'messages' => [
             'type' => 'text',
@@ -43,7 +43,7 @@ if ($message == "สวัสดี") {
 
 $url = 'https://api.line.me/v2/bot/message/push';
 
-$post = json_encode($message);
+$post = json_encode($message_sent);
 $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLOPT_POST, true);
