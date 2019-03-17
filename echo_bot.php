@@ -73,7 +73,7 @@ if (!is_null($events['events'])) {
                             ],
                             [
                                 'type' => 'box',
-                                'layout' => 'horizontal',
+                                'layout' => 'vertical',
                                 'contents' => [
                                     [
                                         'type' => 'text',
