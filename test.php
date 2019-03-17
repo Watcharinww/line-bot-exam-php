@@ -1,7 +1,7 @@
 <?php
 
 include 'conn.php';
-require_once('.vendor/line-bot-sdk/LINEBotTiny.php');
+require_once('.vendor/linecorp/line-bot-sdk/LINEBotTiny.php');
 
 $channelAccessToken = '$channelAccessToken';
 $channelSecret = '$channelSecret';
