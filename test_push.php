@@ -14,10 +14,10 @@ $text = [
     'text' => 'จะทดลองทำไมอะ'
 ];
 
-$post = array(json_encode($text));
+$post = json_encode($text);
 
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($post);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
 $response = $bot->pushMessage($pushId, $textMessageBuilder);
 
 
