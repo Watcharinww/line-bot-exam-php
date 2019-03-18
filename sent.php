@@ -14,8 +14,20 @@
                 <p><img src="picture/book.png"/book.png" width="77%" height="77%" /> </p>
                 <p>
                     <label for="Job"></label>
-                    <input type="number" name="hr_job" min="0" max="23">:
-                    <input type="number" name="min_job" min="0" max="59">
+                    <!-- <input type="number" name="hr_job" min="0" max="23">: -->
+                    <select name="hr_job">
+                        <? for ($i = 0; $i < 24; $i++) {
+                            echo "<option value = '$i'> $i </option>";
+                         }
+                        ?>
+                    </select>
+                    <!-- <input type="number" name="min_job" min="0" max="59"> -->
+                    <select name="min_job">
+                        <? for ($i = 0; $i < 60; $i++) {
+                            echo "<option value = '$i'> $i </option>";
+                         }
+                        ?>
+                    </select>
                     <input type="date" name="d_job" id="d.job" /><br />
                     <input type="text" name="job" id="job" placeholder="งานที่ต้องการมอบหมาย" maxlength="25" />
                 </p>
