@@ -24,6 +24,13 @@ while ($row = mysqli_fetch_array($result)) {
         $response = $bot->pushMessage($row["std_l_id"], $textMessageBuilder);
     }
 }
+$status = $response->getHTTPStatus();
+
+if(($status) == 200){
+    echo "<script> window.alert('broadcast สำเร็จ'); window.location.href = 'index.php';</script>"; 
+}else{
+    echo "<script> window.alert('มีปัญหาในการ broadcast'); window.location.href = 'index.php';</script>"; 
+}
 
 $conn->close();
 
