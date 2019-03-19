@@ -1,9 +1,9 @@
-#current version : 1.1.02
+#current version : beta-1.1.03
 
 #update
 
-#1.0 - start use application
-#1.1 - mix css + bootstrap
-#1.1.01 - edit round in login page  ,block addjob if null , change leaguge broadcast -> ประกาศ
-#1.1.02 - move web-footer from table -> div, change book picture
-#1.x.x update database utf-8
+#beta-1.0 - start use application
+#beta-1.1 - mix css + bootstrap
+#beta-1.1.01 - edit round in login page  ,block addjob if null , change leaguge broadcast -> ประกาศ
+#beta-1.1.02 - move web-footer from table -> div, change book picture
+#beta-1.1.03 - update database utf-8 , hide pagination

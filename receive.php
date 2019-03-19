@@ -112,7 +112,7 @@ $conn->close();
                     <tr><td></td></td>
                     <tr class='text-center'>
                         <td>
-                            pagination
+                            <!-- pagination -->
                         </td>
                     </tr>
                 </tbody>
