@@ -40,7 +40,7 @@
 
 
 
-    <table class='container-fluid bg-success p-3 rounded-lg' height='100%'>
+    <table class='container-fluid bg-success p-3' height='100%'>
         <tr>
             <td class='text-center'>
                 <form action="<? echo $_SERVER['PHP_SELF'] ?>" method="POST">

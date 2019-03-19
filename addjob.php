@@ -15,7 +15,10 @@ if ($conn->connect_error) {
 $s_time = date("Y-m-d G:i:s", time());
 $r_time =  $_POST['d_job'] . " " . $_POST['hr_job'] . ":" . $_POST['min_job'] . ":" . "00";
 $job = $_POST['job'];
-$_SESSION['jobbroad'] = "มีการมอบหมายงาน $job";
+
+if ($job != null) {
+    $_SESSION['jobbroad'] = "มีการมอบหมายงาน $job";
+}
 
 $sql_adddata = "INSERT INTO homework(hw_name,hw_date_s,hw_date_r)
                     VALUE ('$job','$s_time','$r_time')";

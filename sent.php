@@ -10,7 +10,7 @@
 
         <td width="37.5%" rowspan="2" valign="top" align="center" class='web-border'>
             <form id="form1" name="form1" method="post" action="addjob.php">
-                <p><img src="picture/book.png" width="65%" /> </p>
+                <p><img src="picture/book.png" width="70%" /> </p>
                 <p>
                     <label for="Job" class='h4'>Time/Date : </label>
                     <!-- <input type="number" name="hr_job" min="0" max="23">: -->
@@ -46,7 +46,7 @@
                     <input type="text" name="Anou" class='form-control col-8 p-1 text-center' id="Anou" placeholder="Input Anouncement to broadcast" />
                 </p>
                 <p>
-                    <input type="submit" class="btn btn-light" name="Sent.A" id="Sent.A" value="Broadcast" />
+                    <input type="submit" class="btn btn-light" name="Sent.A" id="Sent.A" value="ประกาศ" />
                 </p>
             </form>
         </td>
