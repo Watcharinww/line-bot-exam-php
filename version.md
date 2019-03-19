@@ -1,4 +1,4 @@
-#current version : beta-1.1.05
+#current version : beta-1.1.06
 
 #update
 
