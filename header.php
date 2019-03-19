@@ -11,27 +11,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="web.css">
 </head>
-<!-- 
-<style>
-    .breting {
-        animation: breting;
-        animation-duration: 5s;
-        animation-direction: alternate;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease;
-        /* animation-direction: alternate; */
-    }
-
-    @keyframes breting {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            text-opacity: 1;
-        }
-    }
-</style> -->
 
 <? session_start();
 
@@ -39,7 +18,7 @@ include 'changepage.php'; ?>
 
 <link rel="stylesheet" type="text/css" href="web.css">
 
-<body class='overflow-hidden'>
+<body class='' style='overflow-x: hidden;overflow-y: scroll;'>
     <header class='header'>
         <script src="Time.js"></script>
         <div class='bg-success p-1'>
