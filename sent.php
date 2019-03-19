@@ -43,7 +43,7 @@
                 <p>
                     <label for="Anou"></label><br />
                     <br />
-                    <input type="text" name="Anou" class='form-control col-8 p-1 text-center' id="Anou" placeholder="Input Anouncement to broadcast" />
+                    <input type="text" name="Anou" class='form-control col-8 p-1 text-center' id="Anou" placeholder="ใส่ข้อความที่ต้องการจะประกาศ" />
                 </p>
                 <p>
                     <input type="submit" class="btn btn-light" name="Sent.A" id="Sent.A" value="ประกาศ" />
