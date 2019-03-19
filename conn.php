@@ -3,9 +3,9 @@ $access_token = 'UoNWCzm+34uMMB2itvPBwm7K9N7CK8GbWMc5RFmI9KQqGtAM1YO24VRTp5xTbzY
 
 $channelSecret = '88f693bafb5809e65f319ad3139213ba';
 
-$servername = "us-cdbr-iron-east-01.cleardb.net";
-$username = "bc2e88a0fd2a0e";
-$password = "6ca79774";
-$dbname = "heroku_5eae676745c3fe6";
+$servername = "us-cdbr-iron-east-03.cleardb.net";
+$username = "b2575e74c124b1";
+$password = "a208c16f";
+$dbname = "heroku_0aea6ad08b0c48d";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

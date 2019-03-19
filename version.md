@@ -1,4 +1,4 @@
-#current version : beta-1.1.03
+#current version : beta-1.1.04
 
 #update
 
@@ -7,3 +7,4 @@
 #beta-1.1.01 - edit round in login page  ,block addjob if null , change leaguge broadcast -> ประกาศ
 #beta-1.1.02 - move web-footer from table -> div, change book picture
 #beta-1.1.03 - update database utf-8 , hide pagination
+#beta-1.1.04 - change database to use , utf-8
