@@ -1,6 +1,6 @@
 <footer class='footer'>
-<div class='bg-success p-1'>
-    <table class='table table-borderless bg-success text-center text-light h6 web-footer'>
+<div class='bg-success p-1 web-footer'>
+    <table class='table table-borderless bg-success text-center text-light h6 '>
         <tr>
             <td>Deverlop : Watcharin Wiangwised</td>
             <td>Design : Tanasak Montiramanoch</td>
