@@ -12,7 +12,7 @@ if ($_SESSION['status'] != 'correct') {
 include 'header.php';
 ?>
 
-<div class="container">
+<div class="container-fluid bg-success p-3">
 
 
     <div id="content">

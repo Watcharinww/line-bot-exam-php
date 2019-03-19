@@ -7,8 +7,31 @@
     <title>Line-LMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="web.css">
 </head>
+<!-- 
+<style>
+    .breting {
+        animation: breting;
+        animation-duration: 5s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+        /* animation-direction: alternate; */
+    }
+
+    @keyframes breting {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            text-opacity: 1;
+        }
+    }
+</style> -->
 
 <? session_start();
 
@@ -16,26 +39,28 @@ include 'changepage.php'; ?>
 
 <link rel="stylesheet" type="text/css" href="web.css">
 
-<body>
-    <header>
+<body class='overflow-hidden'>
+    <header class='header'>
         <script src="Time.js"></script>
-        <div class='header-background'>
-            <table width="100%" height="100%" border="0" ">
-            <tr><td class ='top-header'><span id="date_time" class='header-time'></span>
-                <script type="text/javascript">
-                    window.onload = date_time('date_time');
-                </script>
-                </td>
-                <td align='right'>
-                    <? if ($_SESSION['status'] == 'correct') { ?>
-                    <button onclick="location.href = 'logout.php';">Logout</button>
-                    <?
-                } ?>
-                </td>
+        <div class='bg-success p-1'>
+            <table width = '100%'>
+                <tr>
+                    <td><span id="date_time" class='h4 bg-primary rounded-pill p-1 text-light font-weight-lighter'></span>
+                        <script type="text/javascript">
+                            window.onload = date_time('date_time');
+                        </script>
+                    </td>
+                    <td class='text-right'>
+                        <? if ($_SESSION['status'] == 'correct') { ?>
+                        <button class='btn p-2 rounded-pill btn-secondary' onclick="location.href = 'logout.php';">Logout</button>
+                        <?
+                    } ?>
+                    </td>
 
                 </tr>
+                </tr><td class='p-1'></td></tr>
                 <tr>
-                    <td colspan="3" class='header head-font'>Learning Management System on Line Application</td>
+                    <td colspan="3" class='text-center text-light header text-center p-4 h1 web-header'>Learning Management System on Line Application</td>
                 </tr>
             </table>
         </div>

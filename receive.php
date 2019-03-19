@@ -63,53 +63,66 @@ $conn->close();
     }
 </script>
 
-<table class='color-blue' border='0'>
+<table class='web-border text-light'>
     <tr>
-        <td width="25%" align="center" class='border'>
+        <td width="25%" align="center" class='web-border'>
             <p><a id='click' href='#' data-target="sent">
                     <img src="picture/Sent.png" width="50%" height="50%" title="SentPage" /></a></p>
             <p class="font-xlarge font-color-hardgreen">Sent</p>
         </td>
-        <td width="50%" rowspan="2" valign="top" class='border'>
+
+
+        <td width="50%" rowspan="2" valign="top" class='web-border'>
             <table width="100%" height="100%" border="0">
                 <tr>
-                    <td class='text-center font-xlarge'>
+                    <td class='text-center h5'>
 
-                        <? echo "<div id='txtHint'><b><p style='color:red' ><br><br><br>*โปรดเลือกงานที่มอบหมาย*</p></b></div>"; ?>
+                        <? echo "<div id='txtHint'><b><p class='h1 web-breting' style='color:#7A1706' ><br><br><br>*โปรดเลือกงานที่มอบหมาย*</p></b></div>"; ?>
             </table>
         </td>
-        <td width="25%" rowspan="2" valign="top" class='border padding'>
-            <table width="100%" border="0">
-                <tr>
-                    <td class="font-xlarge text-center bold font-color-hardgreen border-bottom-list" valign="top">งานที่มอบหมาย</td>
-                </tr>
-                <tr>
-                    <td height="100%" align="center">
+        <td width="25%" height='100%' rowspan="2" valign="top" class=' '>
+            <table width="100%" class=''>
+                <thead class='thead'>
+                    <tr>
+                        <td class="h3 text-center text-light web-border-bottom" valign="top">งานที่มอบหมาย</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td height="80%" align="center">
 
-                        <?php
-                        $conut = 0;
-                        for ($i = 0; $i < $result_hw->num_rows; $i++) {
-                            echo "<table border = '0' width = '100%'><tr><td align = 'center' class='border-bottom-list'>";
-                            echo "<a href = 'javascript:showHomework($hw_id_hw[$i],($i+1))'>";
-                            echo ($i + 1) . " " . $hw_name_hw[$i];
-                            echo "</a>";
-                            $name = $hw_name_hw[$i];
-                            echo "</td><td width = '10%' align = 'right'>";
-                            echo "<a class='border-close' onclick=\"javascript: return window.confirm('คุณต้องการจะลบการบ้าน $name ใช่หรือไม่?');\"
+                            <?php
+                            $conut = 0;
+                            for ($i = 0; $i < $result_hw->num_rows; $i++) {
+                                echo "<table class='table-sm' width = '100%'><tr><td class='web-border-bottom text-center'>";
+                                echo "<a href = 'javascript:showHomework($hw_id_hw[$i],($i+1))'>";
+                                echo ($i + 1) . " " . $hw_name_hw[$i];
+                                echo "</a>";
+                                $name = $hw_name_hw[$i];
+                                echo "</td><td width = '10%' align = 'right' class='web-border-bottom'>";
+                                echo "<a class='p-1 ' onclick=\"javascript: return window.confirm('คุณต้องการจะลบการบ้าน $name ใช่หรือไม่?');\"
                                     href = 'deleteHw.php?id=$hw_id_hw[$i]&name=$name' > X </a>";
-                            echo "</td></tr></table>";
-                            $count++;
-                        }
-                        ?>
+                                echo "</td></tr></table>";
+                                $count++;
+                            }
+                            ?>
 
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                    <tr><td></td></td>
+                    <tr class='text-center'>
+                        <td>
+                            pagination
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </td>
         </div>
     </tr>
+    
     <tr>
-        <td align="center" class='border'>
+        <td align="center" class='web-border'>
             <p><a id='click' href="#" data-target="receive">
                     <img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
             <p class="font-xlarge font-color-hardgreen">Receive</p>

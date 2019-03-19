@@ -26,25 +26,22 @@ $result_hw = $conn->query($sql);
 $nw = 0;
 
 if ($q == "N") {
-  echo "โปรดเลือกงานที่สั่ง";
+  echo "โปรดเลือกงานที่สั่ง"; 
 }
 
 while ($row = mysqli_fetch_array($result_hw)) {
-  echo "  <table width='100%' border = '0' class='menu2'>";
+  echo "  <table width='100%'>";
   echo "    <tr>";
-  echo "      <td>";
+  echo "      <td class='web-border-bottom p-3'>";
   echo       $n . " . " . $row['hw_name'] . "<br>";
   echo "      <a id = 'datehw'> เริ่มสั่งงาน : " . $row['hw_date_s'] . "   " . "เวลาที่ส่ง : " . $row['hw_date_r'] . "</a";
   echo "      </td>";
   echo "    </tr>";
-  echo "   <tr>";
-  echo "     <td><hr></td>";
-  echo "   </tr>";
   echo "  </table>";
   echo "</td>";
   echo "</tr>";
   echo "<tr valign = 'top'>";
-  echo "  <td>";
+  echo "  <td><br>";
   echo "    <table width='100%' border='0' align='center' class='UnderDetail'>";
 }
 
@@ -60,9 +57,9 @@ while ($row = mysqli_fetch_array($result)) {
   echo "        / 10 </td>";
   echo "        <td width = '40%'>";
   if ($row['std_score'] == null)
-    echo "<a href='#' id='click_score' onclick=window.open('editscore.php?q=$q&nw=$nw&st=0','','width=400,height=400,scrollbars=no,resizable=no');>ยังไม่ได้ตรวจ</a>";
+    echo "<a href='#' onclick=window.open('editscore.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');>ยังไม่ได้ตรวจ</a>";
   else
-    echo "<a href='#' id='click_score' onclick=if(window.confirm('ต้องการแก้คะแนน?')){window.open('editscore.php?q=$q&nw=$nw&st=1','','width=400,height=400,scrollbars=no,resizable=no');}>ตรวจแล้ว</a>";
+    echo "<a href='#' onclick=if(window.confirm('ต้องการแก้คะแนน?')){window.open('editscore.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');}>ตรวจแล้ว</a>";
   echo "        </td>";
   echo "      </tr>";
 }

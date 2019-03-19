@@ -3,7 +3,6 @@
 <?
 $id = intval($_GET['id']);
 $std_id = intval($_GET['sid']);
-$st = intval($_GET['st']);
 
 require 'vendor/autoload.php';
 
@@ -27,10 +26,8 @@ while ($row = mysqli_fetch_array($result)) {
     $id_l = $row['std_l_id'];
 }
 
-if($st == 0)
+
 $pushscore = "คะแนนการบ้าน $name ของคุณคือ $hw_score";
-else if($st == 1)
-$pushscore = "คะแนนการบ้าน $name ของคุณถูกแก้เป็น $hw_score";
 
 date_default_timezone_set('Asia/Bangkok');
 $broad = "Edit Score At : " . date("H:i:sa - d/m/Y");

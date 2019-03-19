@@ -23,34 +23,33 @@
 
 
     <?php
-	session_start();
+    session_start();
 
-	if (isset($_POST['password'])) {
-			$pass = '9d9d6ea6650e70720ec543753df4c65b';
-			$inpass = strval($_POST['password']);
+    if (isset($_POST['password'])) {
+        $pass = '9d9d6ea6650e70720ec543753df4c65b';
+        $inpass = strval($_POST['password']);
 
-			if ($pass == md5(md5($inpass))) {
-				$_SESSION['status'] = 'correct';
-				echo "<script> window.alert('Welcome to Line-LMS'); window.location.href = 'homepage.php'; </script>";
-			} else {
-				echo "<script>p_alert();</script>";
-			}
-		}
-	?>
+        if ($pass == md5(md5($inpass))) {
+            $_SESSION['status'] = 'correct';
+            echo "<script> window.alert('Welcome to Line-LMS'); window.location.href = 'homepage.php'; </script>";
+        } else {
+            echo "<script>p_alert();</script>";
+        }
+    }
+    ?>
 
 
 
-    <table class='color-blue border' width='100%'>
+    <table class='container-fluid bg-success p-3 rounded-lg' height='100%'>
         <tr>
-            <td>
-                <form action="<? echo $_SERVER['PHP_SELF'] ?>" method="POST" class='color-blue text-center'>
-
-                    <h1>Welcome</h1>
-                    <a class='font-xlarge'>Password :</a><input type="password" name="password">
-
-                    <input type="Submit" class='login submit' value="Submit">
-
-                    <br><br><br>
+            <td class='text-center'>
+                <form action="<? echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <h1 class='display-4 text-light'>Welcome</h1>
+                    <b class='h3 text-light'>Password : </b>
+                    <input type="password" class='text-center'name="password" placeholder='input password'>
+                    <input type="submit" class='btn btn-primary col-1 submit' value="Submit">
+                    <br><br>
+                </form>
             </td>
         </tr>
     </table>

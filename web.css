@@ -1,63 +1,5 @@
-body {
-    width: 99%;
-}
 
-.body-size {
-    height: 600px;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.header-background {
-    background: #00C400;
-}
-
-.header-time {
-    background: #C5FFFB;
-    border-radius: 15px;
-    padding: 5px;
-    font-size: x-large;
-}
-
-.bold {
-    font-weight: bolder;
-}
-
-.footer {
-    background: #00C400;
-    height: 100%;
-    width: 100%;
-    padding: 5px;
-}
-
-.font-footer {
-    color: whitesmoke;
-    font-size: medium;
-}
-
-.header {
-    width: 100%;
-    height: 80px;
-    border: 15px solid white;
-    padding: 10px;
-    /* margin: 30px;    */
-    /* background: #3DF382; */
-}
-
-.top-header {
-    height: 30px;
-    text-align: left;
-}
-
-.main-padding {
-    padding: 5px;
-    width: 150px;
-    height: 90px;
-}
-
-.breting {
+.web-breting {
     animation: breting;
     animation-duration: 5s;
     animation-direction: alternate;
@@ -75,64 +17,27 @@ body {
     }
 }
 
-.font-xlarge {
-    font-size: x-large;
-}
-
-.font-xxlarge {
-    font-size: xx-large;
-}
-
-.head-font {
+a {
     color: whitesmoke;
-    font-size: xx-large;
-    text-align: center;
 }
-
-.container {
-    align-content: center;
-    width: 100%;
-    /* border: 1px solid black ; */
-    /* padding: 30px;  */
-}
-
-.font-color-hardgreen {
-    color: #003D1D;
-}
-
-.color-blue {
-    background: #9AD4FF;
-}
-
-.border {
-    border: 5px solid #154C16;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.padding {
-    padding: 15px;
-}
-
-.border-bottom {
-    border-bottom: 5px solid #154C16;
-}
-
-.border-bottom-list {
-    border-bottom: 3px solid #154C16;
-}
-
 a:link {
-    color: black;
+    color: white;
+}
+a:hover {
+    color: white;
 }
 
-.border-close {
-    border: 3px dotted red;
-    padding: 4px;
-}
 
-input {
+
+input[type = submit]{
     width: 300px;
+}
+
+input[type = submit].submit{
+    width: 110px;
+}
+
+input[type =password] {
     padding: 10px;
     border-radius: 15px;
     background-color: #EBFFF5;
@@ -148,21 +53,6 @@ input[type=text].score {
 
 input[type=date] {
     width: 120px;
-}
-
-.submit {
-    background-color: #197005;
-    font-size: large;
-    color: whitesmoke;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-}
-
-.submit:hover {
-    background-color: #193005;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    cursor: pointer;
 }
 
 button {
@@ -181,9 +71,27 @@ input.login {
     font-size: medium;
 }
 
+.web-border {
+    border: 5px solid #154C16;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
 select {
     width: 300px;
     padding: 10px;
     border-radius: 15px;
     background-color: #EBFFF5;
+}
+
+.web-header{
+    border: 15px solid white;
+}
+.web-footer{
+    border: 10px solid white;
+}
+
+.web-border-bottom {
+    border-bottom: 5px solid #154C16;
 }

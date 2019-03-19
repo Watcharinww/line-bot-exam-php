@@ -69,14 +69,7 @@ if (!is_null($events['events'])) {
 												'size' => 'xl',
 												'margin' => 'xxl',
 												'align' => 'center'
-											],
-											[
-												'type' => 'text',
-												'text' => 'ระวังอย่าให้ผู้อื่นรู้รหัสนี้เด็ดขาด',
-												'size' => 'sm',
-												'align' => 'center'
-
-											],
+											],											
 											[
 												'type' => 'separator',
 												'margin' => 'xl'

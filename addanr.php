@@ -28,7 +28,7 @@ while ($row_hw = $hw_id->fetch_assoc()) {
         $sqlanr = "INSERT INTO anr(hw_id,t_id,std_id)
                     VALUE ($row_hw[hw_id],1,$row_std[std_id])";
         if ($conn->query($sqlanr) == true) {
-            header("Location: broadcastjob.php");
+            header("Location: broadcastjob.php");         
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
             die();
