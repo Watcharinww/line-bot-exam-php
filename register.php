@@ -1,5 +1,6 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <head>
     <title>
@@ -26,34 +27,33 @@ while ($row = $result->fetch_assoc()) {
 ?>
 <link rel="stylesheet" type="text/css" href="web.css">
 
-<body class="head-font">
+<body class=" bg-light">
 
-    <form action="add_std.php" class="border header-background">
+    <form action="add_std.php" class="web-border p-2">
         <div class="container text-center">
             <h1>Register</h1>
-            <p>Please fill in this form to create an account.</p>
             <hr>
-            <table border='0' align='center'>
+            <table border='0' align='center' >
                 <tr>
                     <td align="right">
-                        <label for="name"><b>ชื่อ</b></label>
+                        <label for="name"><b>ชื่อ : </b></label>
                     </td>
                     <td>
-                        <input type="text" placeholder="โปรดใส่ชื่อ" name="std_name" required><br>
+                        <input type="text" class='form-control col-15 text-center' placeholder="โปรดใส่ชื่อ" name="std_name" required><br>
                     </td>
                 <tr>
                     <td align="right">
-                        <label for="l_name"><b>นามสกุล</b></label>
+                        <label for="l_name"><b>นามสกุล : </b></label>
                     </td>
                     <td>
-                        <input type="text" placeholder="โปรดใส่นามสกุล" name="std_l_name" required><br>
+                        <input type="text" class ='form-control col-15 text-center' placeholder="โปรดใส่นามสกุล" name="std_l_name" required><br>
                     </td>
                 <tr>
                     <td>
-                        <label for="std_y"><b>ชั้นปีการศึกษา</b></label>
+                        <label for="std_y"><b>ชั้นปีการศึกษา : </b></label>
                     </td>
                     <td>
-                        <select name="std_y">
+                        <select name="std_y" class='custom-select col-15 text-center'>
                             <option value=1>1</option>
                             <option value=2>2</option>
                             <option value=3>3</option>
@@ -70,7 +70,7 @@ while ($row = $result->fetch_assoc()) {
             </table>
             <hr>
 
-            <button type="submit" class="submit">Register</button>
+            <button type="submit" class="btn btn-primary">Register</button>
         </div>
 
     </form>

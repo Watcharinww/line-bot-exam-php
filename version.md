@@ -9,3 +9,4 @@
 #beta-1.1.03 - update database utf-8 , hide pagination
 #beta-1.1.04 - change database to use , utf-8
 #beta-1.1.05 - update coding notification
+#beta-1.1.06 - edit class in register , editscore , web

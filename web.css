@@ -95,3 +95,8 @@ select {
 .web-border-bottom {
     border-bottom: 5px solid #154C16;
 }
+
+.web-input{
+    border-radius: 15px;
+    background-color: #EBFFF5;
+}
