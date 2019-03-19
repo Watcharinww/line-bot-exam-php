@@ -60,9 +60,9 @@ while ($row = mysqli_fetch_array($result)) {
   echo "        / 10 </td>";
   echo "        <td width = '40%'>";
   if ($row['std_score'] == null)
-    echo "<a href='#' id='click_score' onclick=window.open('editscore.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');>ยังไม่ได้ตรวจ</a>";
+    echo "<a href='#' id='click_score' onclick=window.open('editscore.php?q=$q&nw=$nw&st=0','','width=400,height=400,scrollbars=no,resizable=no');>ยังไม่ได้ตรวจ</a>";
   else
-    echo "<a href='#' id='click_score' onclick=if(window.confirm('ต้องการแก้คะแนน?')){window.open('editscore.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');}>ตรวจแล้ว</a>";
+    echo "<a href='#' id='click_score' onclick=if(window.confirm('ต้องการแก้คะแนน?')){window.open('editscore.php?q=$q&nw=$nw&st=1','','width=400,height=400,scrollbars=no,resizable=no');}>ตรวจแล้ว</a>";
   echo "        </td>";
   echo "      </tr>";
 }
