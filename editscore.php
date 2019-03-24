@@ -20,6 +20,7 @@
 
 $q = intval($_GET['q']);
 $nw = intval($_GET['nw']);
+$st = intval($_GET['st']);
 
 include 'conn.php';
 
@@ -95,7 +96,7 @@ $result = $conn->query($sql);
           $message = "คะแนนของนักเรียน $name ถูกลบออกแล้ว";
         }
 
-        echo "<script> window.alert('$message'); window.location.href = 'pushscore.php?id=$q&sid=$nw' </script>";
+        echo "<script> window.alert('$message'); window.location.href = 'pushscore.php?id=$q&sid=$nw&st=$st' </script>";
         $conn->query($sql_u);
         $conn->close();
         // header("Location:pushscore.php?s=$sc&n=$name&id=$q&sid=$nw");

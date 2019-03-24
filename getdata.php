@@ -58,9 +58,9 @@ while ($row = mysqli_fetch_array($result)) {
   echo "        / 10 </td>";
   echo "        <td width = '40%'>";
   if ($row['std_score'] == null)
-    echo "<a href='#' class='btn btn-primary col-4' onclick=window.open('editscore.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');>ยังไม่ได้ตรวจ</a>";
+    echo "<a href='#' class='btn btn-primary col-4' onclick=window.open('editscore.php?q=$q&nw=$nw&st=0','','width=400,height=400,scrollbars=no,resizable=no');>ยังไม่ได้ตรวจ</a>";
   else
-    echo "<a href='#' class='btn btn-primary col-4' onclick=if(window.confirm('ต้องการแก้คะแนน?')){window.open('editscore.php?q=$q&nw=$nw','','width=400,height=400,scrollbars=no,resizable=no');}>ตรวจแล้ว</a>";
+    echo "<a href='#' class='btn btn-primary col-4' onclick=if(window.confirm('ต้องการแก้คะแนน?')){window.open('editscore.php?q=$q&nw=$nw&st=1','','width=400,height=400,scrollbars=no,resizable=no');}>ตรวจแล้ว</a>";
   echo "        </td>";
   echo "      </tr>";
   echo "</div>";
