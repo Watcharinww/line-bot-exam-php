@@ -1,4 +1,4 @@
-#current version : beta-1.2
+#current version : beta-1.3
 
 #update
 
@@ -11,3 +11,4 @@
 #beta-1.1.05 - update coding notification
 #beta-1.1.06 - edit class in register , editscore , web
 #beta-1.2 - delete pagination ,uddate header
+#beta-1.3 - add modal in receive, change picture, change receive to detail

@@ -55,7 +55,7 @@
         <td align="center" class='web-border'>
             <p><a id='click' href="#" data-target="receive">
                     <img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
-            <p class="font-xlarge font-color-hardgreen">Receive</p>
+            <p class="font-xlarge font-color-hardgreen">Detail</p>
         </td>
     </tr>
 </table> 

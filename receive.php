@@ -22,9 +22,11 @@ while ($row = $result->fetch_assoc()) {
     $nw++;
 }
 
+
 $sql = "SELECT *
         FROM homework";
 $result_hw = $conn->query($sql);
+
 
 $nw = 0;
 while ($row = $result_hw->fetch_assoc()) {
@@ -39,7 +41,7 @@ while ($row = $result_hw->fetch_assoc()) {
 $conn->close();
 ?>
 
-<script>
+<script >
     function showHomework(str, num) {
         if (str == "") {
             document.getElementById("txtHint").innerHTML = "";
@@ -60,7 +62,7 @@ $conn->close();
             xmlhttp.open("GET", "getdata.php?q=" + str + "&n=" + num, true);
             xmlhttp.send();
         }
-    }
+    }    
 </script>
 
 <table class='web-border text-light'>
@@ -77,7 +79,7 @@ $conn->close();
                 <tr>
                     <td class='text-center h5'>
 
-                        <? echo "<div id='txtHint'><b><p class='h1 web-breting' style='color:#7A1706' ><br><br><br>*โปรดเลือกงานที่มอบหมาย*</p></b></div>"; ?>
+                        <div id='txtHint'><b><p class='h1 web-breting' style='color:#7A1706' ><br><br><br>*โปรดเลือกงานที่มอบหมาย*</p></b></div>
             </table>
         </td>
         <td width="25%" height='100%' rowspan="2" valign="top" class=' '>
@@ -100,10 +102,35 @@ $conn->close();
                                 echo "</a>";
                                 $name = $hw_name_hw[$i];
                                 echo "</td><td width = '10%' align = 'right' class='web-border-bottom'>";
-                                echo "<a class='p-1 ' onclick=\"javascript: return window.confirm('คุณต้องการจะลบการบ้าน $name ใช่หรือไม่?');\"
-                                    href = 'deleteHw.php?id=$hw_id_hw[$i]&name=$name' > X </a>";
-                                echo "</td></tr></table>";
-                                $count++;
+                                echo "<button class='btn btn-danger' data-href='deleteHw.php?id=$hw_id_hw[$i]&name=$name' data-toggle='modal' data-target='#confirm'>
+                                            Delete
+                                        </button>";
+                                echo "</td></tr></table>";                                
+                                echo "<div class='modal fade' style='color:black' id='confirm' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+                                <div class='modal-dialog modal-dialog-centered'>
+                                  <div class='modal-content'>
+                              
+                                    <!-- Modal Header -->
+                                    <div class='modal-header'>
+                                      <h3 class='modal-title' style='color:red'>Confirm</h4>
+                                      <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                    </div>
+                              
+                                    <!-- Modal body -->
+                                    <div class='modal-body'>
+                                      Confirm to Delete work
+                                    </div>
+                              
+                                    <!-- Modal footer -->
+                                    <div class='modal-footer'>
+                                    <a  style='color:white' class='btn btn-danger btn-ok'>Delete</a>
+                                      <button type='button' class='btn btn-primary' data-dismiss='modal'>Close</button>
+                                    </div>
+                              
+                                  </div>
+                                </div>
+                              </div>";
+                              $count++;
                             }
                             ?>
 
@@ -112,6 +139,8 @@ $conn->close();
                     <tr><td></td></td>
                     <tr class='text-center'>
                         <td>
+                            <!-- pagination -->
+                            <!-- <? include 'tab_pagination.php'; ?> -->
                         </td>
                     </tr>
                 </tbody>
@@ -124,7 +153,16 @@ $conn->close();
         <td align="center" class='web-border'>
             <p><a id='click' href="#" data-target="receive">
                     <img src="picture/Receive.png" width="50%" height="50%" title="ReceivePage" /></a></p>
-            <p class="font-xlarge font-color-hardgreen">Receive</p>
+            <p class="font-xlarge font-color-hardgreen">Detail</p>
         </td>
     </tr>
 </table> 
+
+<script>
+
+$('#confirm').on('show.bs.modal', function(e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+});
+
+</script>
+
