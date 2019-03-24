@@ -94,6 +94,7 @@ $result = $conn->query($sql);
 
 
           $message = "คะแนนของนักเรียน $name ถูกลบออกแล้ว";
+          $st=2;
         }
 
         echo "<script> window.alert('$message'); window.location.href = 'pushscore.php?id=$q&sid=$nw&st=$st' </script>";

@@ -31,6 +31,8 @@ if($st == 0)
 $pushscore = "คะแนนการบ้าน $name ของคุณคือ $hw_score";
 else if($st == 1)
 $pushscore = "คะแนนการบ้าน $name ของคุณถูกแก้เป็น $hw_score";
+else if($st == 2)
+$pushscore = "คะแนนการบ้าน $name ของคุณถูกลบออกแล้ว";
 
 date_default_timezone_set('Asia/Bangkok');
 $broad = "Edit Score At : " . date("H:i:sa - d/m/Y");
