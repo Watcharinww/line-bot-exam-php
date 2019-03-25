@@ -66,7 +66,7 @@ $result = $conn->query($sql);
                 </td>
             </tr>
             <tr>
-                <td><input class="text-center web-input col-2
+                <td><input class="text-center web-input col-3
                 " name="sc" type="text" size="4" maxlength="2" placeholder="0" />/ 10
                     <br /><br />
                     <a class='h3' style='color:red'>**ถ้าไม่ใส่คะแนน<br>จะถือว่าลบคะแนนออก**</a><br><br>
