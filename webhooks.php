@@ -78,7 +78,7 @@ if (!is_null($events['events'])) {
 												'type' => 'button',
 												'action' => [
 													'type' => 'uri',
-													'label' => 'Regist',
+													'label' => 'Register',
 													'uri' => 'http://chatcedkmutnb1.herokuapp.com/register.php?id='.$event['source']['userId']
 												]
 											]
