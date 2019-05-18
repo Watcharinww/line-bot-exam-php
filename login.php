@@ -13,7 +13,7 @@
     <script type='text/javascript'>
         function p_alert() {
             var newline = "\r\n";
-            var message = "Password Incorect";
+            var message = "Password Incorrect";
             message += newline;
             message += "Please try again";
             alert(message);
