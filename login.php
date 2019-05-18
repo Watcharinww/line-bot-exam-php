@@ -31,7 +31,7 @@
 
         if ($pass == md5(md5($inpass))) {
             $_SESSION['status'] = 'correct';
-            echo "<script> window.alert('Welcome to Support Line-LMS'); window.location.href = 'homepage.php'; </script>";
+            echo "<script> window.alert('Welcome to SLMS'); window.location.href = 'homepage.php'; </script>";
         } else {
             echo "<script>p_alert();</script>";
         }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Support Line-LMS</title>
+    <title>SLMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
@@ -39,7 +39,7 @@ include 'changepage.php'; ?>
                 </tr>
                 </tr><td class='p-1'></td></tr>
                 <tr>
-                    <td colspan="3" class='text-center text-light header text-center p-4 h1 web-header'>Support Learning Management System on Line Application</td>
+                    <td colspan="3" class='text-center text-light header text-center p-4 h1 web-header'>Supporting Learning Management System on Line Application</td>
                 </tr>
             </table>
         </div>
