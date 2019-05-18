@@ -39,7 +39,7 @@ include 'changepage.php'; ?>
                 </tr>
                 </tr><td class='p-1'></td></tr>
                 <tr>
-                    <td colspan="3" class='text-center text-light header text-center p-4 h1 web-header'>Learning Management System on Line Application</td>
+                    <td colspan="3" class='text-center text-light header text-center p-4 h1 web-header'>Support Learning Management System on Line Application</td>
                 </tr>
             </table>
         </div>
