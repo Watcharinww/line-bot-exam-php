@@ -34,7 +34,7 @@ while ($row = mysqli_fetch_array($result_hw)) {
   echo "    <tr>";
   echo "      <td class='web-border-bottom p-3'>";
   echo       $n . " . " . $row['hw_name'] . "<br>";
-  echo "      <a id = 'datehw'> เริ่มสั่งงาน : " . $row['hw_date_s'] . "   " . "เวลาที่ส่ง : " . $row['hw_date_r'] . "</a";
+  echo "      <a id = 'datehw'> เริ่มสั่งงาน : " . $row['hw_date_s'] . "   " . "เวลาที่ส่ง : " . $row['hw_date_r'] . "</a>";
   echo "      </td>";
   echo "    </tr>";
   echo "  </table>";
